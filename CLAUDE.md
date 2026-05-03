@@ -50,6 +50,8 @@ Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o
 - `/triagem-youtube-unity` — análise editorial para YouTube
 
 **Skills genéricas instaladas:**
+- `/schwartz-copy` — copy de resposta direta e conversão (metodologia Eugene Schwartz)
+- `/ogilvy-copy` — copy de marca, posicionamento e branding (metodologia David Ogilvy)
 - `/copywriting` — copy de marketing para qualquer página
 - `/brainstorming` — exploração criativa antes de implementar
 - `/frontend-design` — interfaces web de alta qualidade
