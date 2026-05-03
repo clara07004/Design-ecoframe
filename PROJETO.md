@@ -128,7 +128,7 @@ Este sistema não parte do zero. As seguintes ferramentas já existem como skill
 | Geração de imagem (contingência API) | image-gen-unity (GPT Image 2 via FAL API, pago) | ✅ Existe |
 | Publicação social | publicar-social-unity (Post for Me ou Meta Graph API) | ✅ Existe |
 | Briefing orchestrator | briefing-unity | ✅ Skill criada — aguarda validação com runs reais |
-| Gates de aprovação | Fluxo conversacional no Claude Code | 🔨 Construir no MVP |
+| Gates de aprovação | Fluxo conversacional (A/E/C) | ✅ Definidos na skill |
 | Roteiro de vídeo | roteiro-unity | 🔜 V1 |
 | Biblioteca técnica | Supabase pgvector + REST API | 🔄 Projeto paralelo |
 | Base de performance | Supabase (tabela separada) | 🔜 V2 |
@@ -191,8 +191,10 @@ A Biblioteca de Conteúdos (projeto paralelo) já foi projetada para consumo por
 ### MVP — Conectar as peças que já existem
 
 **O que construir:**
-- ~~Skill `briefing-unity`: recebe output do calendario-comercial + contexto da marca e gera briefing completo~~ ✅ Criada com spec completa e gates definidos
-- Gates de aprovação conversacionais no fluxo ✅ Definidos na skill (A/E/C)
+- ~~Skill `briefing-unity`~~ ✅ Criada com spec completa e gates definidos
+- ~~Gates de aprovação conversacionais~~ ✅ Definidos na skill (A/E/C)
+- ~~Instalar `calendario-comercial` no projeto~~ ✅ Instalada
+- Instalar skills restantes por ordem de fluxo (`schwartz-copy`, `ogilvy-copy`, geração de imagem, publicação) — ver [MAPA-TECNICO.md](MAPA-TECNICO.md)
 
 **Fluxo:**
 ```
@@ -271,4 +273,4 @@ analista-performance  ← V3
 
 ---
 
-*Documento gerado em 2026-05-02. Última atualização: 2026-05-03.*
+*Documento gerado em 2026-05-02. Última atualização: 2026-05-03 — briefing-unity criada, calendario-comercial instalada, roadmap de instalação em andamento.*
