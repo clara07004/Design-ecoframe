@@ -1,0 +1,29 @@
+# Credenciais e variáveis de ambiente
+.env
+.env.local
+*.env
+.env.*
+credentials/*
+!credentials/.gitkeep
+token.json
+client_secret*.json
+*service_account*.json
+*service-account*.json
+
+# Drop zone de arquivos de análise (dados sensíveis da empresa)
+dados/
+
+# Arquivos gerados (imagens, outputs)
+*.png
+*.jpg
+*.mp4
+output/
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
