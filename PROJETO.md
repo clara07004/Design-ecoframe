@@ -44,7 +44,7 @@ Este sistema não parte do zero. As seguintes ferramentas já existem como skill
 
 | Peça | Repositório | O que faz |
 |---|---|---|
-| Plataforma/OS | `ccos-unity` (dobralabs) | Orquestra skills, contexto persistente de marca, auto-sync com GitHub |
+| Plataforma/OS | `ccos-unity` (dobralabs) | Orquestra skills, contexto persistente de marca, auto-sync com GitHub — **instalado e configurado** |
 | Calendário estratégico | `calendario-comercial` | Janelas comerciais, cultura pop, sazonalidade, timing |
 | Geração de carrossel | `carrossel-unity` | Texto + HTML + PNG via Playwright, 3 estilos, Instagram/TikTok |
 | Copy de marca | `ogilvy-copy` | Framework Ogilvy — copy de longo prazo, construção de identidade |
@@ -119,7 +119,7 @@ Este sistema não parte do zero. As seguintes ferramentas já existem como skill
 
 | Camada | Tecnologia | Status |
 |---|---|---|
-| Plataforma/OS | CCOS-Unity (Claude Code local) | ✅ Existe |
+| Plataforma/OS | CCOS-Unity (Claude Code local) | ✅ Instalado e configurado |
 | Calendário/contexto externo | calendario-comercial skill | ✅ Existe |
 | Geração de carrossel | carrossel-unity (HTML → PNG via Playwright) | ✅ Existe |
 | Copy | ogilvy-copy + schwartz-copy | ✅ Existe |
@@ -127,7 +127,7 @@ Este sistema não parte do zero. As seguintes ferramentas já existem como skill
 | Geração de imagem (fallback) | nanobanana-unity (Gemini, grátis) | ✅ Existe |
 | Geração de imagem (contingência API) | image-gen-unity (GPT Image 2 via FAL API, pago) | ✅ Existe |
 | Publicação social | publicar-social-unity (Post for Me ou Meta Graph API) | ✅ Existe |
-| Briefing orchestrator | briefing-unity | 🔨 Construir no MVP |
+| Briefing orchestrator | briefing-unity | ✅ Skill criada — aguarda validação com runs reais |
 | Gates de aprovação | Fluxo conversacional no Claude Code | 🔨 Construir no MVP |
 | Roteiro de vídeo | roteiro-unity | 🔜 V1 |
 | Biblioteca técnica | Supabase pgvector + REST API | 🔄 Projeto paralelo |
@@ -191,8 +191,8 @@ A Biblioteca de Conteúdos (projeto paralelo) já foi projetada para consumo por
 ### MVP — Conectar as peças que já existem
 
 **O que construir:**
-- Skill `briefing-unity`: recebe output do calendario-comercial + contexto da marca e gera briefing completo
-- Gates de aprovação conversacionais no fluxo
+- ~~Skill `briefing-unity`: recebe output do calendario-comercial + contexto da marca e gera briefing completo~~ ✅ Criada com spec completa e gates definidos
+- Gates de aprovação conversacionais no fluxo ✅ Definidos na skill (A/E/C)
 
 **Fluxo:**
 ```
@@ -271,4 +271,4 @@ analista-performance  ← V3
 
 ---
 
-*Documento gerado em 2026-05-02. Atualizar conforme o projeto evolui.*
+*Documento gerado em 2026-05-02. Última atualização: 2026-05-03.*
