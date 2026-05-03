@@ -49,7 +49,7 @@
 | Publicação social | `duduesh/publicar-social-unity` | Instagram, TikTok, LinkedIn via Post for Me ou Meta Graph API | ✅ Pronto |
 | Triagem YouTube | `duduesh/triagem-youtube-unity` | Análise editorial de temas — score, SEO, títulos otimizados (DataForSEO) | ✅ Pronto |
 
-**O que falta construir:** skill `briefing-unity` + gates de aprovação conversacionais + skill `roteiro-unity` (V1).
+**O que falta construir:** skill `roteiro-unity` (V1). `briefing-unity` e gates de aprovação já estão definidos.
 
 ---
 
@@ -136,8 +136,8 @@
 | Geração de imagem (fallback) | **nanobanana-unity** (Gemini, grátis) | ✅ Existe |
 | Geração de imagem (contingência) | **image-gen-unity** (GPT Image 2 via FAL API, pago) | ✅ Existe |
 | Publicação social | **publicar-social-unity** (Post for Me $10/mês ou Meta Graph API) | ✅ Existe |
-| Briefing orchestrator | **briefing-unity** | 🔨 Construir (MVP) |
-| Gates de aprovação | Fluxo conversacional no Claude Code | 🔨 Construir (MVP) |
+| Briefing orchestrator | **briefing-unity** | ✅ Skill criada — aguarda validação com runs reais |
+| Gates de aprovação | Fluxo conversacional no Claude Code (A/E/C) | ✅ Definidos na skill |
 | Roteiro de vídeo | **roteiro-unity** | 🔜 V1 |
 | Biblioteca técnica | **Supabase pgvector + REST API** | 🔄 Projeto paralelo |
 | Base de performance | **Supabase** (tabela separada da biblioteca) | 🔜 V2 |
@@ -232,6 +232,34 @@
 
 ---
 
+## Instalação das Skills no Projeto (MVP)
+
+Skills instaladas por ordem de fluxo — instalar o que o próximo passo precisa, não tudo de uma vez.
+
+```
+/calendario → /briefing-unity → /schwartz-copy + /ogilvy-copy → /carrossel ou /gpt-image2 → /publicar-social
+    [1]            [✅ OK]               [2a] e [2b]                    [3a] ou [3b]               [4]
+                                                                    fallback: [3c] nanobanana
+                                                                    contingência: [3d] image-gen
+```
+
+| # | Skill | Repositório de origem | Status |
+|---|---|---|---|
+| 1 | `calendario-comercial` | Local (`_modelo-cliente`) | ✅ Instalada |
+| ✅ | `briefing-unity` | Criada neste projeto | ✅ Instalada |
+| 2a | `schwartz-copy` | github.com/duduesh/schwartz-copy | 🔜 Próxima |
+| 2b | `ogilvy-copy` | github.com/duduesh/ogilvy-copy | 🔜 Próxima |
+| 3a | `carrossel-unity` | github.com/duduesh/carrossel-ratos | 🔜 Antes da 1ª run |
+| 3b | `gpt-image2-unity` | github.com/duduesh/gpt-image2-ratos | 🔜 Antes da 1ª run |
+| 3c | `nanobanana-unity` | github.com/duduesh/nanobanana-ratos | 🔜 Fallback |
+| 3d | `image-gen-unity` | github.com/duduesh/image-gen-ratos | 🔜 Contingência |
+| 4 | `publicar-social-unity` | github.com/duduesh/publicar-social-ratos | 🔜 Quando chegar na publicação |
+| V1 | `triagem-youtube-unity` | github.com/duduesh/triagem-youtube-ratos | 🔜 V1 |
+
+> Atualizar status conforme cada skill for instalada.
+
+---
+
 ## Plano em Fases
 
 ### MVP — Orquestrar as peças que já existem
@@ -298,10 +326,6 @@
 ### A construir
 
 ```
-briefing-unity  ← MVP
-  Input: output do calendario-comercial + contexto CCOS + query biblioteca (V1+)
-  Output: gancho, copy base (ogilvy ou schwartz por contexto), formato recomendado, orientações visuais
-
 roteiro-unity  ← V1
   Input: briefing aprovado, plataforma alvo, duração estimada
   Output: roteiro estruturado cena a cena (falas, cortes, orientações de câmera)
