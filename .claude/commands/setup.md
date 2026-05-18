@@ -231,6 +231,22 @@ Apresentar as opções de forma natural:
 - Deixar os campos de `marca/DESIGN.md` com valor `""` e manter `status: not-configured`
 - Mencionar brevemente: "Sem problema — quando precisar criar visuais, o Claude vai te lembrar de preencher isso aqui."
 
+### Pergunta 6.5 — Referências no Google Drive
+
+"Você tem pasta no Google Drive com material de referência pra esse negócio? Fotos do produto, exemplos de conteúdo bom, catálogo — esse tipo de coisa."
+
+**Se sim:**
+
+> "Quais pastas são essas? Me passa o link de cada uma e me diz o que tem em cada uma (foto do produto, conteúdo bom, conteúdo ruim, catálogo, etc.)."
+
+Coletar: link da pasta + descrição do que tem lá. Extrair o ID da pasta do link (parte da URL após `/folders/`).
+
+Criar ou atualizar `_contexto/referencias.md` com as pastas informadas, preenchendo os campos de link e ID da categoria correta.
+
+**Se não tem:** pular e continuar.
+
+---
+
 ### Pergunta 7
 "Como você prefere que o Claude escreva? O que mais incomoda em textos gerados por IA?"
 
@@ -439,12 +455,17 @@ Quando o usuário pedir pra criar uma nova skill:
 [qualquer outra preferência mencionada]
 ```
 
-### 5. Preencher `marca/DESIGN.md`
+### 5. Criar `_contexto/referencias.md`
+
+Se o usuário informou pastas do Drive na Pergunta 6.5, preencher o arquivo com os links e IDs coletados na categoria correta. Se não informou, criar o arquivo com todas as categorias em branco.
+
+### 5.1. Preencher `marca/DESIGN.md`
 
 Se o usuário descreveu cores e estilo, preencher silenciosamente os campos YAML com os valores confirmados e atualizar `status` para `configured`.
 Se não tem identidade definida, deixar os campos com valor `""` e manter `status: not-configured`.
 
 ### 6. Escolher estrutura de pastas
+
 
 Antes de criar qualquer pasta, **mostrar ao usuário o que você pensou** e deixar ele ajustar.
 
