@@ -66,6 +66,7 @@ O usuário fornece:
 - Manter o curiosity gap entre slides, mas dentro de cada slide o texto deve fluir
 - Seguir `_contexto/preferencias.md` (sem travessões, etc)
 - Contexto: construção a seco (drywall/steel frame) — público técnico mas acessível
+- **Um ponto por slide.** Quando o texto estiver em excesso, cortar o parágrafo final — nunca reduzir o tamanho da fonte para encaixar
 
 6. Salvar o texto em `conteudo/carrosseis/[tema]/carousel-text.md`
 
@@ -83,6 +84,8 @@ Após o texto aprovado, identificar quais slides se beneficiam de uma imagem fot
 - **Slides puramente tipográficos (listas, bullets, texto longo):** sem imagem — layout clean
 
 Regra: **menos é mais** para slides intermediários. Máximo de 2 imagens adicionais além da capa (total: até 3 por carrossel).
+
+**Imagem única por slide.** Nunca usar a mesma imagem em dois slides diferentes — cada slide que recebe foto deve ter seu próprio arquivo `img-slideXX.png`.
 
 #### Construir prompts para cada imagem
 
@@ -127,20 +130,36 @@ Salvar cada imagem em `conteudo/carrosseis/[tema]/instagram/img-slideXX.png`.
 
 **Padrão visual dos slides:**
 - Fundo: cor definida em `colors.canvas` no DESIGN.md
-- Tipografia: fontes definidas em `typography` no DESIGN.md
+- Tipografia: usar os valores de `typography` do DESIGN.md como mínimos mobile — não reduzir abaixo deles
+  - `display.fontSize` (~100px): destaque/accent na capa
+  - `heading.fontSize` (~70px): título principal dos slides internos
+  - `body.fontSize` (~28px): corpo de texto
+  - `body.lineHeight` (máx 1.3): acima disso o bloco fica arejado demais
 - Cor de destaque: cor definida em `colors.accent` no DESIGN.md
-- Variação visual: usar pelo menos 2 layouts diferentes entre os slides (ex: texto simples, destaque com número grande, card com borda, citação em destaque)
+- **Layout diferente por slide.** Cada slide tem estrutura visual distinta — não repetir o mesmo template
+- **Sem espaço morto.** Quando a imagem não precisa respirar, centralizar o conteúdo verticalmente
+- **Capa = slide mais impactante.** O slide visualmente mais cinematográfico vai para posição 01
+- **CTA com composição dinâmica.** Usar diagonal ou split no último slide — não é layout estático como os slides informativos
+- **Logo com folga garantida.** Nunca coberta pelo conteúdo. Quando o conteúdo for centralizado verticalmente, usar mínimo de `padding-top` equivalente a `spacing.section` do DESIGN.md (ref: 160px quando logo está em `top: 64px` com altura ~68px)
 - Último slide: apenas branding e CTA, sem texto longo
+
+**Elementos proibidos nos slides:**
+- Sem labels de seção ("VIDA ÚTIL", "MATERIAIS")
+- Sem eyebrows ("COMPARATIVO TÉCNICO", "SAIBA MAIS")
+- Sem badges de série ("PARTE 1 DE 2", "EP. 03")
+- Sem slide-tags no rodapé ("Tema · Parte 1")
+- Em slides comparativos (A vs. B): hierarquia via cor, nunca via redução de opacidade — os dois lados devem estar 100% legíveis
 
 **Slides com imagem gerada (Fase 1.5):**
 - Referenciar com caminho relativo: `<img src="./img-slideXX.png">`
-- Imagem como fundo ou elemento visual — usar `object-fit: cover` quando for background
-- Sobrepor um overlay escuro semi-transparente (`rgba(0,0,0,0.45)`) para garantir legibilidade do texto
-- Exemplo de background com imagem:
+- Full-bleed sempre: `position:absolute; inset:0; width:100%; height:100%; object-fit:cover`
+- **Gradiente segue a direção do conteúdo:** texto na base → gradiente bottom→top; texto à esquerda → gradiente left→right. Nunca overlay sólido cobrindo a imagem
+- **Dissolve suave:** usar `linear-gradient` no elemento de overlay para que a transição foto→fundo nunca apareça como corte brusco. Em composições de duas fotos empilhadas, ambas devem dissolver no ponto de encontro
+- Exemplo de background com imagem (texto na base):
   ```html
   <div style="position:relative; width:1080px; height:1350px; overflow:hidden;">
     <img src="./img-slide01.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.10) 100%);"></div>
     <div style="position:relative;z-index:1; /* conteúdo do slide */ ">...</div>
   </div>
   ```
@@ -213,3 +232,5 @@ conteudo/carrosseis/[tema]/
 - Sem travessões (—) no texto por padrão, a menos que `preferencias.md` indique o contrário
 - Nunca prometer prazos ou preços nos slides (restrição da empresa piloto)
 - Não usar referências a obras com EPI incorreto
+- Tamanhos de fonte nunca abaixo dos valores de `typography` no DESIGN.md — o conteúdo é visto no feed mobile
+- Quando texto em excesso: cortar parágrafo final, nunca reduzir fonte para encaixar

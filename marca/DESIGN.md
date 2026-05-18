@@ -19,32 +19,32 @@ colors:
 typography:
   display:
     fontFamily: ""
-    fontSize: ""
+    fontSize: "100px"
     fontWeight: ""
-    lineHeight: ""
+    lineHeight: "1.1"
     letterSpacing: ""
   heading:
     fontFamily: ""
-    fontSize: ""
+    fontSize: "70px"
     fontWeight: ""
-    lineHeight: ""
+    lineHeight: "1.2"
   body:
     fontFamily: ""
-    fontSize: ""
+    fontSize: "28px"
     fontWeight: ""
-    lineHeight: ""
+    lineHeight: "1.3"
   caption:
     fontFamily: ""
-    fontSize: ""
+    fontSize: "22px"
     fontWeight: ""
 
 spacing:
-  xs: ""
-  sm: ""
-  md: ""
-  lg: ""
-  xl: ""
-  section: ""
+  xs: "16px"
+  sm: "24px"
+  md: "40px"
+  lg: "64px"
+  xl: "96px"
+  section: "160px"
 
 rounded:
   sm: ""

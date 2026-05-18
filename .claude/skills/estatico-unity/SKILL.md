@@ -103,25 +103,26 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 
 **Estrutura do layout (referência):**
 ```html
-<!-- Foto de fundo -->
+<!-- Foto de fundo — full-bleed sempre -->
 <img src="./foto-fundo.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
 
-<!-- Overlay gradiente (garante legibilidade do texto) -->
-<div style="position:absolute; inset:0; background: linear-gradient(to bottom,
-  rgba(10,18,30,0.55) 0%,
-  rgba(10,18,30,0.20) 35%,
-  rgba(10,18,30,0.70) 60%,
-  rgba(10,18,30,0.93) 100%
+<!-- Overlay gradiente — direção segue onde o texto está posicionado -->
+<!-- Texto na base: gradiente bottom→top (padrão) -->
+<div style="position:absolute; inset:0; background: linear-gradient(to top,
+  rgba(10,18,30,0.93) 0%,
+  rgba(10,18,30,0.70) 40%,
+  rgba(10,18,30,0.20) 70%,
+  rgba(10,18,30,0.55) 100%
 );"></div>
 
-<!-- Topo: Logo em caixa branca -->
+<!-- Topo: Logo com folga garantida (padding-top mínimo = spacing.section do DESIGN.md) -->
 <!-- Rodapé: Tagline → linha separadora → Headline → Texto de apoio -->
 ```
 
 4. Aplicar identidade visual do DESIGN.md:
    - Cores primárias e secundárias nos destaques de texto
    - Logo da empresa no topo (fundo branco/claro para contraste)
-   - Tipografia definida no DESIGN.md
+   - Tipografia do DESIGN.md como mínimos mobile: headline ≥ `heading.fontSize`, apoio ≥ `body.fontSize`, line-height ≤ `body.lineHeight`
 
 5. Salvar o HTML em `conteudo/imagens/[tema]/post-01.html`
 
