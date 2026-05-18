@@ -8,7 +8,7 @@ Sistema de automação do processo de criação de conteúdo para redes sociais 
 
 **Estrutura de pastas:**
 - `_contexto/` — memória do sistema (não apagar)
-- `marca/` — design-guide e identidade visual
+- `marca/` — DESIGN.md e identidade visual
 - `dados/` — arquivos para análise (CSV, PDF, prints, referências)
 - `templates/skills/` — templates de skills prontos pra personalizar com /mapear
 - `templates/ferramentas/catalogo.md` — APIs e ferramentas disponíveis pra usar em skills
@@ -26,7 +26,7 @@ No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem
 
 Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 
-Para qualquer tarefa visual (carrossel, proposta, slide, landing page), consultar `marca/design-guide.md` como referência de estilo.
+Para qualquer tarefa visual (carrossel, proposta, slide, landing page), consultar `marca/DESIGN.md` como referência de estilo.
 
 Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o contexto naturalmente.
 

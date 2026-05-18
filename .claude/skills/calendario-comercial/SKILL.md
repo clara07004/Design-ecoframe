@@ -24,7 +24,7 @@ Use esta skill quando precisar criar, ajustar ou analisar calendários comerciai
 
 1. Ler `_contexto/empresa.md` — carregar: nome da empresa, setor, ICP, plataformas ativas, frequência de postagem, mix de conteúdo
 2. Ler `_contexto/estrategia.md` — carregar: objetivo atual, prioridades do período
-3. Ler `marca/design-guide.md` — carregar: tom visual e estilo (para orientar sugestões de formato)
+3. Ler `marca/DESIGN.md` — carregar: tom visual e estilo (para orientar sugestões de formato)
 
 ### Perguntar apenas o que falta
 

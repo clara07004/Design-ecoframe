@@ -14,7 +14,7 @@ description: >
 
 - **Contexto do negócio:** `_contexto/empresa.md`
 - **Tom de voz:** `_contexto/preferencias.md`
-- **Identidade visual:** `marca/design-guide.md` (para orientações visuais de cena)
+- **Identidade visual:** `marca/DESIGN.md` (para orientações visuais de cena)
 - **Motor de copy:** Ogilvy (orgânico) ou Schwartz (tráfego pago) — definido pelo objetivo do briefing
 
 ---

@@ -2,7 +2,7 @@
 name: proposta-comercial
 description: >
   Gera uma proposta comercial profissional em HTML a partir de um briefing em texto livre.
-  Aplica a identidade visual da marca do usuário (cores, fontes do design-guide.md).
+  Aplica a identidade visual da marca do usuário (cores, fontes do DESIGN.md).
   Use quando o usuário mencionar "proposta", "proposta comercial", "orçamento",
   "apresentação de projeto" ou pedir um documento de venda para um cliente.
 ---
@@ -11,7 +11,7 @@ description: >
 
 ## Dependências
 
-- **Identidade visual:** `marca/design-guide.md`
+- **Identidade visual:** `marca/DESIGN.md`
 - **Contexto do negócio:** `_contexto/empresa.md`
 - **Tom de voz:** `_contexto/preferencias.md`
 
@@ -33,7 +33,7 @@ Se o usuário já forneceu as informações de forma livre, extrai o que der e p
 
 ### Passo 2 — Ler os arquivos de contexto
 
-- Ler `marca/design-guide.md` pra aplicar cores e fontes
+- Ler `marca/DESIGN.md` pra aplicar cores e fontes
 - Ler `_contexto/empresa.md` pra dados do prestador (nome, serviços, contato)
 - Ler `_contexto/preferencias.md` pra tom da proposta
 
@@ -54,8 +54,9 @@ Criar um arquivo HTML completo com as seguintes seções:
 10. Sobre a empresa — 3-4 linhas sobre quem entrega
 
 **Estilo visual:**
-- Aplicar cores e fontes do `marca/design-guide.md`
-- Se design guide estiver vazio, usar: fundo branco, texto escuro, acento em azul escuro (#1E3A5F), tipografia limpa
+- Aplicar cores e fontes do `marca/DESIGN.md`
+- Se `status: not-configured` ou algum campo obrigatório estiver `""`, interromper:
+  > ⚠️ O DESIGN.md ainda não foi configurado com a identidade visual da empresa. Para continuar, rode `/setup`.
 - Layout de uma coluna, responsivo, leve
 - Seções com espaçamento generoso
 - Valor em destaque visual (não escondido)

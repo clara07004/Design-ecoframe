@@ -12,7 +12,7 @@ description: >
 
 ## Dependências
 
-- **Identidade visual:** `marca/design-guide.md` — LER ANTES de criar qualquer HTML
+- **Identidade visual:** `marca/DESIGN.md` — LER ANTES de criar qualquer HTML
 - **Contexto do negócio:** `_contexto/empresa.md`
 - **Tom de voz:** `_contexto/preferencias.md`
 - **Playwright CLI:** `npx playwright screenshot` para renderizar HTMLs em PNG. Se nunca usou, rodar uma vez: `npx playwright install chromium`
@@ -55,15 +55,17 @@ O usuário fornece:
 
 ### Fase 2 — Visual (HTMLs + PNGs)
 
-1. Ler `marca/design-guide.md` pra aplicar a identidade visual
-2. Se o design guide estiver vazio ou com campos em branco, avisar:
-   > "Seu design-guide.md ainda não tem as cores e fontes definidas. Vou usar um layout limpo padrão agora. Pra personalizar, preenche o arquivo marca/design-guide.md e chama /carrossel de novo."
+1. Ler `marca/DESIGN.md` para aplicar a identidade visual
+2. Se `status: not-configured` ou algum campo obrigatório estiver `""`, interromper e avisar:
+   > ⚠️ O DESIGN.md ainda não foi configurado com a identidade visual da empresa. Para continuar, rode `/setup`.
+   
+   A execução para. Sem cores improvisadas.
 3. Criar HTMLs (1080x1350px, inline CSS, Google Fonts como única dependência externa)
 
 **Padrão visual dos slides:**
-- Fundo: cor definida no design guide (ou #0D0D0D se não definido)
-- Tipografia: fontes do design guide (ou Bricolage Grotesque + Instrument Serif padrão)
-- Cor de destaque: cor do design guide (ou #FFD600 padrão)
+- Fundo: cor definida em `colors.canvas` no DESIGN.md
+- Tipografia: fontes definidas em `typography` no DESIGN.md
+- Cor de destaque: cor definida em `colors.accent` no DESIGN.md
 - Variação visual: não fazer todos os slides com layout idêntico — usar pelo menos 2 layouts diferentes (ex: texto simples, destaque com número grande, card com borda, citação em destaque)
 - Último slide: apenas branding e CTA, sem texto longo
 

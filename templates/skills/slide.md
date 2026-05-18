@@ -2,7 +2,7 @@
 name: slide
 description: >
   Cria um slide ou card visual em HTML pra usar em apresentações, decks ou posts.
-  Aplica a identidade visual do usuário (marca/design-guide.md).
+  Aplica a identidade visual do usuário (marca/DESIGN.md).
   Use quando o usuário pedir "faz um slide", "cria um card", "quero um visual pra apresentação",
   "frame pra deck", ou pedir um slide sobre algum tema específico.
 ---
@@ -11,7 +11,7 @@ description: >
 
 ## Dependências
 
-- **Identidade visual:** `marca/design-guide.md`
+- **Identidade visual:** `marca/DESIGN.md`
 
 ---
 
@@ -26,8 +26,9 @@ Se não estiver claro, perguntar:
 
 ### Passo 2 — Ler o design guide
 
-Ler `marca/design-guide.md` pra aplicar as cores e fontes corretas.
-Se estiver vazio, usar padrão: fundo escuro, acento amarelo, Bricolage Grotesque.
+Ler `marca/DESIGN.md` para aplicar as cores e fontes corretas.
+Se `status: not-configured` ou algum campo obrigatório estiver `""`, interromper:
+> ⚠️ O DESIGN.md ainda não foi configurado com a identidade visual da empresa. Para continuar, rode `/setup`.
 
 ### Passo 3 — Gerar o HTML
 

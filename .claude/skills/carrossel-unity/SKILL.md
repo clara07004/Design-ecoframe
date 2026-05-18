@@ -12,7 +12,7 @@ description: >
 
 ## Dependências
 
-- **Identidade visual:** `marca/design-guide.md` — LER ANTES de criar qualquer HTML
+- **Identidade visual:** `marca/DESIGN.md` — LER ANTES de criar qualquer HTML
 - **Contexto do negócio:** `_contexto/empresa.md`
 - **Tom de voz:** `_contexto/preferencias.md`
 - **Playwright CLI:** renderização via `npx playwright screenshot`
@@ -112,21 +112,17 @@ Salvar cada imagem em `conteudo/carrosseis/[tema]/instagram/img-slideXX.png`.
 
 ### Fase 2 — Visual (HTMLs + PNGs)
 
-1. Ler `marca/design-guide.md` pra aplicar a identidade visual
-2. Se o design guide estiver vazio ou com `<!-- NOT CONFIGURED -->`, avisar:
-   > "O design-guide.md ainda não tem cores e fontes definidas. Vou usar o layout padrão Unity agora. Pra personalizar, preenche `marca/design-guide.md` e chama /carrossel-unity de novo."
+1. Ler `marca/DESIGN.md` para aplicar a identidade visual
+2. Se `status: not-configured` ou algum campo obrigatório estiver `""`, interromper e avisar:
+   > ⚠️ O DESIGN.md ainda não foi configurado com a identidade visual da empresa. Para continuar, rode `/setup`.
    
-   **Layout padrão Unity (quando design guide vazio):**
-   - Fundo: `#0D0D0D`
-   - Cor de destaque: `#FFD600`
-   - Tipografia: Bricolage Grotesque (títulos) + Instrument Serif (corpo)
-
+   A execução para. Sem cores improvisadas.
 3. Criar HTMLs (1080x1350px, inline CSS, Google Fonts como única dependência externa)
 
 **Padrão visual dos slides:**
-- Fundo: cor definida no design guide (ou `#0D0D0D` padrão)
-- Tipografia: fontes do design guide (ou Bricolage Grotesque + Instrument Serif)
-- Cor de destaque: cor do design guide (ou `#FFD600`)
+- Fundo: cor definida em `colors.canvas` no DESIGN.md
+- Tipografia: fontes definidas em `typography` no DESIGN.md
+- Cor de destaque: cor definida em `colors.accent` no DESIGN.md
 - Variação visual: usar pelo menos 2 layouts diferentes entre os slides (ex: texto simples, destaque com número grande, card com borda, citação em destaque)
 - Último slide: apenas branding e CTA, sem texto longo
 

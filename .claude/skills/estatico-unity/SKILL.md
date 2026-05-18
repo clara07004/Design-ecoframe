@@ -12,7 +12,7 @@ description: >
 
 ## Dependências
 
-- **Identidade visual:** `marca/design-guide.md` — LER ANTES de montar qualquer HTML
+- **Identidade visual:** `marca/DESIGN.md` — LER ANTES de montar qualquer HTML
 - **Contexto do negócio:** `_contexto/empresa.md`
 - **Tom de voz:** `_contexto/preferencias.md`
 - **Motor de imagem:** `.claude/skills/gpt-image2-unity/gerar-imagem.py` + `credentials/openai_key.txt`
@@ -42,7 +42,7 @@ Usar `npx.cmd` no PowerShell. Caminhos no `file:///` com barras normais `/`.
 
 ### Fase 1 — Copy e prompt de imagem
 
-1. Ler `_contexto/empresa.md`, `_contexto/preferencias.md`, `marca/design-guide.md`
+1. Ler `_contexto/empresa.md`, `_contexto/preferencias.md`, `marca/DESIGN.md`
 2. Localizar o briefing aprovado — perguntar o caminho se não for informado
 3. Do briefing, extrair:
    - **Headline principal** (frase de impacto, max 10 palavras)
@@ -86,12 +86,12 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 
 ### Fase 3 — Montagem do post e renderização
 
-1. Ler `marca/design-guide.md` para aplicar cores, tipografia e logo corretos
+1. Ler `marca/DESIGN.md` para aplicar cores, tipografia e logo corretos
 
-2. Se design-guide estiver vazio ou com `<!-- NOT CONFIGURED -->`, avisar e usar padrão:
-   - Fundo overlay: `rgba(10,18,30,0.85)`
-   - Cor de destaque: `#FFD600`
-   - Tipografia: Poppins Bold (headline) + Montserrat (tagline)
+2. Se `status: not-configured` ou algum campo obrigatório estiver `""`, interromper e avisar:
+   > ⚠️ O DESIGN.md ainda não foi configurado com a identidade visual da empresa. Para continuar, rode `/setup`.
+   
+   A execução para. Sem cores improvisadas.
 
 3. Montar o HTML do post (1080×1350px, inline CSS):
 
@@ -112,10 +112,10 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 <!-- Rodapé: Tagline → linha separadora → Headline → Texto de apoio -->
 ```
 
-4. Aplicar identidade visual do design-guide:
+4. Aplicar identidade visual do DESIGN.md:
    - Cores primárias e secundárias nos destaques de texto
    - Logo da empresa no topo (fundo branco/claro para contraste)
-   - Tipografia definida no design-guide
+   - Tipografia definida no DESIGN.md
 
 5. Salvar o HTML em `conteudo/imagens/[tema]/post-01.html`
 

@@ -17,7 +17,7 @@ description: >
 - **API Key OpenAI:** `credentials/openai_key.txt` ou variável `OPENAI_API_KEY`
 - **Script:** `.claude/skills/gpt-image2-unity/gerar-imagem.py`
 - **Contexto:** `_contexto/empresa.md`, `_contexto/preferencias.md`
-- **Design:** `marca/design-guide.md`
+- **Design:** `marca/DESIGN.md`
 
 ---
 
@@ -45,7 +45,8 @@ O usuário fornece (pelo menos um):
 
 1. Ler `_contexto/empresa.md` para entender o contexto (construção a seco / drywall / steel frame)
 2. Ler `_contexto/preferencias.md` para tom de voz e restrições visuais
-3. Ler `marca/design-guide.md` para cores, estilo e elementos obrigatórios
+3. Ler `marca/DESIGN.md` para cores, estilo e elementos obrigatórios. Se `status: not-configured` ou algum campo obrigatório estiver `""`, interromper:
+   > ⚠️ O DESIGN.md ainda não foi configurado com a identidade visual da empresa. Para continuar, rode `/setup`.
 
 4. Construir um prompt em inglês otimizado para gpt-image-1:
    - Descrever a cena principal com detalhes visuais concretos

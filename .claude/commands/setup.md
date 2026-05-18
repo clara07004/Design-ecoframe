@@ -33,7 +33,7 @@ Apresentar as opções:
 
 **Se escolher nova empresa:** avisar claramente antes de continuar:
 
-> "Certo. Vou reconfigurar tudo para uma nova empresa. O conteúdo atual de `_contexto/empresa.md`, `_contexto/estrategia.md`, `_contexto/preferencias.md` e `marca/design-guide.md` será substituído. Pode continuar?"
+> "Certo. Vou reconfigurar tudo para uma nova empresa. O conteúdo atual de `_contexto/empresa.md`, `_contexto/estrategia.md`, `_contexto/preferencias.md` e `marca/DESIGN.md` será substituído. Pode continuar?"
 
 Aguardar confirmação explícita. Só continuar para o onboarding depois de confirmar.
 
@@ -214,9 +214,9 @@ Apresentar as opções de forma natural:
 **Se compartilhar URL:**
 - Buscar o conteúdo do site com WebFetch
 - Analisar: cores dominantes, tipografia aparente, estilo geral (clean/bold/editorial/etc), tom visual
-- Apresentar o que foi detectado antes de preencher o design-guide:
+- Apresentar o que foi detectado antes de preencher o DESIGN.md:
   > "Vi no seu site: fundo [cor], destaque em [cor], tipografia [tipo], estilo [adjetivo]. Bate com a sua marca?"
-- Ajustar conforme feedback e preencher `marca/design-guide.md`
+- Ajustar conforme feedback e preencher silenciosamente os campos YAML de `marca/DESIGN.md`
 
 **Se compartilhar imagens (prints de Instagram, logo, etc.):**
 - Pedir pro usuário colocar os arquivos na pasta `dados/` e informar os nomes
@@ -225,11 +225,11 @@ Apresentar as opções de forma natural:
 - Apresentar o que foi detectado antes de preencher, igual ao fluxo de URL
 
 **Se descrever em texto:**
-- Usar a descrição diretamente pra preencher `marca/design-guide.md`
+- Usar a descrição diretamente pra preencher silenciosamente os campos YAML de `marca/DESIGN.md`
 
 **Se ainda não tiver definido:**
-- Preencher o `marca/design-guide.md` com campos em branco e orientações pra preencher depois
-- Mencionar brevemente: "Sem problema — você preenche quando tiver. O Claude vai usar um visual neutro até lá."
+- Deixar os campos de `marca/DESIGN.md` com valor `""` e manter `status: not-configured`
+- Mencionar brevemente: "Sem problema — quando precisar criar visuais, o Claude vai te lembrar de preencher isso aqui."
 
 ### Pergunta 7
 "Como você prefere que o Claude escreva? O que mais incomoda em textos gerados por IA?"
@@ -325,7 +325,7 @@ No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem
 
 Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 
-Para qualquer tarefa visual (carrossel, proposta, slide, landing page), consultar `marca/design-guide.md` como referência de estilo.
+Para qualquer tarefa visual (carrossel, proposta, slide, landing page), consultar `marca/DESIGN.md` como referência de estilo.
 
 Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o contexto naturalmente.
 
@@ -439,17 +439,10 @@ Quando o usuário pedir pra criar uma nova skill:
 [qualquer outra preferência mencionada]
 ```
 
-### 5. Pré-preencher `marca/design-guide.md`
+### 5. Preencher `marca/DESIGN.md`
 
-Se o usuário descreveu cores e estilo, preencha com o que foi confirmado.
-Se não tem identidade definida, preencha com campos em branco e um comentário orientando como preencher depois.
-
-Em ambos os casos, manter este aviso no topo do arquivo (logo abaixo do título):
-
-```
-> Você pode editar esse arquivo a qualquer momento.
-> As skills de carrossel, proposta e slide leem este arquivo antes de criar qualquer visual.
-```
+Se o usuário descreveu cores e estilo, preencher silenciosamente os campos YAML com os valores confirmados e atualizar `status` para `configured`.
+Se não tem identidade definida, deixar os campos com valor `""` e manter `status: not-configured`.
 
 ### 6. Escolher estrutura de pastas
 
@@ -563,7 +556,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 > Aqui está o que foi criado:
 > - CLAUDE.md — o Claude agora sabe quem você é, como trabalha e onde fica cada coisa
 > - _contexto/ — negócio, preferências e foco atual salvos
-> - marca/design-guide.md — identidade visual [preenchida / pronta pra preencher]
+> - marca/DESIGN.md — identidade visual [preenchida / pronta pra preencher]
 > - Estrutura de pastas pro seu perfil de [perfil detectado]
 > - [N] MCPs instalados / [N] anotados pra instalar depois
 >
