@@ -6,7 +6,7 @@
 
 Sistema de automação do processo de criação de conteúdo para redes sociais do Grupo Unity. Orquestra skills de IA para ir da definição estratégica até a entrega do pacote de conteúdo pronto para publicação.
 
-**Empresa piloto:** Construção a seco (drywall / steel frame).
+**Empresa:** Ecoframe — Esquadrias em PVC de alta performance (Steel Frame, Drywall, arquitetura contemporânea).
 
 **Estrutura de pastas:**
 - `_contexto/` — memória do sistema (não apagar)
@@ -84,7 +84,7 @@ Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o
 
 - Antes de executar qualquer tarefa, verificar se existe uma skill relevante em `.claude/skills/`
 - Se encontrar, seguir as instruções da skill
-- Conteúdo da empresa piloto: sempre manter o contexto de drywall/steel frame
+- Conteúdo da empresa: sempre manter o contexto da Ecoframe — esquadrias em PVC, premium técnico, Steel Frame e Drywall
 - Arquivos de credenciais: nunca commitar (estão no .gitignore)
 
 ---
