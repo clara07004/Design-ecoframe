@@ -12,12 +12,13 @@ Documentação completa do sistema de produção de conteúdo.
 | Quero entender o que cada arquivo faz | [01 — Estrutura do Repositório](01-estrutura-do-repositorio.md) |
 | Preciso configurar as credenciais e o contexto | [02 — Configuração Inicial](02-configuracao-inicial.md) |
 | Quero produzir conteúdo agora | [03 — Fluxo Completo](03-fluxo-completo.md) |
-| Quero saber o que cada skill faz | [04 — Referência de Skills](04-referencia-de-skills.md) |
+| Quero saber o que cada skill faz (referência técnica) | [04 — Referência de Skills](04-referencia-de-skills.md) |
+| Quero saber como e quando usar cada skill + sequências | [06 — Guia de Skills](06-guia-de-skills.md) |
 | Encontrei um erro | [05 — Resolução de Problemas](05-resolucao-de-problemas.md) |
 
 ---
 
-## Os 5 arquivos do manual
+## Os 6 arquivos do manual
 
 ### [00 — Visão Geral](00-visao-geral.md)
 O que é o CCOS, como o sistema funciona, a diferença entre skills e motores, por que existem checkpoints de aprovação, o que o sistema produz e quais os pré-requisitos.
@@ -36,6 +37,9 @@ Descrição detalhada de cada skill: para que serve, quando usar, o que precisa 
 
 ### [05 — Resolução de Problemas](05-resolucao-de-problemas.md)
 Erros comuns e soluções: API key não encontrada, Playwright não instalado, DESIGN.md não configurado, token da Meta expirado, e perguntas frequentes.
+
+### [06 — Guia de Skills](06-guia-de-skills.md)
+Como usar e quando usar cada uma das 19 skills — com fluxos sequenciais completos para carrossel educativo, carrossel de quebra de objeção, post estático, Reel, planejamento mensal e escala de conteúdo para vários canais. Inclui tabela de referência rápida por situação.
 
 ---
 
