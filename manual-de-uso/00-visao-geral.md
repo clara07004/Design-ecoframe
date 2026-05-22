@@ -26,12 +26,38 @@ Tudo isso acontece em silêncio. O Claude não anuncia que leu. Ele simplesmente
 
 O sistema tem dois tipos de componentes:
 
-**Skills de produção** — o que você chama diretamente. Cada skill é um processo completo com fases, checkpoints e output final:
+**Skills de produção** — o que você chama diretamente. São 19 skills organizadas em grupos:
+
+*Ideação e pesquisa:*
+- `/gerador-de-angulos-para-um-tema` — 10 lentes criativas para um tema
+- `/gerador-de-angulos-de-conteudo` — ângulos segmentados por audiência
+- `/banco-de-objecoes-do-avatar` — mapa de objeções do ICP com respostas em conteúdo
+
+*Planejamento:*
 - `/calendario-comercial` — define o que e quando postar no mês
-- `/briefing-unity` — detalha um post específico
-- `/carrossel-unity` — produz um carrossel completo
-- `/estatico-unity` — produz um post estático (card único)
-- `/roteiro-unity` — produz roteiro de vídeo para Reels/TikTok
+- `/briefing-unity` — briefing completo de um post específico
+
+*Hooks e capas:*
+- `/hooks-para-carrossel` — 5 opções de capa para carrossel
+- `/hooks-para-instagram-reels` — 7 opções de hook para Reel
+
+*Produção de conteúdo:*
+- `/carrossel-unity` — carrossel completo (texto + imagens + PNGs)
+- `/carrossel-de-quebra-de-objecao` — carrossel de conversão que desmonta uma objeção
+- `/estatico-unity` — post estático (card único)
+- `/roteiro-unity` — roteiro de vídeo para Reels/TikTok
+
+*Legendas:*
+- `/legenda-para-carrossel` — legenda orientada a saves
+- `/legenda-para-reel` — legenda que complementa o vídeo
+- `/legenda-para-post-estatico` — legenda para post estático (4 tipos)
+
+*Imagem:*
+- `/gerador-de-prompts-de-imagem` — prompt otimizado para gpt-image-1
+- `/gerador-de-prompts-para-imagens-de-produto` — prompts para as 3 estéticas de produto da Ecoframe
+
+*Distribuição:*
+- `/1-conteudo-em-7-formatos` — adapta 1 conteúdo para 7 canais
 
 **Motores** — componentes internos chamados pelas skills de produção. Você raramente os chama diretamente:
 - `/gpt-image2-unity` — gera imagens via OpenAI (gpt-image-1)

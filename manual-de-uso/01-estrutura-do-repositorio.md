@@ -42,24 +42,48 @@ Design-ecoframe/
 │   │   ├── setup.md
 │   │   ├── syncar.md
 │   │   └── mapear.md
-│   └── skills/                      ← Skills locais do projeto
-│       ├── briefing-unity/
-│       │   └── briefing-unity.md
+│   └── skills/                      ← 19 skills locais do projeto
+│       ├── gerador-de-angulos-para-um-tema/
+│       │   └── SKILL.md
+│       ├── gerador-de-angulos-de-conteudo/
+│       │   └── SKILL.md
+│       ├── banco-de-objecoes-do-avatar/
+│       │   └── SKILL.md
 │       ├── calendario-comercial/
 │       │   ├── SKILL.md
 │       │   └── Agent_Template.md
+│       ├── briefing-unity/
+│       │   └── briefing-unity.md
+│       ├── hooks-para-carrossel/
+│       │   └── SKILL.md
+│       ├── hooks-para-instagram-reels/
+│       │   └── SKILL.md
 │       ├── carrossel-unity/
+│       │   └── SKILL.md
+│       ├── carrossel-de-quebra-de-objecao/
 │       │   └── SKILL.md
 │       ├── estatico-unity/
 │       │   └── SKILL.md
-│       ├── gpt-image2-unity/
-│       │   ├── SKILL.md
-│       │   └── gerar-imagem.py      ← Script Python da geração de imagem
-│       ├── ogilvy-copy/
-│       │   └── SKILL.md
 │       ├── roteiro-unity/
 │       │   └── SKILL.md
-│       └── schwartz-copy/
+│       ├── legenda-para-carrossel/
+│       │   └── SKILL.md
+│       ├── legenda-para-reel/
+│       │   └── SKILL.md
+│       ├── legenda-para-post-estatico/
+│       │   └── SKILL.md
+│       ├── gerador-de-prompts-de-imagem/
+│       │   └── SKILL.md
+│       ├── gerador-de-prompts-para-imagens-de-produto/
+│       │   └── SKILL.md
+│       ├── 1-conteudo-em-7-formatos/
+│       │   └── SKILL.md
+│       ├── gpt-image2-unity/           ← motor
+│       │   ├── SKILL.md
+│       │   └── gerar-imagem.py         ← Script Python da geração de imagem
+│       ├── ogilvy-copy/                ← motor
+│       │   └── SKILL.md
+│       └── schwartz-copy/              ← motor
 │           └── SKILL.md
 │
 └── templates/                       ← Templates para criar novas skills
@@ -169,13 +193,36 @@ Token de acesso à Meta Graph API. Usado pela skill `/publicar-social-unity` par
 
 ## Pasta `.claude/skills/` — Os programas do sistema
 
-Cada skill é uma pasta com um arquivo `SKILL.md` que contém as instruções detalhadas de como o Claude deve executar aquela tarefa.
+Cada skill é uma pasta com um arquivo `SKILL.md` que contém as instruções detalhadas de como o Claude deve executar aquela tarefa. São 19 skills no total.
+
+**Ideação e pesquisa**
+
+### `gerador-de-angulos-para-um-tema/`
+Pega um tema e gera 10 lentes criativas para abordá-lo. Use antes do briefing quando você tem o assunto mas não sabe o ângulo de entrada.
+
+### `gerador-de-angulos-de-conteudo/`
+Versão mais analítica: usa uma matriz perspectivas × audiência × formatos narrativos. Use quando quer segmentar por avatar (arquiteto vs construtor vs proprietário).
+
+### `banco-de-objecoes-do-avatar/`
+Mapeia as objeções do ICP em 6 tipos (valor, percepção, confiança técnica, confiança em si mesmo, relevância, urgência) com resposta em formato de conteúdo para cada uma. Alimenta o `/carrossel-de-quebra-de-objecao`.
+
+**Planejamento**
+
+### `calendario-comercial/`
+Cria o mapa estratégico de conteúdo do mês. Pesquisa eventos culturais, esportivos e de entretenimento do período para identificar janelas quentes (🟢), mornas (🟡) e frias (🔴). Usa o framework MOMENTO para cruzar produto × momento cultural.
 
 ### `briefing-unity/`
 Gera o briefing completo de um conteúdo. Lê o output do calendário comercial e produz: gancho, copy base, formato recomendado, orientações visuais, hashtags e metadados. Salva o briefing aprovado em `conteudo/briefings/[tema]/`.
 
-### `calendario-comercial/`
-Cria o mapa estratégico de conteúdo do mês. Pesquisa eventos culturais, esportivos e de entretenimento do período para identificar janelas quentes (🟢), mornas (🟡) e frias (🔴). Usa o framework MOMENTO para cruzar produto × momento cultural.
+**Hooks e capas**
+
+### `hooks-para-carrossel/`
+Gera 5 opções de capa para o carrossel, cada uma com headline, direção visual e tipo de gancho diferente. Use após o briefing e antes do `/carrossel-unity`.
+
+### `hooks-para-instagram-reels/`
+Gera 7 opções de hook para Reel combinando primeiro frame (visual) com frase de abertura (narração). Use antes do `/roteiro-unity`.
+
+**Produção de conteúdo**
 
 ### `carrossel-unity/`
 Produz um carrossel completo em 3 fases:
@@ -183,11 +230,43 @@ Produz um carrossel completo em 3 fases:
 2. Geração de imagens (capa obrigatória + até 2 slides de impacto)
 3. HTML por slide → PNG via Playwright
 
+### `carrossel-de-quebra-de-objecao/`
+Cria a estrutura de um carrossel de conversão que desmonta uma objeção em 3 movimentos: nomeação → reframe → prova (9 slides). Use para conteúdo de fundo de funil. Entrega a estrutura para o `/carrossel-unity` produzir o visual.
+
 ### `estatico-unity/`
 Produz um post estático (card único) em 3 fases:
 1. Copy + prompt da foto de fundo
 2. Geração da foto (GPT Image 2)
 3. HTML montado com copy + identidade visual → PNG via Playwright
+
+### `roteiro-unity/`
+Produz roteiros de vídeo para Reels e TikTok. Usa Ogilvy para vídeos orgânicos (autoridade, educação) e Schwartz para criativos de tráfego pago (conversão).
+
+**Legendas**
+
+### `legenda-para-carrossel/`
+Escreve a legenda do carrossel orientada a saves, com hook de abertura, corpo que complementa os slides (sem repetir) e CTA com razão específica para salvar.
+
+### `legenda-para-reel/`
+Escreve a legenda do Reel. Nunca repete o roteiro — complementa, adiciona contexto ou aprofunda um ponto. Inclui primeira linha visível antes do play e CTA.
+
+### `legenda-para-post-estatico/`
+Escreve a legenda para post estático em 4 tipos: narrativa, reflexão, lançamento ou conexão.
+
+**Imagem**
+
+### `gerador-de-prompts-de-imagem/`
+Constrói um prompt estruturado e otimizado para o `gpt-image-1`. Entrega 3 versões (principal, minimalista, impactante) + comando PowerShell pronto para executar.
+
+### `gerador-de-prompts-para-imagens-de-produto/`
+Versão especializada focada nas 3 estéticas fotográficas da Ecoframe: `architectural_installation`, `dark_lifestyle` e `product_closeup`. Use quando a imagem precisa mostrar o produto Ecoframe.
+
+**Distribuição**
+
+### `1-conteudo-em-7-formatos/`
+Pega um conteúdo aprovado e adapta para 7 canais (Reel, Carrossel, Post estático, Stories, Thread X, LinkedIn e E-mail), adaptando a gramática de cada plataforma.
+
+**Motores internos**
 
 ### `gpt-image2-unity/`
 Motor de geração de imagem. Contém a SKILL.md com as instruções e o script Python `gerar-imagem.py` que faz a chamada à API da OpenAI.
@@ -204,9 +283,6 @@ Motor de copy baseado na metodologia de David Ogilvy. Usado para conteúdo orgâ
 
 ### `schwartz-copy/`
 Motor de copy baseado na metodologia de Eugene Schwartz. Usado para conteúdo de resposta direta e tráfego pago. Foco em consciência do cliente, mecanismo único e conversão.
-
-### `roteiro-unity/`
-Produz roteiros de vídeo para Reels e TikTok. Usa Ogilvy para vídeos orgânicos (autoridade, educação) e Schwartz para criativos de tráfego pago (conversão).
 
 ---
 

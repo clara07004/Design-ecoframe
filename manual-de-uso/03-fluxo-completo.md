@@ -3,18 +3,47 @@
 ## Visão do fluxo
 
 ```
+/gerador-de-angulos-para-um-tema  (ou /gerador-de-angulos-de-conteudo)
+        ↓ escolhe 1 ângulo
 /calendario-comercial
         ↓ você aprova
 /briefing-unity
         ↓ você aprova
-        ├── formato carrossel  →  /carrossel-unity
-        ├── formato imagem     →  /estatico-unity
-        └── formato vídeo      →  /roteiro-unity
-        ↓ você aprova
+        │
+        ├── formato carrossel  →  /hooks-para-carrossel
+        │                               ↓ escolhe 1 capa
+        │                         /carrossel-unity
+        │                               ↓ você aprova
+        │                         /legenda-para-carrossel
+        │
+        ├── formato imagem     →  /gerador-de-prompts-de-imagem
+        │                         (ou /gerador-de-prompts-para-imagens-de-produto)
+        │                               ↓ você aprova o prompt
+        │                         /estatico-unity
+        │                               ↓ você aprova
+        │                         /legenda-para-post-estatico
+        │
+        └── formato vídeo      →  /hooks-para-instagram-reels
+                                        ↓ escolhe 1 hook
+                                  /roteiro-unity
+                                        ↓ você aprova
+                                  /legenda-para-reel
+        ↓ aprova o conteúdo final
+/1-conteudo-em-7-formatos  (opcional — distribui para outros canais)
+        ↓
 /publicar-social-unity  (opcional — publicação automática)
 ```
 
-Você pode entrar no fluxo em qualquer etapa. Se já sabe o que quer postar, pode pular direto para `/briefing-unity`. Se já tem o briefing aprovado, pode pular direto para a skill de produção.
+**Fluxo alternativo — fundo de funil:**
+```
+/banco-de-objecoes-do-avatar
+        ↓ escolhe uma objeção
+/carrossel-de-quebra-de-objecao
+        ↓ aprova a estrutura
+/carrossel-unity  +  /legenda-para-carrossel
+```
+
+Você pode entrar no fluxo em qualquer etapa. Se já sabe o que quer postar, pode pular direto para `/briefing-unity`. Se já tem o briefing aprovado, pode pular direto para os hooks e a produção.
 
 ---
 
@@ -99,6 +128,16 @@ Você: Sim
 
 ---
 
+## Etapa 2.5 — Hooks (opcional, mas recomendado)
+
+Antes de produzir qualquer asset, vale definir o ponto de entrada do post — a capa do carrossel ou o primeiro frame do Reel são o que decide se o conteúdo performa.
+
+**Para carrossel:** `/hooks-para-carrossel` — 5 opções de capa com headline, direção visual e tipo de gancho. Leva 2 minutos e aumenta a relevância do conteúdo.
+
+**Para Reel:** `/hooks-para-instagram-reels` — 7 opções de hook combinando visual e frase de abertura.
+
+---
+
 ## Etapa 3a — Carrossel
 
 **Quando usar:** para conteúdo educativo, comparativo ou de autoridade em múltiplos slides.
@@ -108,7 +147,7 @@ Você: Sim
 /carrossel-unity
 ```
 
-O briefing aprovado deve estar em contexto (ou o Claude vai perguntar o tema).
+O briefing e o hook aprovados devem estar em contexto (ou o Claude vai perguntar o tema).
 
 ### Fase 1 — Texto
 
@@ -248,7 +287,27 @@ O Claude pergunta se é conteúdo orgânico (autoridade, educação) ou tráfego
 
 ---
 
-## Etapa 4 — Publicação (opcional)
+## Etapa 3.5 — Legenda
+
+Após aprovar qualquer asset, a legenda é gerada por uma skill específica — nunca improvise manualmente:
+
+| Asset produzido | Skill de legenda |
+|---|---|
+| Carrossel | `/legenda-para-carrossel` |
+| Reel / roteiro | `/legenda-para-reel` |
+| Post estático | `/legenda-para-post-estatico` |
+
+Cada uma tem lógica diferente: a do carrossel é orientada a saves, a do Reel complementa o vídeo sem repetir o roteiro.
+
+---
+
+## Etapa 4 — Distribuição (opcional)
+
+Se o conteúdo aprovado vale distribuir além do Instagram, use `/1-conteudo-em-7-formatos` antes de publicar. Ele adapta para Reel, Carrossel, Post estático, Stories, Thread X, LinkedIn e E-mail — cada um com a gramática certa da plataforma.
+
+---
+
+## Etapa 5 — Publicação (opcional)
 
 **Quando usar:** para publicar automaticamente no Instagram após aprovação do post.
 

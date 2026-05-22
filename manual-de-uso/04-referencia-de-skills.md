@@ -132,6 +132,221 @@ conteudo/imagens/[tema]/
 
 ---
 
+## Skills de pesquisa e ideação
+
+### `/gerador-de-angulos-para-um-tema`
+**Arquivo:** `.claude/skills/gerador-de-angulos-para-um-tema/SKILL.md`
+
+**Para que serve:** Pega um tema e gera 10 lentes criativas para abordá-lo — cada uma com ângulo diferente.
+
+**Quando usar:** Antes do briefing, quando você tem o assunto mas não sabe como entrar. Ex: "quero falar sobre PVC, mas não sei qual ângulo".
+
+**Input:** o tema. Pode ser amplo ("PVC") ou específico ("durabilidade das esquadrias no litoral").
+
+**Output:**
+- 10 ângulos com: título sugerido, gancho, por que funciona para a Ecoframe
+- Pronto para levar ao `/briefing-unity`
+
+---
+
+### `/gerador-de-angulos-de-conteudo`
+**Arquivo:** `.claude/skills/gerador-de-angulos-de-conteudo/SKILL.md`
+
+**Para que serve:** Versão mais estruturada — usa uma matriz perspectivas × audiência × formatos narrativos para gerar ângulos com recorte de público.
+
+**Quando usar:** Quando quer segmentar por avatar (arquiteto vs construtor vs proprietário) ou quando o tema é mais complexo.
+
+**Input:** tema + avatar (opcional)
+
+**Output:**
+- 10 ângulos com: perspectiva, audiência alvo, formato narrativo, formato de post sugerido
+
+**Diferença do anterior:** mais analítico e estratégico. O `/gerador-de-angulos-para-um-tema` é mais criativo e rápido.
+
+---
+
+### `/banco-de-objecoes-do-avatar`
+**Arquivo:** `.claude/skills/banco-de-objecoes-do-avatar/SKILL.md`
+
+**Para que serve:** Mapeia todas as objeções do ICP antes de especificar, comprar ou recomendar a Ecoframe — organizadas em 6 tipos, com resposta em formato de conteúdo para cada uma.
+
+**Quando usar:** Para criar conteúdo de meio/fundo de funil. Também quando posts não estão convertendo.
+
+**Input:** avatar — `arquiteto`, `construtor` ou `proprietário`
+
+**Output:**
+- 6 tipos de objeção (valor, percepção, confiança técnica, confiança em si mesmo, relevância, urgência)
+- Para cada objeção: como o avatar formula, raiz real, resposta em conteúdo, resposta em copy
+- Top 3 objeções mais críticas
+- Plano de conteúdo com 1 post sugerido por objeção
+
+**Resultado esperado:** cada objeção vira input para o `/carrossel-de-quebra-de-objecao`
+
+---
+
+## Skills de hooks e capas
+
+### `/hooks-para-carrossel`
+**Arquivo:** `.claude/skills/hooks-para-carrossel/SKILL.md`
+
+**Para que serve:** Gera 5 opções de capa para o carrossel — headline, subtítulo, direção visual e tipo de gancho para cada uma.
+
+**Quando usar:** Após o briefing aprovado, antes do `/carrossel-unity`.
+
+**Input:** tema ou briefing aprovado (no contexto da conversa)
+
+**Output:**
+- 5 opções de capa com: headline, subtítulo opcional, direção visual, tipo de gancho (promessa, dor, número, polêmica, identificação, antes/depois, dado)
+
+**Resultado esperado:** você escolhe 1 capa e leva para o `/carrossel-unity`
+
+---
+
+### `/hooks-para-instagram-reels`
+**Arquivo:** `.claude/skills/hooks-para-instagram-reels/SKILL.md`
+
+**Para que serve:** Gera 7 opções de hook para Reel — combinando o que aparece no primeiro frame com a frase de abertura.
+
+**Quando usar:** Após o briefing aprovado, antes do `/roteiro-unity`.
+
+**Input:** tema ou briefing aprovado
+
+**Output:**
+- 7 hooks com: primeiro frame (visual), frase de abertura (narração), tipo de gancho (salvável, compartilhável, promessa, contraste, identificação, micro-tutorial, polarizador)
+
+**Resultado esperado:** você escolhe 1 hook e leva para o `/roteiro-unity`
+
+---
+
+## Skills de fundo de funil
+
+### `/carrossel-de-quebra-de-objecao`
+**Arquivo:** `.claude/skills/carrossel-de-quebra-de-objecao/SKILL.md`
+
+**Para que serve:** Cria a estrutura de um carrossel que desmonta uma objeção específica do ICP em 3 movimentos: nomeação → reframe → prova. Focado em conversão — diferente do carrossel educativo.
+
+**Quando usar:** Para conteúdo de fundo de funil. Use após o `/banco-de-objecoes-do-avatar` para transformar cada objeção em um carrossel.
+
+**Input:**
+- A objeção exata (como o avatar formula)
+- Avatar (`arquiteto`, `construtor` ou `proprietário`)
+- Caso real de cliente (opcional, mas aumenta a prova)
+
+**Output:**
+- Estrutura de 9 slides:
+  - Slides 1–3: nomeação + validação da objeção
+  - Slides 4–7: reframe em camadas
+  - Slides 8–9: prova com caso concreto
+- Legenda completa do post
+- Handoff direto para o `/carrossel-unity` produzir o visual
+
+---
+
+## Skills de legendas
+
+### `/legenda-para-carrossel`
+**Arquivo:** `.claude/skills/legenda-para-carrossel/SKILL.md`
+
+**Para que serve:** Escreve a legenda do carrossel — orientada a saves, com CTA específico.
+
+**Quando usar:** Após o carrossel estar produzido (textos aprovados).
+
+**Input:** tema e mensagem central do carrossel (no contexto da conversa)
+
+**Output:**
+- Linha de abertura (hook que filtra quem vai ler)
+- Corpo complementar (aprofunda sem repetir os slides)
+- CTA com razão específica para salvar
+
+---
+
+### `/legenda-para-reel`
+**Arquivo:** `.claude/skills/legenda-para-reel/SKILL.md`
+
+**Para que serve:** Escreve a legenda do Reel. Nunca repete o roteiro — complementa, adiciona contexto ou aprofunda um ponto.
+
+**Quando usar:** Após o roteiro estar pronto.
+
+**Input:** tema e mensagem central do reel (no contexto)
+
+**Regra crítica:** a legenda não repete o que foi dito no vídeo. Ela complementa.
+
+**Output:** primeira linha (visível antes do play) + corpo + CTA
+
+---
+
+### `/legenda-para-post-estatico`
+**Arquivo:** `.claude/skills/legenda-para-post-estatico/SKILL.md`
+
+**Para que serve:** Escreve a legenda para post estático em 4 tipos disponíveis.
+
+**Quando usar:** Após o post estático estar produzido.
+
+**Input:** tipo desejado + tema (`narrativa`, `reflexão`, `lançamento` ou `conexão`)
+
+**Output:** legenda no tipo escolhido, com abertura, corpo e CTA adequados ao formato
+
+---
+
+## Skills de imagem
+
+### `/gerador-de-prompts-de-imagem`
+**Arquivo:** `.claude/skills/gerador-de-prompts-de-imagem/SKILL.md`
+
+**Para que serve:** Constrói um prompt estruturado e otimizado para o `gpt-image-1` — mais elaborado que o gerado automaticamente pelas skills de produção.
+
+**Quando usar:** Antes de gerar qualquer imagem via IA quando quiser mais controle sobre o visual.
+
+**Input:** uso da imagem + o que deve aparecer + estética + proporção
+
+**Output:**
+- Prompt principal completo e otimizado
+- Variação A (mais minimalista)
+- Variação B (mais impactante)
+- Comando PowerShell pronto para copiar e executar
+
+---
+
+### `/gerador-de-prompts-para-imagens-de-produto`
+**Arquivo:** `.claude/skills/gerador-de-prompts-para-imagens-de-produto/SKILL.md`
+
+**Para que serve:** Versão especializada focada nas 3 estéticas fotográficas da Ecoframe para produto.
+
+**Quando usar:** Quando a imagem precisa mostrar o produto Ecoframe — esquadrias instaladas, detalhes técnicos, produto em contexto arquitetônico.
+
+**Input:** linha (`iTEC`, `euroTEC`, `TECplus100` ou `MAXXI`) + estilo desejado
+
+**Os 3 estilos:**
+- `architectural_installation` — produto instalado em projeto acabado, luz natural, ambiente premium
+- `dark_lifestyle` — pessoa em ação no ambiente (arquiteto em obra, proprietário apreciando)
+- `product_closeup` — macro do perfil PVC, câmaras internas, detalhes de vedação
+
+**Output:** prompts para os 3 estilos + comando PowerShell pronto
+
+---
+
+## Skills de distribuição
+
+### `/1-conteudo-em-7-formatos`
+**Arquivo:** `.claude/skills/1-conteudo-em-7-formatos/SKILL.md`
+
+**Para que serve:** Pega um conteúdo aprovado e adapta para 7 canais — adaptando a gramática de cada plataforma, sem copiar o mesmo texto.
+
+**Quando usar:** Após aprovar um conteúdo que vale distribuir além do Instagram.
+
+**Input:** conteúdo original (post, roteiro ou briefing aprovado)
+
+**Os 7 formatos entregues:**
+1. **Reel / TikTok** — script de narração com marcações de pausa, legenda curta
+2. **Carrossel Instagram** — estrutura de 7 slides
+3. **Post estático** — conceito visual + legenda
+4. **Sequência de Stories** — 4 a 5 cards com interação sugerida
+5. **Thread Twitter/X** — 6 a 8 tweets numerados
+6. **Post LinkedIn** — 200 a 400 palavras, tom técnico-profissional B2B
+7. **E-mail / Newsletter** — 300 a 500 palavras com assunto + 2 alternativas para teste A/B
+
+---
+
 ## Motores (usados internamente pelas skills)
 
 ### `/gpt-image2-unity`
@@ -254,7 +469,8 @@ GPT Image 2 (OpenAI) → nanobanana-unity (Gemini, grátis) → image-gen-unity 
 
 | Formato | Skill principal | Motor de imagem | Motor de copy |
 |---|---|---|---|
-| Carrossel Instagram | `/carrossel-unity` | `gpt-image2-unity` | Direto na skill |
+| Carrossel educativo | `/carrossel-unity` | `gpt-image2-unity` | Direto na skill |
+| Carrossel de objeção | `/carrossel-de-quebra-de-objecao` → `/carrossel-unity` | `gpt-image2-unity` | Direto na skill |
 | Post estático | `/estatico-unity` | `gpt-image2-unity` | Direto na skill |
 | Reel/TikTok orgânico | `/roteiro-unity` | — | `ogilvy-copy` |
 | Reel/TikTok pago | `/roteiro-unity` | — | `schwartz-copy` |
@@ -268,12 +484,24 @@ GPT Image 2 (OpenAI) → nanobanana-unity (Gemini, grátis) → image-gen-unity 
 
 | Objetivo | Skill |
 |---|---|
+| Tenho um tema, não sei qual ângulo | `/gerador-de-angulos-para-um-tema` |
+| Quero ângulos segmentados por audiência | `/gerador-de-angulos-de-conteudo` |
+| Quero entender o que trava meu cliente | `/banco-de-objecoes-do-avatar` |
 | Mapear o mês estrategicamente | `/calendario-comercial` |
 | Definir o que um post vai comunicar | `/briefing-unity` |
-| Ensinar algo ao público | `/carrossel-unity` |
+| Escolher a melhor capa para o carrossel | `/hooks-para-carrossel` |
+| Escolher o melhor hook para o Reel | `/hooks-para-instagram-reels` |
+| Produzir um carrossel educativo | `/carrossel-unity` |
+| Produzir um carrossel que converte objeção | `/carrossel-de-quebra-de-objecao` → `/carrossel-unity` |
 | Impacto visual rápido no feed | `/estatico-unity` |
 | Conteúdo em vídeo (orgânico) | `/roteiro-unity` |
 | Anúncio em vídeo (tráfego pago) | `/roteiro-unity` |
+| Escrever a legenda do carrossel | `/legenda-para-carrossel` |
+| Escrever a legenda do Reel | `/legenda-para-reel` |
+| Escrever a legenda do post estático | `/legenda-para-post-estatico` |
+| Criar um prompt melhor para imagem | `/gerador-de-prompts-de-imagem` |
+| Criar foto do produto Ecoframe | `/gerador-de-prompts-para-imagens-de-produto` |
+| Distribuir um conteúdo para outros canais | `/1-conteudo-em-7-formatos` |
 | Gerar uma foto avulsa | `/gpt-image2-unity` |
 | Salvar o trabalho no GitHub | `/syncar` |
 | Criar uma nova skill personalizada | `/mapear` |

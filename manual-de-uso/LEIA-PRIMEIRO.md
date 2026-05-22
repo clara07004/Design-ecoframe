@@ -43,21 +43,34 @@ Como usar e quando usar cada uma das 19 skills — com fluxos sequenciais comple
 
 ---
 
-## Fluxo resumido em 4 passos
+## Fluxo resumido
 
 ```
-1. /calendario-comercial   →  mapa estratégico do mês
+1. /gerador-de-angulos-para-um-tema   →  10 ângulos para o tema escolhido
+        ↓ escolhe 1
+2. /calendario-comercial              →  mapa estratégico do mês
         ↓ aprova
-2. /briefing-unity         →  briefing de um post específico
+3. /briefing-unity                    →  briefing do post específico
         ↓ aprova
-3. /carrossel-unity        →  carrossel completo (slides + imagens + PNGs)
-   /estatico-unity         →  post estático (foto IA + layout + PNG)
-   /roteiro-unity          →  roteiro de vídeo
+4. /hooks-para-carrossel              →  5 opções de capa (se for carrossel)
+   /hooks-para-instagram-reels        →  7 opções de hook (se for reel)
+        ↓ escolhe 1
+5. /carrossel-unity                   →  carrossel completo (slides + imagens + PNGs)
+   /estatico-unity                    →  post estático (foto IA + layout + PNG)
+   /roteiro-unity                     →  roteiro de vídeo
         ↓ aprova
-4. /publicar-social-unity  →  publica no Instagram/TikTok/LinkedIn
+6. /legenda-para-carrossel            →  legenda final
+   /legenda-para-reel
+   /legenda-para-post-estatico
+        ↓ opcional
+   /1-conteudo-em-7-formatos          →  distribui para outros canais
+        ↓
+   /publicar-social-unity             →  publica no Instagram/TikTok/LinkedIn
 ```
 
 **Aprovação humana obrigatória em cada etapa — nada avança sem sua confirmação.**
+
+Você pode entrar no fluxo em qualquer passo. Se já tem o tema e o ângulo, comece no passo 3.
 
 ---
 

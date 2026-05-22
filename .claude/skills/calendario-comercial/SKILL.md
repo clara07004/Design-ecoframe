@@ -144,6 +144,23 @@ Antes de montar qualquer calendário, execute pesquisas web sobre:
 
 **Por que importa:** Timing é tudo. Pegar uma trend no pico = alcance orgânico massivo. Perder o timing = parecer ultrapassado.
 
+### 𝕏 X (Twitter) — Debates e Tendências em Tempo Real
+```
+web_search("trending topics X Twitter Brasil [mês] [ano]")
+web_search("X twitter [setor do cliente] tendência debate [mês] [ano]")
+web_search("trending X brasil hoje arquitetura construção reforma")
+```
+
+**O que buscar:**
+- Trending topics relacionados ao setor (construção, arquitetura, imóveis, reforma, sustentabilidade)
+- Debates e polêmicas que podem virar pauta nos próximos dias em outros canais
+- Memes ou narrativas que estão ganhando força e podem ser aproveitados (ou evitados)
+- Lançamentos e anúncios viralizando antes de chegar ao Instagram
+
+**Por que importa:** O X é o termômetro cultural mais rápido — debates que começam lá chegam ao Instagram e TikTok 24–72h depois. Identificar uma narrativa no X antes de viralizar permite criar conteúdo com timing perfeito. Também revela o que o mercado está discutindo fora das métricas de engajamento do Instagram.
+
+**Atenção:** Nem todo trending topic do X tem tração no Instagram — filtre pelo ICP. Um debate técnico sobre construção a seco no X pode ser ouro para a Ecoframe mesmo com poucos retweets.
+
 ### 📅 Calendário Comportamental Brasileiro
 ```
 - Virada de ano (Janeiro): mentalidade de recomeço, metas, mudança
@@ -332,13 +349,15 @@ com as ações comerciais do mês, aproveitando o contexto cultural]
 
 ### Montagem de Calendário Mensal
 
-**Passo 1: Research Cultural (20min)**
+**Passo 1: Research Cultural (25min)**
 ```bash
 web_search("eventos [mês] [ano] brasil")
 web_search("lançamentos streaming [mês] [ano]")
 web_search("jogos [time popular] [mês] [ano]")
 web_search("shows festivais [mês] [ano] brasil")
 web_search("tendências [setor do cliente] [ano]")
+web_search("trending topics X Twitter Brasil [mês] [ano]")
+web_search("X twitter [setor do cliente] debate tendência [mês] [ano]")
 ```
 
 **Passo 2: Mapear Janelas (10min)**
@@ -446,7 +465,7 @@ web_search("tendências [setor do cliente] [ano]")
 
 Antes de entregar qualquer calendário, confirme:
 
-- [ ] Pesquisei eventos culturais do período (web search)
+- [ ] Pesquisei eventos culturais do período (web search + X/Twitter)
 - [ ] Identifiquei e marquei apagões de atenção (🔴)
 - [ ] Toda ação tem justificativa contextual ("por quê agora")
 - [ ] Não sugeri 2 lançamentos simultâneos
@@ -483,6 +502,11 @@ Esta skill funciona em conjunto com:
 ---
 
 ## Atualizações da Skill
+
+**v1.1** (Maio 2026)
+- Adicionada fonte de pesquisa: X (Twitter) — debates e tendências em tempo real
+- Nova seção no Radar Cultural com queries específicas para X
+- Checklist atualizado
 
 **v1.0** (Abril 2026)
 - Versão inicial
