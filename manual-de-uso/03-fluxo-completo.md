@@ -10,20 +10,17 @@
 /briefing-unity
         ↓ você aprova
         │
-        ├── formato carrossel  →  /hooks-para-carrossel
-        │                               ↓ escolhe 1 capa
-        │                         /carrossel-unity   ← FLUXO RÁPIDO (tudo em um)
+        ├── formato carrossel  →  /gerador-de-prompts-de-imagem  ← FLUXO PRINCIPAL ★
+        │                               ↓ você aprova os prompts
+        │                         /gpt-image2-unity  ← gera todas as imagens (capa + slides)
+        │                               ↓ você aprova as imagens
+        │                         /carrossel-unity   ← monta HTMLs + renderiza
         │                               ↓ você aprova
         │                         /legenda-para-carrossel
         │
-        │                         — ou, com mais controle sobre a imagem —
+        │                         — alternativa, sem controle granular de imagem —
         │
-        │                         /gerador-de-prompts-para-imagens-de-produto
-        │                         (ou /gerador-de-prompts-de-imagem)
-        │                               ↓ você aprova o prompt
-        │                         /gpt-image2-unity  ← gera e aprova a imagem antes
-        │                               ↓ você aprova a imagem
-        │                         /carrossel-unity   ← FLUXO ENRIQUECIDO
+        │                         /carrossel-unity   ← FLUXO RÁPIDO (tudo em um)
         │                               ↓ você aprova
         │                         /legenda-para-carrossel
         │
@@ -154,6 +151,24 @@ Antes de produzir qualquer asset, vale definir o ponto de entrada do post — a 
 ## Etapa 3a — Carrossel
 
 **Quando usar:** para conteúdo educativo, comparativo ou de autoridade em múltiplos slides.
+
+### Fluxo principal (nosso padrão)
+
+Este é o fluxo confirmado para produção de carrossel. Seguir sempre essa ordem:
+
+```
+/briefing-unity
+        ↓ [aprovado]
+/gerador-de-prompts-de-imagem       ← prompts para capa + todos os slides de conteúdo
+        ↓ [prompts aprovados]
+/gpt-image2-unity                   ← gera todas as imagens antes de entrar no carrossel
+        ↓ [imagens aprovadas]        capa = square (1024×1024) | slides internos = portrait (1024×1536)
+/carrossel-unity                    ← recebe imagens prontas, monta HTMLs e renderiza
+        ↓ [slides aprovados]
+/legenda-para-carrossel
+```
+
+**Por que essa ordem:** gerar todas as imagens antes de entrar no carrossel permite aprovar cada foto individualmente e evita interrupções no fluxo de montagem. A capa pode exigir múltiplas iterações — melhor resolver isso antes de entrar na fase de HTML.
 
 **Como chamar:**
 ```
