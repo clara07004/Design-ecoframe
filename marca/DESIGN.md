@@ -149,6 +149,34 @@ components:
 image_style:
 
   # ---------------------------------------------------------------------------
+  # FILOSOFIA VISUAL — princípios que regem todos os posts
+  # ---------------------------------------------------------------------------
+  visual_philosophy:
+
+    feel: "Fluido, divertido e acolhedor — nunca frio ou corporativo"
+
+    forbidden_aesthetic: "Estética de revista: layouts muito simétricos, quadriculados ou com cara de template pronto transmitem frieza e distância — exatamente o oposto do que queremos"
+
+    background_rule: |
+      OBRIGATÓRIO: toda imagem precisa ter um fundo com elementos visuais.
+      Texturas, gradientes, formas, ilustrações, padrões, fotografias ou qualquer
+      composição que dê profundidade e vida ao post.
+      Fundo chapado com cor sólida + texto por cima é INACEITÁVEL — parece
+      informe corporativo, não conteúdo de Instagram.
+
+    avoid:
+      - "Layouts retos, muito centrados e simétricos demais"
+      - "Espaços vazios excessivos sem intenção"
+      - "Tipografia única com fundo liso — independente de quão 'clean' pareça"
+      - "Qualquer coisa que pareça saída de template de PowerPoint ou Canva genérico"
+
+    pursue:
+      - "Composições com camadas: fundo com textura ou elemento visual + elementos decorativos + texto"
+      - "Formas orgânicas, elementos gráficos sobrepostos, uso inteligente de cor"
+      - "Sensação de movimento e cuidado na montagem — como se tivesse sido pensado, não gerado automaticamente"
+      - "Design que convida a olhar, não apenas a ler"
+
+  # ---------------------------------------------------------------------------
   # FOTOGRAFIA — como devem ser as fotos
   # ---------------------------------------------------------------------------
   photography:

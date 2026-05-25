@@ -82,44 +82,100 @@ Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o
 
 ## Fluxo principal de conteúdo
 
+### Etapa 1 — Ideação e planejamento (sempre)
+
 ```
-/gerador-de-angulos-para-um-tema  ou  /gerador-de-angulos-de-conteudo   ← ideação
+/gerador-de-angulos-para-um-tema   ← 10 lentes criativas para um tema
+    ou
+/gerador-de-angulos-de-conteudo    ← matrix perspectivas × audiência × formatos
     ↓ [escolhe ângulo]
-/calendario-comercial
+/calendario-comercial              ← quando e o quê postar
     ↓ [aprova calendário]
-/briefing-unity  →  define o formato do conteúdo
+/briefing-unity                    ← define objetivo, mensagem e formato
     ↓ [aprova briefing]
-    ├── formato carrossel  →  /hooks-para-carrossel
-    │                              ↓
-    │                         /carrossel-unity  (motor: gpt-image2-unity)
-    │                              ↓
-    │                         /legenda-para-carrossel
-    │
-    ├── formato imagem     →  /gerador-de-prompts-de-imagem  ou  /gerador-de-prompts-para-imagens-de-produto
-    │                              ↓
-    │                         /estatico-unity  (motor: gpt-image2-unity)
-    │                              ↓
-    │                         /legenda-para-post-estatico
-    │
-    └── formato vídeo      →  /hooks-para-instagram-reels
-                                   ↓
-                              /roteiro-unity  (motor: ogilvy ou schwartz)
-                                   ↓
-                              /legenda-para-reel
-    ↓ [aprova conteúdo]
-/1-conteudo-em-7-formatos   ← opcional: distribui para outros canais
-    ↓
-/publicar-social-unity
 ```
 
-**Fluxo alternativo — conteúdo de fundo de funil:**
+---
+
+### Etapa 2 — Produção (escolher o fluxo pelo formato)
+
+#### Carrossel
+
+Três opções de fluxo — escolher conforme o nível de controle desejado sobre as imagens:
+
+**Fluxo rápido** — `/carrossel-unity` cuida de tudo internamente (texto + prompt + imagem IA + HTML + PNG):
 ```
-/banco-de-objecoes-do-avatar
+/hooks-para-carrossel   ← 5 opções de capa, escolher antes de entrar no carrossel
+    ↓ [escolhe capa]
+/carrossel-unity        ← texto + geração de imagem + HTML + PNG (tudo em um)
+    ↓
+/legenda-para-carrossel
+```
+
+**Fluxo com imagem enriquecida** — gerar e aprovar a imagem antes de entrar no carrossel, com mais controle de prompt e estética:
+```
+/gerador-de-prompts-para-imagens-de-produto   ← prompts para as 3 estéticas Ecoframe
+    ou                                          (dark_lifestyle / architectural_installation / product_closeup)
+/gerador-de-prompts-de-imagem                 ← prompt estruturado genérico
+    ↓ [aprova prompt]
+/gpt-image2-unity                             ← gera a imagem via GPT Image 2
+    ↓ [aprova imagem]
+/carrossel-unity                              ← recebe a imagem já gerada, monta HTML + PNG
+    ↓
+/legenda-para-carrossel
+```
+
+**Observação:** quando houver fotos reais de produto disponíveis no Google Drive (`_contexto/referencias.md` → pasta "Fotos do Produto"), priorizá-las em vez de gerar imagem IA. Buscar via MCP Drive (`search_files` na pasta `1yMl_zKBySogepmeM7WTyihTYuXZFuZb6`), baixar com `download_file_content`, extrair via Python e salvar como `img-slideXX.jpg` na pasta do carrossel. Resultado superior ao de qualquer geração IA.
+
+---
+
+#### Post estático
+
+```
+/gerador-de-prompts-para-imagens-de-produto   ← ou /gerador-de-prompts-de-imagem
+    ↓ [aprova prompt]
+/gpt-image2-unity                             ← gera foto de fundo
+    ↓ [aprova imagem]
+/estatico-unity                               ← monta HTML + renderiza PNG
+    ↓
+/legenda-para-post-estatico
+```
+
+---
+
+#### Vídeo (Reels / TikTok)
+
+```
+/hooks-para-instagram-reels   ← hook do primeiro frame + frase de abertura
+    ↓ [escolhe hook]
+/roteiro-unity                ← roteiro completo (motor: ogilvy-copy ou schwartz-copy)
+    ↓
+/legenda-para-reel
+```
+
+---
+
+### Etapa 3 — Distribuição (opcional)
+
+```
+/1-conteudo-em-7-formatos   ← transforma o conteúdo aprovado em 7 formatos diferentes
+    ↓
+/publicar-social-unity       ← publica no Instagram, TikTok, LinkedIn
+```
+
+---
+
+### Fluxo alternativo — fundo de funil
+
+```
+/banco-de-objecoes-do-avatar      ← mapeia objeções por ICP
     ↓ [escolhe objeção]
-/carrossel-de-quebra-de-objecao
+/carrossel-de-quebra-de-objecao   ← carrossel em 3 movimentos: nomeação → reframe → prova
     ↓
 /carrossel-unity  +  /legenda-para-carrossel
 ```
+
+---
 
 **Aprovação humana obrigatória** em cada etapa — o fluxo para e aguarda antes de avançar.
 
