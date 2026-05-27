@@ -14,7 +14,7 @@
 | 01 | 01/06 | Seg | Educacional | Carrossel | Conforto real vs. conforto prometido em catálogo — o que a ficha técnica revela | A fazer |
 | 02 | 02/06 | Ter | Educacional | Carrossel 7 slides ★ | **5 critérios que separam uma esquadria comum de uma de alto padrão** — Série "O que diferencia" Post 1/4 | Briefing aprovado · HTML a refazer |
 | 03 | 03/06 | Qua | Educacional | Carrossel | O que é Ug e por que poucos arquitetos especificam a transmitância térmica | ✅ Pronto (carrossel eficiencia-energetica) |
-| 04 | 04/06 | Qui | **Venda** | Post estático | Solicite especificação técnica Ecoframe — venda consultiva, não apenas produto | A fazer · **Pico de conversão** |
+| 04 | 04/06 | Qui | **Venda** | Carrossel | Solicite especificação técnica Ecoframe — venda consultiva, não apenas produto | A fazer · **Pico de conversão** |
 | 05 | 05/06 | Sex | Educacional | Carrossel | Steel Frame e Drywall: por que a compatibilidade da esquadria define o resultado final | A fazer |
 | 06 | 06/06 | Sab | Educacional | Post estático | Vedação perimetral — o detalhe mais ignorado na especificação | A fazer |
 

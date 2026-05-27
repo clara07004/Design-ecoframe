@@ -37,6 +37,33 @@ Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o
 
 ---
 
+## Conhecimento técnico do produto (consulta obrigatória)
+
+**Antes de gerar calendário, briefing, roteiro, carrossel ou post estático**, ler os arquivos relevantes em `produtos/`. Esse diretório consolida toda a documentação técnica oficial (catálogos, manuais, relatórios PSQ) da Primeira Linha e da Sincol.
+
+A Ecoframe é uma marca de **alto padrão** com ticket alto — o conteúdo precisa:
+
+- **Ser realista e verdadeiro:** nunca inventar dimensões, ensaios, classes de vento ou valores de isolação acústica. Tudo precisa estar lastreado em `produtos/`
+- **Conter especificações técnicas reais:** citar linhas (iTEC / euroTEC / TECplus-100 / MAXXI), perfis (FC-55/75/100/130), normas (NBR 10821, EN 12608, NBR 15.575), valores ensaiados (Rw 32-36 dB, 1820 Pa de vento, soldabilidade 44-47 MPa)
+- **Permitir que o cliente conheça o produto pelo post:** o conteúdo é parte da qualificação do lead, não decoração visual
+- **Manter o posicionamento premium:** vocabulário técnico-arquitetônico, sem foco em preço, sem comparações genéricas sem lastro
+
+Arquivos de consulta principais:
+- `produtos/README.md` — índice de todos os tópicos
+- `produtos/visao-geral.md` — características e vantagens do PVC
+- `produtos/tipologias-aplicacoes.md` — janelas/portas com limites dimensionais por linha
+- `produtos/normas-desempenho.md` — NBR + EN + classes de vento por região
+- `produtos/linhas-perfis/linha-{itec,eurotec,tecplus100,maxxi}.md` — uma por linha técnica
+- `produtos/perfis-acessorios-vidros.md` — códigos completos
+- `produtos/instalacao-manutencao/relatorios-tecnicos.md` — resumo PSQ (Rw, Pa, ensaios)
+- `produtos/certificacao-aqua.md` — AQUA/HQE para conteúdo de sustentabilidade
+- `produtos/portas-sincol/` — coleções Sincol (Touch, Sincolors, Impressione, Sinkit, Kit Fogo)
+- `produtos/fotos-obras/` — acervo visual real (priorizar sobre IA quando possível)
+
+**Frases genéricas para revisar:** "qualidade superior", "máxima durabilidade", "tecnologia avançada" sem citar dado técnico = reescrever com número real do PSQ ou da norma.
+
+---
+
 ## Skills disponíveis
 
 **Skills do sistema CCOS (genéricas):**
@@ -94,6 +121,18 @@ Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o
 /briefing-unity                    ← define objetivo, mensagem e formato
     ↓ [aprova briefing]
 ```
+
+**REGRA OBRIGATÓRIA — Calendário de novo mês entrega SEMPRE 3 arquivos**
+
+Toda vez que rodar `/calendario-comercial` para um mês (ou qualquer período fechado), gerar dentro de `conteudo/calendarios/[periodo]/`:
+
+1. **`calendario-detalhado.md`** — post a post, numerado, com tema/formato/janela/status (alimenta os `/briefing-unity` posteriores)
+2. **`_aprovado.md`** — memória da aprovação: tema narrativo, mix, apagões, picos, ajustes feitos, o que evitar
+3. **`dashboard.html`** — grid visual do mês inteiro, derivado direto do `calendario-detalhado.md`, usando o template `templates/dashboard-calendario.html` (identidade visual da marca, canvas 1920×1080)
+
+O dashboard **não é opcional** — é entrega obrigatória junto com o calendário, mesmo que o usuário não peça explicitamente. Após gerar o HTML, perguntar se renderiza o PNG via Playwright (esse passo sim é opcional).
+
+A skill `/calendario-comercial` já tem a especificação completa na seção "8. ENTREGAS OBRIGATÓRIAS" — seguir literalmente.
 
 ---
 

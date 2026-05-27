@@ -379,7 +379,11 @@ web_search("X twitter [setor do cliente] debate tendência [mês] [ano]")
 **Passo 5: Revisar e Salvar (5min)**
 - Verifica se toda ação tem "por quê agora"
 - Confirma que apagões estão marcados
-- Salva no Google Drive
+- Gera as 3 entregas em `conteudo/calendarios/[periodo]/`:
+  1. `calendario-detalhado.md` (post a post — alimenta os briefings)
+  2. `_aprovado.md` (memória da aprovação, gerado após o ok do usuário)
+  3. `dashboard.html` (grid visual derivado do detalhado — usar `templates/dashboard-calendario.html`)
+- Perguntar se renderiza o `dashboard.png` via Playwright
 
 ---
 
@@ -461,7 +465,114 @@ web_search("X twitter [setor do cliente] debate tendência [mês] [ano]")
 
 ---
 
-## 8. CHECKLIST FINAL
+## 8. ENTREGAS OBRIGATÓRIAS DO CALENDÁRIO
+
+Todo calendário fechado entrega **três arquivos** dentro de `conteudo/calendarios/[periodo]/`:
+
+### 8.1 `calendario-detalhado.md` — o post a post
+
+Gerado **junto com a aprovação do calendário**, é o desdobramento dia a dia que vai alimentar os `/briefing-unity` posteriores. Estrutura:
+
+```markdown
+# Calendário Detalhado — [Mês/Ano] | [Empresa]
+**Tema narrativo:** "[fio condutor]"
+**Mix:** XX% Educacional · XX% Venda · XX% Institucional
+**Frequência:** Xx/semana · X posts · [plataforma]
+
+---
+
+## SEMANA 1 — DD a DD/MM
+**Janela:** 🟢/🟡/🔴 | [resumo da semana]
+**Foco:** [o que essa semana entrega]
+
+| Nº | Data | Dia | Tipo | Formato | Tema | Status |
+|----|------|-----|------|---------|------|--------|
+| 01 | DD/MM | Seg | Educacional | Carrossel | [tema do post] | A fazer |
+| ... |
+
+---
+
+## Resumo do mês
+
+| Tipo | Posts | % |
+|------|-------|---|
+| Educacional | X | XX% |
+| Venda | X | XX% |
+| Institucional | X | XX% |
+| **Total** | **X** | — |
+
+**Formatos:** [contagem por formato]
+**Hooks Copa/data sazonal:** [posts que usam o gancho do mês]
+**Apagões marcados:** [datas com restrição de horário]
+**Picos de conversão:** [datas marcadas como 🏆]
+```
+
+Regras:
+- Numerar todos os posts sequencialmente (01, 02, …)
+- Marcar com ⚠️ os dias com apagão e detalhar o limite de horário
+- Marcar com 🏆 os posts de pico de conversão e os hooks da data sazonal
+- Status inicial: `A fazer` · após produzir: `Pronto` · após publicar: `Publicado`
+- Se já existir asset pronto para algum dia, registrar o caminho no campo Status
+
+### 8.2 `_aprovado.md` — a memória da aprovação
+
+```markdown
+# Calendário aprovado — [Mês/Ano] | [Empresa]
+Aprovado em: DD/MM/AAAA
+
+## Tema narrativo aprovado
+"[fio condutor]" — [justificativa em uma linha]
+
+## Mix aprovado
+XX% Educacional / XX% Venda / XX% Institucional | Frequência: Xx/semana | X posts no mês
+
+## Ajustes feitos
+[X foi corrigido para Y — ou "Nenhum"]
+
+## Apagões confirmados
+- DD/MM Dia — [evento] [hora] → [orientação]
+
+## Picos de conversão aprovados
+- DD/MM (Dia) — [contexto da janela]
+
+## O que evitar
+- [janelas ou ângulos rejeitados]
+
+## Próximos passos
+Rodar /briefing-unity para cada dia do calendário antes de produzir qualquer asset.
+```
+
+### 8.3 `dashboard.html` (+ `dashboard.png`) — a visão de mês inteiro
+
+Grid de calendário renderizável com identidade visual da marca. Derivado **direto** do `calendario-detalhado.md`. Estrutura obrigatória:
+
+- **Header:** mês/ano + tema narrativo + mix + frequência total
+- **Grid 7 colunas (Dom–Sab)** com uma célula por dia:
+  - Número do dia em destaque
+  - Tipo do post (EDU / VND / INST) como tag colorida
+  - Formato (carrossel / post / reel) como ícone ou label pequena
+  - Janela da semana indicada pela cor da borda esquerda ou fundo sutil (🟢/🟡/🔴)
+  - Badge ⚠️ se for dia com apagão (com horário-limite)
+  - Badge 🏆 se for pico de conversão ou hook sazonal
+  - Status visual: ✅ pronto · 🔧 em produção · ⏳ a fazer
+- **Rodapé/legenda:**
+  - Resumo do mix com mini barra
+  - Lista de picos do mês
+  - Lista de apagões com horários
+  - Próximos a produzir (próximos 3)
+
+Tipografia: Poppins (títulos) + Montserrat (corpo). Paleta: Azul Ecoframe `#4A61A0`, Verde `#2C6D14`, Off-white `#F5F5F0`, Ink `#1A1A1A`. Fundo off-white texturizado leve. Logo Ecoframe no canto superior direito.
+
+**Template de apoio:** `templates/dashboard-calendario.html` — usar como base, substituir os campos `{{...}}` pelos dados do mês.
+
+**Renderização do PNG:** após gerar o HTML, perguntar:
+> "Dashboard HTML pronto em `[caminho]/dashboard.html`. Quer que eu renderize o PNG agora via Playwright?"
+
+Só renderizar após confirmação. Canvas padrão: 1920×1080 (formato landscape — visão de painel, não Instagram).
+
+---
+
+## 9. CHECKLIST FINAL
 
 Antes de entregar qualquer calendário, confirme:
 
@@ -471,24 +582,11 @@ Antes de entregar qualquer calendário, confirme:
 - [ ] Não sugeri 2 lançamentos simultâneos
 - [ ] Alertei sobre riscos e conflitos de datas
 - [ ] Criei tema narrativo que conecta as ações
-- [ ] Calendário está formatado e legível
 - [ ] Comparei com período anterior (se houver histórico)
-- [ ] Salvei `conteudo/calendarios/[periodo]/_aprovado.md` após aprovação do calendário
-
-Estrutura do `_aprovado.md`:
-```markdown
-# Execução aprovada — [data]
-
-## Copy aprovada
-- Tema narrativo aprovado: "[fio condutor]"
-- Ajustes feitos: [X foi corrigido para Y — ou "nenhum"]
-
-## O que funcionou bem
-- [slots ou ângulos que passaram sem discussão]
-
-## O que evitar
-- [janelas ou abordagens rejeitadas]
-```
+- [ ] Gerei `conteudo/calendarios/[periodo]/calendario-detalhado.md` (post a post)
+- [ ] Salvei `conteudo/calendarios/[periodo]/_aprovado.md` após aprovação
+- [ ] Gerei `conteudo/calendarios/[periodo]/dashboard.html` derivado do detalhado
+- [ ] Perguntei se renderizo o `dashboard.png` (sem renderizar sem confirmação)
 
 ---
 
@@ -502,6 +600,11 @@ Esta skill funciona em conjunto com:
 ---
 
 ## Atualizações da Skill
+
+**v1.2** (Maio 2026)
+- Formalizadas as 3 entregas obrigatórias do calendário: `calendario-detalhado.md`, `_aprovado.md` e `dashboard.html` (+ `dashboard.png` opcional)
+- Adicionado template `templates/dashboard-calendario.html` como base do grid visual
+- Dashboard derivado direto do `calendario-detalhado.md` — fonte única de verdade
 
 **v1.1** (Maio 2026)
 - Adicionada fonte de pesquisa: X (Twitter) — debates e tendências em tempo real

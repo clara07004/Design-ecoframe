@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>{{MES_ANO}} — Dashboard | Ecoframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #4A61A0;
+    --primary-soft: rgba(74, 97, 160, 0.08);
+    --primary-line: rgba(74, 97, 160, 0.18);
+    --secondary: #2C6D14;
+    --canvas: #F5F5F0;
+    --surface: #FFFFFF;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --warn: #C0392B;
+    --warm: #D69A2C;
+    --cool: #6B6B6B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1920px;
+    height: 1080px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    background: var(--canvas);
+    background-image:
+      linear-gradient(135deg, transparent 49%, var(--primary-line) 49%, var(--primary-line) 51%, transparent 51%),
+      linear-gradient(45deg, transparent 49%, var(--primary-line) 49%, var(--primary-line) 51%, transparent 51%);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--canvas);
+    opacity: 0.92;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    width: 1920px;
+    height: 1080px;
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    grid-template-rows: auto 1fr;
+    gap: 32px;
+  }
+
+  /* HEADER */
+  .header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--primary-line);
+  }
+  .header-left .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .header-left h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .header-left .theme {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+  .header-right {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .meta-pill {
+    background: var(--surface);
+    border: 1px solid var(--primary-line);
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .meta-pill strong { color: var(--primary); }
+
+  /* GRID DE DIAS */
+  .calendar {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    align-content: stretch;
+  }
+  .weekday {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 0 4px 6px;
+  }
+  .day {
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid #E5E5E0;
+    border-left: 4px solid #E5E5E0;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    min-height: 120px;
+  }
+  .day.empty {
+    background: transparent;
+    border: 1px dashed rgba(0,0,0,0.08);
+    border-left: 1px dashed rgba(0,0,0,0.08);
+  }
+  /* janelas */
+  .day.hot { border-left-color: #4F9A4F; }
+  .day.warm { border-left-color: var(--warm); }
+  .day.cold { border-left-color: var(--warn); }
+
+  .day-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .day-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .day-post-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+  }
+  .day-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 3px;
+    width: fit-content;
+  }
+  .tag-edu { background: var(--primary-soft); color: var(--primary); }
+  .tag-vnd { background: var(--primary); color: #fff; }
+  .tag-inst { background: rgba(44, 109, 20, 0.12); color: var(--secondary); }
+
+  .day-format {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .day-theme {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-top: 2px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .badges {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 4px;
+  }
+  .badge {
+    font-size: 11px;
+    line-height: 1;
+    padding: 3px 5px;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid var(--primary-line);
+  }
+  .badge.peak { background: #FFF4D6; border-color: var(--warm); }
+  .badge.warn { background: #FBE9E7; border-color: var(--warn); }
+  .badge.done { background: #E5F2E5; border-color: #4F9A4F; color: #2C6D14; font-weight: 700; padding: 2px 5px; }
+  .badge.wip { background: #FFF4D6; border-color: var(--warm); font-weight: 700; padding: 2px 5px; }
+
+  /* SIDEBAR */
+  .sidebar {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid #E5E5E0;
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .mix-bar {
+    height: 14px;
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    background: var(--canvas);
+    margin-bottom: 10px;
+  }
+  .mix-bar > div { height: 100%; }
+  .mix-bar .edu { background: var(--primary-soft); border-right: 1px solid #fff; }
+  .mix-bar .vnd { background: var(--primary); border-right: 1px solid #fff; }
+  .mix-bar .inst { background: var(--secondary); }
+  .mix-legend {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--ink);
+  }
+  .mix-legend span { display: flex; align-items: center; gap: 5px; }
+  .mix-legend .dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+  .mix-legend .dot.edu { background: var(--primary-soft); border: 1px solid var(--primary); }
+  .mix-legend .dot.vnd { background: var(--primary); }
+  .mix-legend .dot.inst { background: var(--secondary); }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid #F0F0EB;
+    font-size: 12px;
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .label { color: var(--muted); letter-spacing: 0.05em; }
+  .stat-row .value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .list-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #F0F0EB;
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
+  .list-item:last-child { border-bottom: none; }
+  .list-item .date {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 12px;
+  }
+  .list-item .desc { color: var(--ink); margin-top: 2px; }
+  .list-item .extra { color: var(--muted); font-size: 10.5px; margin-top: 1px; }
+
+  /* Janela legenda */
+  .windows {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .win {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--ink);
+  }
+  .win .swatch {
+    width: 4px;
+    height: 16px;
+    border-radius: 2px;
+  }
+  .win.hot .swatch { background: #4F9A4F; }
+  .win.warm .swatch { background: var(--warm); }
+  .win.cold .swatch { background: var(--warn); }
+
+  /* Logo */
+  .logo-corner {
+    position: absolute;
+    top: 28px;
+    right: 56px;
+    height: 36px;
+    opacity: 0.92;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="eyebrow">Calendário Editorial · Ecoframe</div>
+      <h1>{{MES_ANO}}</h1>
+      <div class="theme">"{{TEMA_NARRATIVO}}"</div>
+    </div>
+    <div class="header-right">
+      <div class="meta-pill"><strong>{{TOTAL_POSTS}}</strong> posts · {{FREQUENCIA}}</div>
+      <div class="meta-pill">{{MIX_RESUMO}}</div>
+    </div>
+  </header>
+
+  <!-- CALENDÁRIO -->
+  <section class="calendar">
+    <div class="weekday">Dom</div>
+    <div class="weekday">Seg</div>
+    <div class="weekday">Ter</div>
+    <div class="weekday">Qua</div>
+    <div class="weekday">Qui</div>
+    <div class="weekday">Sex</div>
+    <div class="weekday">Sab</div>
+
+    <!--
+      Para cada dia do mês — usar uma das estruturas abaixo:
+
+      DIA VAZIO (offset inicial / fim do mês):
+        <div class="day empty"></div>
+
+      DIA COM POST:
+        <div class="day {{JANELA}}">  <- janela = hot | warm | cold
+          <div class="badges">
+            {{BADGE_PEAK}}    <- <div class="badge peak">🏆</div> ou ""
+            {{BADGE_WARN}}    <- <div class="badge warn">⚠</div> ou ""
+            {{BADGE_STATUS}}  <- <div class="badge done">✓</div> | <div class="badge wip">●</div> | ""
+          </div>
+          <div class="day-head">
+            <div class="day-num">{{DIA}}</div>
+            <div class="day-post-num">#{{NUM_POST}}</div>
+          </div>
+          <span class="day-tag {{TAG_CLASS}}">{{TIPO}}</span>   <- tag-edu | tag-vnd | tag-inst
+          <div class="day-format">{{FORMATO}}</div>
+          <div class="day-theme">{{TEMA_RESUMIDO}}</div>
+        </div>
+
+      DIA SEM POST (sem publicação prevista):
+        <div class="day">
+          <div class="day-head">
+            <div class="day-num">{{DIA}}</div>
+          </div>
+        </div>
+    -->
+
+  </section>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="card">
+      <h3>Mix de Conteúdo</h3>
+      <div class="mix-bar">
+        <div class="edu" style="width: {{PCT_EDU}}%;"></div>
+        <div class="vnd" style="width: {{PCT_VND}}%;"></div>
+        <div class="inst" style="width: {{PCT_INST}}%;"></div>
+      </div>
+      <div class="mix-legend">
+        <span><span class="dot edu"></span> EDU {{PCT_EDU}}%</span>
+        <span><span class="dot vnd"></span> VND {{PCT_VND}}%</span>
+        <span><span class="dot inst"></span> INST {{PCT_INST}}%</span>
+      </div>
+      <div style="margin-top: 14px;">
+        <div class="stat-row"><span class="label">Carrosseis</span><span class="value">{{N_CARROSSEL}}</span></div>
+        <div class="stat-row"><span class="label">Posts estáticos</span><span class="value">{{N_ESTATICO}}</span></div>
+        <div class="stat-row"><span class="label">Reels</span><span class="value">{{N_REEL}}</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Janelas do mês</h3>
+      <div class="windows">
+        <div class="win hot"><span class="swatch"></span>Quente</div>
+        <div class="win warm"><span class="swatch"></span>Morna</div>
+        <div class="win cold"><span class="swatch"></span>Fria</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Picos de conversão 🏆</h3>
+      <!--
+        Para cada pico:
+        <div class="list-item">
+          <div class="date">{{DATA}}</div>
+          <div class="desc">{{CONTEXTO}}</div>
+        </div>
+      -->
+    </div>
+
+    <div class="card">
+      <h3>Apagões ⚠</h3>
+      <!--
+        Para cada apagão:
+        <div class="list-item">
+          <div class="date">{{DATA}}</div>
+          <div class="desc">{{EVENTO}}</div>
+          <div class="extra">Publicar até {{HORA_LIMITE}}</div>
+        </div>
+      -->
+    </div>
+
+    <div class="card">
+      <h3>Próximos a produzir</h3>
+      <!--
+        Para cada próximo (máx 3):
+        <div class="list-item">
+          <div class="date">#{{NUM}} · {{DATA}}</div>
+          <div class="desc">{{TEMA}}</div>
+        </div>
+      -->
+    </div>
+
+  </aside>
+
+</div>
+</body>
+</html>

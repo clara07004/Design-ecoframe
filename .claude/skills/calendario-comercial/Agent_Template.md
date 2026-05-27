@@ -293,7 +293,27 @@ Nunca sobrecarrega o calendário.
 
 ---
 
-## FORMATO DE ENTREGA DO CALENDÁRIO
+## ENTREGAS OBRIGATÓRIAS DO CALENDÁRIO
+
+**Toda vez que você fechar um calendário de mês (ou período), gere os TRÊS arquivos abaixo dentro de `conteudo/calendarios/[periodo]/`.** Nenhum é opcional — o dashboard inclusive entra mesmo que o usuário não peça.
+
+### 1. `calendario-detalhado.md` — post a post
+
+Desdobramento dia a dia do calendário, numerado sequencialmente (01, 02, …). Cada linha tem: data, dia da semana, tipo (EDU/VND/INST), formato (carrossel/post/reel), tema do post, status (A fazer / Pronto / Publicado). Marcar com ⚠️ os dias com apagão (e horário-limite) e com 🏆 os picos de conversão. É esse arquivo que alimenta os `/briefing-unity` posteriores.
+
+### 2. `_aprovado.md` — memória da aprovação
+
+Gerado **após o ok do usuário**. Contém: data da aprovação, tema narrativo aprovado, mix aprovado, ajustes feitos vs. versão original, apagões confirmados, picos de conversão aprovados, o que evitar.
+
+### 3. `dashboard.html` — visão de mês inteiro
+
+Grid visual derivado **direto do `calendario-detalhado.md`**, usando o template `templates/dashboard-calendario.html`. Identidade visual da marca (Poppins + Montserrat, Azul Ecoframe `#4A61A0`, off-white texturizado), canvas 1920×1080. Estrutura: header (mês + tema + mix), grid 7 colunas (Dom–Sab) com uma célula por dia, sidebar com mix em barra, picos, apagões e próximos a produzir.
+
+Após gerar o HTML, **perguntar** se renderiza o `dashboard.png` via Playwright (esse passo é opcional).
+
+---
+
+## FORMATO DA CONVERSA COM O USUÁRIO
 
 Quando solicitado, entregue no formato abaixo:
 
@@ -409,21 +429,19 @@ Quando identificar oportunidade fora do calendário padrão:
 
 ---
 
-## INTEGRAÇÃO COM GOOGLE DRIVE
+## ESTRUTURA DE ARQUIVOS DO CALENDÁRIO
 
-**Estrutura esperada:**
+**Pasta única por mês:** `conteudo/calendarios/[mes-ano]/`
+
 ```
-/Google Drive/Calendários Comerciais/
-├── {{NOME_EMPRESA}}/
-│   ├── Diagnostico_Marketing_{{NOME_EMPRESA}}.gdoc
-│   ├── Calendario_[Mes]_[Ano]_v1.gdoc
-│   └── Calendario_[Mes]_[Ano]_v2.gdoc (ajustado)
+conteudo/calendarios/junho-2026/
+├── calendario-detalhado.md   ← post a post
+├── _aprovado.md              ← memória da aprovação
+├── dashboard.html            ← grid visual derivado do detalhado
+└── dashboard.png             ← opcional, renderizado via Playwright após confirmação
 ```
 
-**Quando salvar calendário:**
-- Use nomenclatura: `Calendario_[MesAno]_v[Numero].gdoc`
-- Exemplo: `Calendario_Junho2026_v1.gdoc`
-- Se for ajuste: incremente versão (v2, v3...)
+Para ajustes posteriores, **versionar dentro do mesmo arquivo** (manter histórico em rodapé) — não criar `v1`, `v2`.
 
 ---
 
@@ -435,10 +453,11 @@ Quando identificar oportunidade fora do calendário padrão:
 - [ ] Não sugeri 2 lançamentos simultâneos
 - [ ] Alertei sobre riscos e conflitos de datas
 - [ ] Criei tema narrativo que conecta as ações
-- [ ] Calendário está formatado e legível
 - [ ] Respeitei tom de voz de {{NOME_EMPRESA}}
 - [ ] Considerei capacidade operacional
 - [ ] Cruzei produtos com momentos culturais
+- [ ] **Gerei os 3 arquivos obrigatórios:** `calendario-detalhado.md`, `_aprovado.md`, `dashboard.html`
+- [ ] **Perguntei se renderizo o `dashboard.png`** (sem renderizar sem confirmação)
 
 ---
 
