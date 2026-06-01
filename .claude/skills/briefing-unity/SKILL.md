@@ -10,7 +10,7 @@ description: >
 
 # briefing-unity
 
-Gera o briefing completo de um conteúdo para redes sociais do Grupo Unity a partir do output do `calendario-comercial` e do contexto de marca fornecido pelo CCOS.
+Gera o briefing completo de um conteúdo para redes sociais da empresa ativa, a partir do output do `calendario-comercial` e do contexto de marca em `_contexto/`.
 
 ---
 
@@ -124,14 +124,14 @@ Quando a Fase 7 da biblioteca estiver concluída:
 
 ---
 
-## Contexto de marca (empresa piloto)
+## Contexto de marca
 
-**Empresa:** Construção a seco (drywall / steel frame)
-**Público:** Construtores, engenheiros, arquitetos, clientes finais interessados em reforma/construção
-**Tom:** Técnico mas acessível, autoridade sem arrogância, foco em praticidade e resultado
-**Restrições:** Não prometer prazos ou preços; não usar imagens de obras com EPI incorreto
+Ler obrigatoriamente antes de gerar qualquer briefing:
+- `_contexto/empresa.md` — quem é a empresa, ICP, posicionamento, restrições
+- `_contexto/preferencias.md` — tom de voz, palavras proibidas, estilo
+- `_contexto/estrategia.md` — foco atual e prioridades
 
-> Este bloco será substituído pelo contexto CCOS da empresa ativa quando o multi-empresa estiver em operação.
+Não usar contexto genérico. Todos os dados de empresa vêm desses arquivos.
 
 ---
 
@@ -149,4 +149,4 @@ Contexto: mãe que quer reformar sem obra longa, público feminino 35-50
 
 ---
 
-*Skill: briefing-unity | Projeto: Unity Content | MVP*
+*Skill: briefing-unity*

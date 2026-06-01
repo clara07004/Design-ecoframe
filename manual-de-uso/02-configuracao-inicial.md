@@ -16,7 +16,7 @@ node --version
 # Deve retornar: v18.x.x ou superior
 ```
 
-**SDK da OpenAI para Python**
+**SDK da OpenAI para Python** (inclui `httpx` — usado também nos scripts de publicação)
 ```powershell
 python -m pip install openai
 ```
@@ -59,18 +59,44 @@ Usado pelo motor `nanobanana-unity` quando a OpenAI falha.
 
 Usado pela skill `/publicar-social-unity` para publicar no Instagram.
 
-1. Acesse [developers.facebook.com](https://developers.facebook.com)
-2. Crie um app ou use um existente com permissões de Instagram Graph API
-3. Gere um token de longa duração (long-lived token) via Graph API Explorer
-4. Cole em `credentials/meta.txt` no formato:
-```
-META_APP_ID=xxxxx
-META_APP_SECRET=xxxxx
-META_ACCESS_TOKEN=xxxxx
-IMGBB_API_KEY=xxxxx
+**3 arquivos necessários em `credentials/`:**
+
+#### `credentials/meta_access_token.txt` — token Meta long-lived
+
+1. Acesse [developers.facebook.com](https://developers.facebook.com) → seu app → Graph API Explorer
+2. Selecione seu app e gere um token com as permissões:
+   - `instagram_basic`
+   - `instagram_content_publish`
+   - `pages_read_engagement`
+   - `pages_show_list`
+3. Converta para long-lived token (válido 60 dias):
+   ```
+   GET https://graph.facebook.com/v22.0/oauth/access_token
+     ?grant_type=fb_exchange_token
+     &client_id={SEU_APP_ID}
+     &client_secret={SEU_APP_SECRET}
+     &fb_exchange_token={TOKEN_CURTO}
+   ```
+4. Salve só o token em `credentials/meta_access_token.txt` (sem espaços)
+
+**Atenção:** expira em 60 dias — renove antes do vencimento.
+
+#### `credentials/meta_ig_user_id.txt` — ID do usuário Instagram
+
+Execute o script de descoberta automática:
+```powershell
+python ".claude/skills/publicar-social-unity/descobrir-ig-user-id.py"
 ```
 
-**Atenção:** o META_ACCESS_TOKEN expira em 60 dias. Renove via Graph API Explorer antes de expirar.
+O script lê o token e salva o IG User ID automaticamente. Requer que a conta Instagram Business/Creator esteja vinculada a uma Página do Facebook em [business.facebook.com](https://business.facebook.com).
+
+#### `credentials/imgbb_api_key.txt` — chave imgbb para hospedar imagens
+
+1. Acesse [imgbb.com](https://imgbb.com) → faça login → clique no avatar → API
+2. Gere uma chave (gratuito)
+3. Salve em `credentials/imgbb_api_key.txt`
+
+O imgbb hospeda as imagens publicamente para que o Instagram possa buscá-las durante a publicação. O plano gratuito é suficiente para uso normal.
 
 ---
 
@@ -189,6 +215,9 @@ Antes de usar o sistema pela primeira vez, marque cada item:
 - [ ] `python -m pip install openai` executado
 - [ ] `npx.cmd playwright install chromium` executado
 - [ ] `credentials/openai_key.txt` preenchido com a chave da OpenAI
+- [ ] (quando for usar publicação) `credentials/meta_access_token.txt` preenchido
+- [ ] (quando for usar publicação) `credentials/meta_ig_user_id.txt` preenchido via `descobrir-ig-user-id.py`
+- [ ] (quando for usar publicação) `credentials/imgbb_api_key.txt` preenchido
 - [ ] `_contexto/empresa.md` preenchido e revisado
 - [ ] `_contexto/preferencias.md` preenchido e revisado
 - [ ] `_contexto/estrategia.md` preenchido e revisado

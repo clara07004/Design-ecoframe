@@ -87,9 +87,17 @@ VARIAÇÃO DE PRIMEIRA LINHA:
 
 ---
 
+## Limites técnicos obrigatórios
+
+- **Máximo absoluto:** 2.200 caracteres (limite do Instagram)
+- **Alvo real:** 400–800 caracteres — Reel já tem o vídeo fazendo o trabalho pesado; legenda complementa, não compete
+- **Máximo de hashtags:** 30 — usar entre 5 e 10, sempre no final
+- Antes de entregar, verificar o tamanho. Reel com legenda longa perde leitura — quem assistiu o vídeo não quer ler um ensaio.
+
 ## O Que Não Fazer
 
 - Repetir o roteiro do vídeo — a legenda complementa, não duplica
 - Mais de um CTA
 - "Link na bio" sem instrução do que fazer lá
 - Promessas absolutas de desempenho sem base técnica (ver `_contexto/preferencias.md`)
+- Ultrapassar 900 caracteres sem necessidade real

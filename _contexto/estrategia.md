@@ -1,4 +1,5 @@
 # Estratégia atual — Ecoframe
+**Última revisão:** Maio 2026 — revisar a cada trimestre ou quando a estratégia mudar
 
 ## Foco principal
 Construir autoridade no território de **premium técnico** para esquadrias em PVC. Sair da disputa de produto (preço, prazo, variedade) e ocupar o espaço de desempenho técnico aplicado à arquitetura contemporânea.

@@ -1,6 +1,10 @@
 {
   "hooks": {},
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "deny": [
+      "Bash(*publicar-instagram.py*)",
+      "Bash(*descobrir-ig-user-id.py*)"
+    ]
   }
 }

@@ -100,6 +100,13 @@ VARIAÇÃO DE PRIMEIRA LINHA:
 
 ---
 
+## Limites técnicos obrigatórios
+
+- **Máximo absoluto:** 2.200 caracteres (limite do Instagram)
+- **Alvo real:** 800–1.400 caracteres — post estático suporta legenda mais longa que carrossel, mas ainda deve ser enxuta
+- **Máximo de hashtags:** 30 — usar entre 5 e 10, sempre no final
+- Antes de entregar, verificar mentalmente o tamanho. Se passou de 1.500 caracteres, há redundância — cortar.
+
 ## O Que Não Fazer
 
 - Começar com o nome da marca ou "ei"
@@ -107,3 +114,4 @@ VARIAÇÃO DE PRIMEIRA LINHA:
 - Descrever a imagem na legenda — a imagem já se descreve
 - Mais de um CTA
 - Promessas absolutas de desempenho sem base técnica (ver `_contexto/preferencias.md`)
+- Ultrapassar 1.500 caracteres sem justificativa real de conteúdo

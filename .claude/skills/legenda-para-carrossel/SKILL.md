@@ -90,9 +90,17 @@ VARIAÇÃO DE PRIMEIRA LINHA:
 
 ---
 
+## Limites técnicos obrigatórios
+
+- **Máximo absoluto:** 2.200 caracteres (limite do Instagram)
+- **Alvo real:** 600–1.000 caracteres — legenda de carrossel compete com os slides; deve ser breve e direta
+- **Máximo de hashtags:** 30 — usar entre 5 e 10, sempre no final, sem misturar com o corpo
+- Antes de entregar, contar os caracteres mentalmente. Se passar de 1.200, cortar — a legenda não deve ser o conteúdo principal, os slides são.
+
 ## O Que Não Fazer
 
 - Repetir o texto do cover ou dos slides — a legenda adiciona, não duplica
 - CTA genérico ("salva esse post") sem razão específica para salvar
 - Revelar tudo na legenda antes de o leitor deslizar
 - Prometer desempenho técnico sem base (ex: "elimina 100% do ruído")
+- Ultrapassar 1.200 caracteres — se precisou de mais do que isso, o texto está redundante

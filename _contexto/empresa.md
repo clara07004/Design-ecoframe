@@ -64,6 +64,13 @@ O território é desempenho técnico aplicado à arquitetura contemporânea.
 - Site institucional / landing pages de captação
 - Materiais técnicos para arquitetos e construtores
 
+## Frequência e dias de postagem
+- **Plataforma principal:** Instagram
+- **Frequência:** 6x/semana
+- **Dias:** terça a domingo (Ter–Dom) — segunda-feira sem post
+- **Fins de semana:** sábado e domingo são publicados via agendamento (`--agendar`), não manualmente
+- **Horário de agendamento:** definido a cada post — não há horário fixo
+
 ---
 
 ## Credenciais disponíveis

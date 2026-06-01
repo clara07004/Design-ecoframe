@@ -487,7 +487,7 @@ Gerado **junto com a aprovação do calendário**, é o desdobramento dia a dia 
 
 | Nº | Data | Dia | Tipo | Formato | Tema | Status |
 |----|------|-----|------|---------|------|--------|
-| 01 | DD/MM | Seg | Educacional | Carrossel | [tema do post] | A fazer |
+| 01 | DD/MM | Ter | Educacional | Carrossel | [tema do post] | A fazer |
 | ... |
 
 ---
@@ -508,10 +508,12 @@ Gerado **junto com a aprovação do calendário**, é o desdobramento dia a dia 
 ```
 
 Regras:
+- **Dias de postagem: terça a domingo (Ter–Dom).** Não escalar posts para segunda-feira.
+- **Sábado e domingo:** marcar com 🕐 na coluna Status — esses posts precisam ser agendados via `/publicar-social-unity --agendar`, não publicados manualmente.
 - Numerar todos os posts sequencialmente (01, 02, …)
 - Marcar com ⚠️ os dias com apagão e detalhar o limite de horário
 - Marcar com 🏆 os posts de pico de conversão e os hooks da data sazonal
-- Status inicial: `A fazer` · após produzir: `Pronto` · após publicar: `Publicado`
+- Status inicial: `A fazer` · sábado/domingo: `🕐 Agendar` · após produzir: `Pronto` · após publicar: `Publicado`
 - Se já existir asset pronto para algum dia, registrar o caminho no campo Status
 
 ### 8.2 `_aprovado.md` — a memória da aprovação
@@ -600,6 +602,11 @@ Esta skill funciona em conjunto com:
 ---
 
 ## Atualizações da Skill
+
+**v1.3** (Maio 2026)
+- Dias de postagem alterados: Seg–Sab → **Ter–Dom**
+- Sábado e domingo marcados como `🕐 Agendar` no calendário detalhado
+- Template de linha atualizado: dia inicial passa a ser Ter
 
 **v1.2** (Maio 2026)
 - Formalizadas as 3 entregas obrigatórias do calendário: `calendario-detalhado.md`, `_aprovado.md` e `dashboard.html` (+ `dashboard.png` opcional)

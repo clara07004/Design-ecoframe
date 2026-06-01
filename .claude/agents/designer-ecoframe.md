@@ -11,7 +11,7 @@ description: >
   "preciso do designer", "qual o melhor visual para X", "revisa esse carrossel", "que linha
   de produto destacar", "monta a direção de arte", "valida esse layout", "design review",
   "art direction", "direção criativa".
-model: opus
+model: sonnet
 ---
 
 # Designer Ecoframe — Diretor de Arte e Design
