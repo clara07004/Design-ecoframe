@@ -56,10 +56,11 @@ O usuário fornece (pelo menos um):
    - Restrição da empresa: sem imagens de obras com EPI incorreto
    - Manter coerência com a identidade visual (cores do design guide se relevante)
 
-5. Definir o aspect ratio conforme a plataforma:
-   - Instagram feed (1:1): `square` → 1024×1024
-   - Instagram/TikTok story ou reels (9:16): `portrait` → 1024×1536
-   - LinkedIn capa ou banner (3:2 landscape): `landscape` → 1536×1024
+5. Definir o aspect ratio conforme o **canvas final** do conteúdo (não a "plataforma" genérica):
+   - Carrossel e post estático Instagram (canvas 1080×1350, 4:5 retrato): `portrait` → 1024×1536
+   - Story / Reels (9:16): `portrait` → 1024×1536
+   - LinkedIn banner (3:2 landscape): `landscape` → 1536×1024
+   - `square` (1024×1024) **só** se o canvas final for realmente 1:1 — nunca para carrossel/post (são 4:5)
 
 6. **CHECKPOINT:** Mostrar o prompt proposto ao usuário antes de gerar.
    Aguardar confirmação ou ajustes.

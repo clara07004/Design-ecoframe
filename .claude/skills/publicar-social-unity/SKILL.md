@@ -110,9 +110,20 @@ Antes de mostrar a confirmação ao usuário, verificar cada item. Se qualquer u
 [ ] Legenda tem menos de 2.200 caracteres
 [ ] Legenda tem no máximo 30 hashtags
 [ ] PNGs existem em disco e estão na ordem correta (slide-01, slide-02...)
+[ ] Todos os PNGs têm EXATAMENTE 1080×1350 — rodar validar-dimensao.py (comando abaixo); bloquear se algum estiver fora
+[ ] Nenhum texto cortado nas bordas/cantos nem sobreposto (conferência visual dos PNGs)
 [ ] Para sábado/domingo: --agendar está definido (publicação imediata bloqueada)
 [ ] Para terça a sexta: confirmar que não é fim de semana antes de publicar imediatamente
 ```
+
+**Validação de dimensão (obrigatória — o Instagram exige tamanho exato; tamanho errado é redimensionado e desloca/corta o texto):**
+```powershell
+# Carrossel (valida todos os slide-*.png da pasta):
+python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/carrosseis/[periodo]/[dia-tema]/instagram" 1080 1350
+# Post estático:
+python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/post-estatico/[periodo]/[dia-tema]/post-01.png" 1080 1350
+```
+Se o script retornar erro (exit 1), **não publicar** — voltar à skill de produção, corrigir o HTML e re-renderizar.
 
 Dados técnicos citados na legenda (Rw, Pa, normas, dimensões) devem ter correspondência nos slides aprovados — não verificar automaticamente, mas se houver dúvida flagrar para o operador confirmar.
 

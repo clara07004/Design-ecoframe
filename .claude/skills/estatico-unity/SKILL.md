@@ -19,12 +19,13 @@ description: >
 - **Fallback de imagem:** `.claude/skills/nanobanana-unity/` (Gemini, grátis)
 - **Playwright CLI:** renderização via `npx.cmd playwright screenshot`
 - **Node.js:** já instalado. PATH: `C:\Program Files\nodejs`
+- **Browser do Playwright:** se o render falhar com `Executable doesn't exist`, instalar o navegador uma vez: `npx.cmd playwright install chromium`
 
 ## Comando de renderização (Windows)
 
 ```powershell
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
-npx.cmd playwright screenshot --viewport-size=1080,1350 --full-page "file:///CAMINHO/post-01.html" "CAMINHO/post-01.png"
+npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO/post-01.html" "CAMINHO/post-01.png"
 ```
 
 Usar `npx.cmd` no PowerShell. Caminhos no `file:///` com barras normais `/`.
@@ -133,7 +134,7 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 6. Renderizar via Playwright:
 ```powershell
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
-npx.cmd playwright screenshot --viewport-size=1080,1350 --full-page "file:///CAMINHO/post-01.html" "CAMINHO/post-01.png"
+npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO/post-01.html" "CAMINHO/post-01.png"
 ```
 
 7. **CHECKPOINT:** mostrar o post renderizado. Usuário aprova ou pede ajuste.
@@ -176,6 +177,19 @@ conteudo/post-estatico/[periodo]/[dia]/
 
 ## Regras
 
+- **Tamanho exato 1080×1350, sem exceção.** O HTML tem `width:1080px; height:1350px; overflow:hidden`
+  e a renderização **não** usa `--full-page` (ela captura a altura do conteúdo e gera tamanho
+  errado). Após renderizar, rodar a validação — se o PNG não for exatamente 1080×1350, corrigir o
+  HTML e re-renderizar **antes** de seguir:
+  ```powershell
+  python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO/post-01.png" 1080 1350
+  ```
+  Tamanho errado = o Instagram redimensiona na publicação = texto deslocado/cortado.
+- **Texto nunca cortado nem sobreposto — regra inviolável.** Todo texto cabe inteiro no canvas,
+  com respiro nas bordas. Se não couber, **reduzir a quantidade de texto** (cortar palavras/linhas)
+  — NUNCA reduzir a fonte abaixo da escala mobile do DESIGN.md, NUNCA comprimir padding/espaçamento
+  até os elementos colidirem. No checkpoint, conferir visualmente: nada cortado nos cantos/bordas,
+  nada sobreposto. Se houver, é reprovado — refazer.
 - **Fundo de cor sólida é proibido.** O post estático SEMPRE tem foto de fundo gerada por IA. Cadeia de tentativas: GPT Image 2 → Nanobanana → image-gen-unity. Se um motor falhar, sinalizar ao usuário e tentar o próximo sem interromper o fluxo. Só parar se todos os três falharem.
 - Copy aprovada no Checkpoint da Fase 1 não muda na Fase 3 sem nova confirmação
 - Sempre mostrar o post renderizado antes de encerrar — nunca entregar sem aprovação

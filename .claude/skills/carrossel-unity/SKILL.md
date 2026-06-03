@@ -17,6 +17,7 @@ description: >
 - **Tom de voz:** `_contexto/preferencias.md`
 - **Playwright CLI:** renderização via `npx playwright screenshot`
 - **Node.js:** já instalado (v24.15.0). PATH: `C:\Program Files\nodejs`
+- **Browser do Playwright:** se o render falhar com `Executable doesn't exist`, instalar o navegador uma vez: `npx.cmd playwright install chromium`
 - **Geração de imagem (default):** `.claude/skills/gpt-image2-unity/gerar-imagem.py` + `credentials/openai_key.txt`
 - **Geração de imagem (fallback):** `.claude/skills/nanobanana-unity/` (Gemini, grátis — se GPT falhar)
 
@@ -24,11 +25,23 @@ description: >
 
 ```powershell
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
-npx.cmd playwright screenshot --viewport-size=1080,1350 --full-page "file:///CAMINHO_ABSOLUTO/slide-XX.html" "CAMINHO_ABSOLUTO/slide-XX.png"
+npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO_ABSOLUTO/slide-XX.html" "CAMINHO_ABSOLUTO/slide-XX.png"
 ```
+
+**NÃO usar `--full-page`.** Com `--full-page`, o Playwright captura a altura do *conteúdo*
+(não do viewport) — se o HTML errar a altura ou o texto transbordar, o PNG sai com tamanho
+errado (ex.: 1080×1080 ou 1080×1500). Sem `--full-page`, o `--viewport-size=1080,1350` garante
+**exatamente 1080×1350** sempre. Esse é o tamanho exato do feed do Instagram (retrato 4:5) e é
+**inegociável** — todo slide, capa e internos.
 
 Usar `npx.cmd` (não `npx`) no PowerShell do Windows para contornar a política de execução de scripts.
 Caminhos no `file:///` precisam usar barras normais `/`, não `\`.
+
+**Após renderizar, validar a dimensão de cada PNG (obrigatório):**
+```powershell
+python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO_ABSOLUTO/instagram" 1080 1350
+```
+Se qualquer slide sair diferente de 1080×1350, **não seguir** — corrigir o HTML e re-renderizar.
 
 ## Histórico de execuções
 
@@ -135,6 +148,13 @@ Salvar cada imagem em `conteudo/carrosseis/[periodo]/[dia]/instagram/img-slideXX
   - `heading.fontSize` (~70px): título principal dos slides internos
   - `body.fontSize` (~28px): corpo de texto
   - `body.lineHeight` (máx 1.3): acima disso o bloco fica arejado demais
+- **Texto nunca cortado nem sobreposto — regra inviolável.** Cada slide cabe inteiro em 1080×1350
+  com respiro nas bordas. Se o texto não couber, **cortar texto** (menos palavras/linhas) — NUNCA
+  reduzir a fonte abaixo da escala mobile, NUNCA comprimir padding/espaçamento até os elementos
+  colidirem. No checkpoint de cada slide, conferir: nada cortado nos cantos/bordas, nada sobreposto.
+- **Tamanho exato 1080×1350 em todos os slides** (capa e internos). `overflow:hidden` no body +
+  render sem `--full-page` + validação de dimensão (ver "Comando de renderização"). Slide fora de
+  1080×1350 = refazer, nunca redimensionar na publicação.
 - Cor de destaque: cor definida em `colors.accent` no DESIGN.md
 - **Layout diferente por slide.** Cada slide tem estrutura visual distinta — não repetir o mesmo template
 - **Sem espaço morto.** Quando a imagem não precisa respirar, centralizar o conteúdo verticalmente

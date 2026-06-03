@@ -242,7 +242,10 @@ estanqueidade) com **valor real** do PSQ. "Qualidade superior" sem número = ree
 3. **Nanobanana** (Gemini, grátis) — fallback se GPT falhar
 4. **image-gen-unity** (FAL, pago) — última contingência
 
-**Capa = `square` (1024×1024). Slides internos = `portrait` (1024×1536).**
+**Canvas de TODOS os slides = 1080×1350 (4:5 retrato), tamanho exato do feed Instagram — capa e
+internos.** A imagem de fundo gerada por IA é **sempre `portrait` (1024×1536)**, inclusive na capa
+— foto quadrada (`square`) num canvas retrato encaixa mal e força "ajustes" que cortam/sobrepõem.
+A foto cobre o canvas via `object-fit:cover` (corta um pouco do topo/base, nunca distorce).
 
 Nunca executar o script de imagem sem comando explícito do usuário — prompt e geração são
 etapas separadas.
