@@ -101,3 +101,11 @@ VARIAÇÃO DE PRIMEIRA LINHA:
 - "Link na bio" sem instrução do que fazer lá
 - Promessas absolutas de desempenho sem base técnica (ver `_contexto/preferencias.md`)
 - Ultrapassar 900 caracteres sem necessidade real
+
+---
+
+## Onde salvar
+
+Após aprovação, salvar a legenda como **`_legenda.md`** (sempre com underscore) na pasta do
+conteúdo: `conteudo/roteiros/[periodo]/[dia-tema]/_legenda.md`, sob a seção "LEGENDA APROVADA".
+É esse arquivo que o `/publicar-social-unity` lê na hora de publicar.

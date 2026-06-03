@@ -13,11 +13,17 @@ client_secret*.json
 # Drop zone de arquivos de análise (dados sensíveis da empresa)
 dados/
 
-# Arquivos gerados (imagens, outputs)
+# Arquivos gerados (imagens, outputs) — pesados, ficam fora do git (130MB+ em conteudo/)
 *.png
 *.jpg
 *.mp4
 output/
+
+# Exceção: logos da marca são leves (44KB) e essenciais para renderizar os HTMLs — versionar
+!marca/logos/*.png
+
+# Config local/pessoal do Claude Code (não versionar — é por máquina)
+.claude/settings.local.json
 
 # IDEs
 .vscode/

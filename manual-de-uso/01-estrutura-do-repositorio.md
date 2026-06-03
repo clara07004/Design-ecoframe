@@ -212,7 +212,7 @@ Mapeia as objeções do ICP em 6 tipos (valor, percepção, confiança técnica,
 Cria o mapa estratégico de conteúdo do mês. Pesquisa eventos culturais, esportivos e de entretenimento do período para identificar janelas quentes (🟢), mornas (🟡) e frias (🔴). Usa o framework MOMENTO para cruzar produto × momento cultural.
 
 ### `briefing-unity/`
-Gera o briefing completo de um conteúdo. Lê o output do calendário comercial e produz: gancho, copy base, formato recomendado, orientações visuais, hashtags e metadados. Salva o briefing aprovado em `conteudo/briefings/[tema]/`.
+Gera o briefing completo de um conteúdo. Lê o output do calendário comercial e produz: gancho, copy base, formato recomendado, orientações visuais, hashtags e metadados. Salva o briefing aprovado em `conteudo/[tipo]/[periodo]/[dia-tema]/`.
 
 **Hooks e capas**
 
@@ -306,32 +306,43 @@ Templates de `CLAUDE.md` para diferentes tipos de negócio: agência, empresa, f
 Criada automaticamente quando os primeiros conteúdos são gerados. Cada skill salva seu output numa subpasta organizada por tipo e tema.
 
 ```
-conteudo/
+conteudo/                                    ← convenção: conteudo/[tipo]/[periodo]/[dia-tema]/
   calendarios/
     junho-2026/
-      calendario.md           ← calendário gerado
-      _aprovado.md            ← registro do que foi aprovado
-  briefings/
-    pvc-vs-aluminio/
-      briefing.md
-      _aprovado.md
+      calendario-detalhado.md ← calendário post a post
+      _aprovado.md            ← registro da aprovação
+      dashboard.html          ← grid visual do mês
   carrosseis/
-    pvc-vs-aluminio/
-      carousel-text.md        ← texto aprovado
-      instagram/
-        img-slide01.png       ← imagem da capa (gerada por IA)
-        slide-01.html
-        slide-01.png          ← slide renderizado (arquivo final)
-        slide-02.html
-        slide-02.png
-        ...
-  imagens/
-    conforto-termico/
-      foto-fundo.png          ← foto gerada por IA
-      prompt.txt              ← prompt usado (para referência futura)
-      post-01.html            ← layout montado
-      post-01.png             ← post final (arquivo para publicar)
-      _aprovado.md            ← registro do que foi aprovado
+    junho/
+      dia-02-5-criterios-especificacao/
+        _briefing.md          ← briefing do conteúdo
+        _legenda.md           ← legenda aprovada (lida pelo /publicar-social-unity)
+        _prompts-imagens.md   ← prompts das imagens
+        _aprovado.md          ← registro do que foi aprovado
+        instagram/
+          img-slide01.jpg     ← foto de fundo (IA ou foto real do Drive)
+          slide-01.html
+          slide-01.png        ← slide renderizado (arquivo final)
+          slide-02.html
+          slide-02.png
+          ...
+  post-estatico/
+    junho/
+      dia-06-vedacao-perimetral/
+        _briefing.md
+        _legenda.md           ← legenda aprovada
+        _prompt.md            ← prompt da foto
+        img-post.png          ← foto de fundo
+        post-01.html          ← layout montado
+        post-01.png           ← post final (arquivo para publicar)
+        _aprovado.md
+  roteiros/
+    [periodo]/
+      [dia-tema]/
+        _briefing.md
+        roteiro-[plataforma].md
+        _legenda.md
+        _aprovado.md
 ```
 
 **Os arquivos `.png` no nível mais profundo de cada pasta são os arquivos finais** — prontos para publicar.

@@ -42,14 +42,15 @@ Antes da primeira resposta numa sessão nova, leia em paralelo, sem narrar a lei
 6. `produtos/README.md` — índice das 4 linhas (iTEC/euroTEC/TECplus-100/MAXXI) + Sincol
 7. `produtos/fotos-obras/README.md` — inventário visual de obras reais
 
-Da memória do usuário (`MEMORY.md`), carregar como contexto vivo:
-- `feedback_carousel_design_aprovado.md` — padrões CSS e tipográficos aprovados
-- `feedback_design_direcao.md` — direção visual premium, regra "foto + gradiente + texto"
-- `feedback_fonte_mobile.md` — escala mobile (headline 84–90px, body 44–46px)
-- `feedback_logo_path_html.md` — caminho `../../../../../marca/logos/logo-branco.png`
-- `feedback_consulta_produtos_obrigatoria.md` — dado técnico real, não genérico
-- `feedback_fluxo_principal_carrossel.md` — sequência de produção confirmada
-- `feedback_proporcoes_imagem.md`, `feedback_referencias_drive.md`, `feedback_calendario_comercial.md`
+Do lastro versionado em `.claude/memory/` (índice em `.claude/memory/MEMORY.md`), carregar
+como contexto vivo:
+- `.claude/memory/feedback_carousel_design_aprovado.md` — padrões CSS, catálogo de componentes, mapa de fotos
+- `.claude/memory/feedback_design_direcao.md` — direção visual premium, regra "foto + gradiente + texto"
+- `.claude/memory/feedback_fonte_mobile.md` — escala mobile (headline 84–90px, body 44–46px)
+- `.claude/memory/feedback_logo_path_html.md` — caminho `../../../../../marca/logos/logo-branco.png`
+- `.claude/memory/feedback_consulta_produtos_obrigatoria.md` — dado técnico real, não genérico
+- `.claude/memory/feedback_fluxo_principal_carrossel.md` — sequência de produção confirmada
+- `.claude/memory/feedback_proporcoes_imagem.md`, `.claude/memory/feedback_referencias_drive.md`, `.claude/memory/feedback_calendario_comercial.md`
 
 Não confirme a leitura ao usuário. Apenas use o contexto.
 
@@ -319,7 +320,7 @@ esquerda → left→right. Nunca overlay sólido cobrindo a imagem.
 ```
 
 Catálogo completo de cards comparativos, badges, pills e divisores em
-`memory/feedback_carousel_design_aprovado.md` — consultar antes de inventar componente novo.
+`.claude/memory/feedback_carousel_design_aprovado.md` — consultar antes de inventar componente novo.
 
 ---
 
@@ -416,7 +417,7 @@ Listar via MCP `mcp__claude_ai_Google_Drive__search_files` com
 `parentId = '1yMl_zKBySogepmeM7WTyihTYuXZFuZb6'`. Priorizar <300KB para entrar no contexto.
 Baixar com `download_file_content` e salvar como `img-slideXX.jpg` na pasta do carrossel.
 
-Mapa rápido de fotos já testadas (ver `feedback_carousel_design_aprovado.md`):
+Mapa rápido de fotos já testadas (ver `.claude/memory/feedback_carousel_design_aprovado.md`):
 - Térmica/luz/conforto → `1nltZFpm49n5g9UY9Q6tmh_5SpjZvuQJw`
 - Especificação/projeto → `1jNxW31bytaFUa4jgfrz_ghbJIAToKz7g`
 - CTA/alto padrão → `19sCZoDOK3is8HVpEAarQDT2U56PVQMxE`

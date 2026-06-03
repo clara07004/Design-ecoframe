@@ -33,13 +33,13 @@ Usar `npx.cmd` no PowerShell. Caminhos no `file:///` com barras normais `/`.
 
 ## Histórico de execuções
 
-Antes de iniciar, verificar se existe `conteudo/imagens/[tema]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar o prompt de imagem aprovado como ponto de partida, reproduzir o ângulo de copy aprovado, evitar o que estiver marcado em "O que evitar".
+Antes de iniciar, verificar se existe `conteudo/post-estatico/[periodo]/[dia]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar o prompt de imagem aprovado como ponto de partida, reproduzir o ângulo de copy aprovado, evitar o que estiver marcado em "O que evitar".
 
 ---
 
 ## Input
 
-- Briefing aprovado em `conteudo/[semana]/[post].md` (vindo do /briefing-unity)
+- Briefing aprovado em `conteudo/post-estatico/[periodo]/[dia]/_briefing.md` (vindo do /briefing-unity)
 - Ou: tema + copy fornecidos diretamente pelo usuário
 
 ---
@@ -72,18 +72,18 @@ Antes de iniciar, verificar se existe `conteudo/imagens/[tema]/_aprovado.md`. Se
 
 Definir caminho de saída:
 ```
-conteudo/imagens/[tema]/foto-fundo.png
+conteudo/post-estatico/[periodo]/[dia]/img-post.png
 ```
 
 Criar a pasta e executar via PowerShell:
 ```powershell
-python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/imagens/TEMA/foto-fundo.png" "portrait"
+python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/post-estatico/PERIODO/DIA/img-post.png" "portrait"
 ```
 
 - Informar o usuário que leva 60-180 segundos
 - Se falhar por API key ausente (exit code 2): orientar setup da key
 - Se falhar por quota/erro (exit code 4): oferecer fallback Nanobanana
-- Salvar o prompt usado em `conteudo/imagens/[tema]/prompt.txt`
+- Salvar o prompt usado em `conteudo/post-estatico/[periodo]/[dia]/prompt.txt`
 
 **CHECKPOINT:** mostrar a foto gerada. Usuário aprova ou pede refinamento.
 Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto aprovada.
@@ -104,7 +104,7 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 **Estrutura do layout (referência):**
 ```html
 <!-- Foto de fundo — full-bleed sempre -->
-<img src="./foto-fundo.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
+<img src="./img-post.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
 
 <!-- Overlay gradiente — direção segue onde o texto está posicionado -->
 <!-- Texto na base: gradiente bottom→top (padrão) -->
@@ -116,15 +116,19 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 );"></div>
 
 <!-- Topo: Logo com folga garantida (padding-top mínimo = spacing.section do DESIGN.md) -->
+<!-- O HTML fica em conteudo/post-estatico/[periodo]/[dia]/ = 4 níveis até a raiz. NÃO improvisar a contagem. -->
+<img src="../../../../marca/logos/logo-branco.png" style="height:48px;object-fit:contain;">
 <!-- Rodapé: Tagline → linha separadora → Headline → Texto de apoio -->
 ```
 
 4. Aplicar identidade visual do DESIGN.md:
    - Cores primárias e secundárias nos destaques de texto
-   - Logo da empresa no topo (fundo branco/claro para contraste)
+   - Logo no topo, path `../../../../marca/logos/logo-branco.png` (4 níveis — o post fica em
+     `conteudo/post-estatico/[periodo]/[dia]/`, não em pasta `instagram/` como o carrossel).
+     `logo-branco.png` sobre a foto escura (padrão); `logo-cor.png` só se o fundo for claro
    - Tipografia do DESIGN.md como mínimos mobile: headline ≥ `heading.fontSize`, apoio ≥ `body.fontSize`, line-height ≤ `body.lineHeight`
 
-5. Salvar o HTML em `conteudo/imagens/[tema]/post-01.html`
+5. Salvar o HTML em `conteudo/post-estatico/[periodo]/[dia]/post-01.html`
 
 6. Renderizar via Playwright:
 ```powershell
@@ -137,7 +141,7 @@ npx.cmd playwright screenshot --viewport-size=1080,1350 --full-page "file:///CAM
    - Se ajuste for na foto: voltar para Fase 2, gerar nova foto, re-renderizar
    - Só entregar como finalizado após aprovação explícita
 
-8. **Após aprovação explícita:** salvar `conteudo/imagens/[tema]/_aprovado.md` com:
+8. **Após aprovação explícita:** salvar `conteudo/post-estatico/[periodo]/[dia]/_aprovado.md` com:
    ```markdown
    # Execução aprovada — [data]
 
@@ -147,7 +151,7 @@ npx.cmd playwright screenshot --viewport-size=1080,1350 --full-page "file:///CAM
    - Ajustes feitos: [X foi corrigido para Y — ou "nenhum"]
 
    ## Prompt de imagem aprovado
-   - foto-fundo: "[prompt exato usado]"
+   - img-post: "[prompt exato usado]"
 
    ## O que funcionou bem
    - [o que passou sem ajuste]
@@ -161,8 +165,8 @@ npx.cmd playwright screenshot --viewport-size=1080,1350 --full-page "file:///CAM
 ## Output final
 
 ```
-conteudo/imagens/[tema]/
-  foto-fundo.png     ← foto gerada pelo GPT Image
+conteudo/post-estatico/[periodo]/[dia]/
+  img-post.png     ← foto gerada pelo GPT Image
   prompt.txt         ← prompt da foto (referência para variações)
   post-01.html       ← layout montado
   post-01.png        ← post final renderizado (arquivo para publicar)

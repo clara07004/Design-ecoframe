@@ -193,7 +193,7 @@ Exemplo: `/calendario-comercial junho 2025`
 
 **O que entrega:**
 ```
-conteudo/carrosseis/[tema]/instagram/
+conteudo/carrosseis/[periodo]/[dia-tema]/instagram/
   slide-01.png  (capa)
   slide-02.png
   ...
@@ -246,8 +246,8 @@ Exemplo: `/carrossel-de-quebra-de-objecao "PVC é mais caro que alumínio" arqui
 
 **O que entrega:**
 ```
-conteudo/imagens/[tema]/
-  foto-fundo.png
+conteudo/post-estatico/[periodo]/[dia-tema]/
+  img-post.png
   post-01.png   ← arquivo final para publicar
 ```
 
@@ -424,7 +424,7 @@ Passo 6 (opcional): /1-conteudo-em-7-formatos
          → distribui para LinkedIn, e-mail, stories etc.
 ```
 
-**Resultado final:** pasta `conteudo/carrosseis/[tema]/instagram/` com todos os PNGs + legenda pronta.
+**Resultado final:** pasta `conteudo/carrosseis/[periodo]/[dia-tema]/instagram/` com todos os PNGs + legenda pronta.
 
 **Tempo estimado:** 30–60 min (dependendo das aprovações e do tempo de geração de imagem).
 

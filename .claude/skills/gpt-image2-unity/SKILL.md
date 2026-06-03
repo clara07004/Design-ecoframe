@@ -68,14 +68,14 @@ O usuário fornece (pelo menos um):
 
 ### Fase 2 — Gerar a imagem
 
-Definir o caminho de saída:
-```
-conteudo/imagens/[tema]/imagem-01.png
-```
+O caminho de saída é a **pasta de produção do conteúdo** que chamou este motor (a skill
+chamadora informa). Não existe pasta `conteudo/imagens/` — a imagem vai direto para a pasta final:
+- Carrossel: `conteudo/carrosseis/[periodo]/[dia-tema]/instagram/img-slideXX.png`
+- Post estático: `conteudo/post-estatico/[periodo]/[dia-tema]/img-post.png`
 
 Executar via PowerShell:
 ```powershell
-python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT_AQUI" "conteudo/imagens/TEMA/imagem-01.png" "ASPECT_RATIO"
+python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT_AQUI" "conteudo/carrosseis/PERIODO/DIA/instagram/img-slide01.png" "ASPECT_RATIO"
 ```
 
 - Latência esperada: 60-180 segundos — informar o usuário antes de executar
@@ -109,12 +109,12 @@ Avisar o usuário antes de acionar o fallback e perguntar se quer continuar.
 ## Output
 
 ```
-conteudo/imagens/[tema]/
-  imagem-01.png       ← PNG gerado (1024×1024, 1024×1536 ou 1536×1024)
-  prompt.txt          ← prompt usado (salvar para referência futura)
+conteudo/[tipo]/[periodo]/[dia-tema]/    ← pasta de produção do conteúdo (definida pela skill chamadora)
+  img-slideXX.png / img-post.png         ← PNG gerado (1024×1024, 1024×1536 ou 1536×1024)
 ```
 
-Salvar o prompt usado em `prompt.txt` na mesma pasta — serve como referência para variações.
+Salvar o prompt usado na própria pasta do conteúdo (`_prompts-imagens.md` no carrossel,
+`_prompt.md` no post estático) — serve como referência para variações.
 
 ---
 

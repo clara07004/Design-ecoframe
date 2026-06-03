@@ -32,7 +32,7 @@ Caminhos no `file:///` precisam usar barras normais `/`, não `\`.
 
 ## Histórico de execuções
 
-Antes de iniciar, verificar se existe `conteudo/carrosseis/[tema]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar prompts de imagem aprovados como ponto de partida, reproduzir o ângulo de copy aprovado, evitar o que estiver marcado em "O que evitar".
+Antes de iniciar, verificar se existe `conteudo/carrosseis/[periodo]/[dia]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar prompts de imagem aprovados como ponto de partida, reproduzir o ângulo de copy aprovado, evitar o que estiver marcado em "O que evitar".
 
 ---
 
@@ -68,7 +68,7 @@ O usuário fornece:
 - Contexto: construção a seco (drywall/steel frame) — público técnico mas acessível
 - **Um ponto por slide.** Quando o texto estiver em excesso, cortar o parágrafo final — nunca reduzir o tamanho da fonte para encaixar
 
-6. Salvar o texto em `conteudo/carrosseis/[tema]/carousel-text.md`
+6. Salvar o texto em `conteudo/carrosseis/[periodo]/[dia]/carousel-text.md`
 
 **CHECKPOINT:** mostrar o texto completo + as 3 opções de capa. Aguardar o usuário escolher a capa e aprovar o texto antes de seguir pra Fase 1.5.
 
@@ -103,7 +103,7 @@ Mostrar todos os prompts de uma vez antes de gerar qualquer imagem — usuário 
 
 Para cada imagem, executar via PowerShell:
 ```powershell
-python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/carrosseis/TEMA/instagram/img-slideXX.png" "portrait"
+python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/carrosseis/PERIODO/DIA/instagram/img-slideXX.png" "portrait"
 ```
 
 - Avisar o usuário que cada imagem leva 60-180s
@@ -113,7 +113,7 @@ python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/carr
   - **Fallback Nanobanana:** usar `.claude/skills/nanobanana-unity/` com o mesmo prompt (se a skill estiver instalada)
   - Se Nanobanana também não estiver disponível: prosseguir sem imagem nesse slide, avisar o usuário
 
-Salvar cada imagem em `conteudo/carrosseis/[tema]/instagram/img-slideXX.png`.
+Salvar cada imagem em `conteudo/carrosseis/[periodo]/[dia]/instagram/img-slideXX.png`.
 
 **CHECKPOINT:** mostrar as imagens geradas. Usuário aprova ou pede regeneração individual antes de seguir pra Fase 2.
 
@@ -143,6 +143,20 @@ Salvar cada imagem em `conteudo/carrosseis/[tema]/instagram/img-slideXX.png`.
 - **Logo com folga garantida.** Nunca coberta pelo conteúdo. Quando o conteúdo for centralizado verticalmente, usar mínimo de `padding-top` equivalente a `spacing.section` do DESIGN.md (ref: 160px quando logo está em `top: 64px` com altura ~68px)
 - Último slide: apenas branding e CTA, sem texto longo
 
+**Logo e header — path obrigatório (não improvisar a contagem de `../`):**
+
+Os HTMLs ficam em `conteudo/carrosseis/[periodo]/[dia]/instagram/`, que está a **5 níveis** da
+raiz do projeto. O path do logo é **sempre** com 5 `../`:
+
+```html
+<img src="../../../../../marca/logos/logo-branco.png" style="height:48px;object-fit:contain;">
+```
+
+Contagem: `instagram/` → dia → periodo → carrosseis → conteudo → raiz (onde está `marca/`).
+**4 níveis (`../../../../`) aponta para `conteudo/marca/`, que não existe → logo quebra no Playwright.**
+Logo branco em slide escuro; `logo-cor.png` em fundo claro. Header padrão completo (logo +
+separador azul + tagline "ESQUADRIAS EM PVC") em `.claude/memory/feedback_carousel_design_aprovado.md`.
+
 **Elementos proibidos nos slides:**
 - Sem labels de seção ("VIDA ÚTIL", "MATERIAIS")
 - Sem eyebrows ("COMPARATIVO TÉCNICO", "SAIBA MAIS")
@@ -165,15 +179,15 @@ Salvar cada imagem em `conteudo/carrosseis/[tema]/instagram/img-slideXX.png`.
   ```
 - Slides sem imagem: usar fundo sólido normalmente
 
-4. Salvar HTMLs em `conteudo/carrosseis/[tema]/instagram/`
+4. Salvar HTMLs em `conteudo/carrosseis/[periodo]/[dia]/instagram/`
 5. Renderizar cada HTML em PNG via PowerShell (comando acima)
    - Renderizar slide 1 primeiro e mostrar pro usuário antes de renderizar os demais
 
 **CHECKPOINT:** mostrar slide 1 renderizado. Se aprovado, renderizar os demais.
 
-Salvar PNGs em `conteudo/carrosseis/[tema]/instagram/`.
+Salvar PNGs em `conteudo/carrosseis/[periodo]/[dia]/instagram/`.
 
-**Após aprovação explícita dos slides finais:** salvar `conteudo/carrosseis/[tema]/_aprovado.md` com:
+**Após aprovação explícita dos slides finais:** salvar `conteudo/carrosseis/[periodo]/[dia]/_aprovado.md` com:
 ```markdown
 # Execução aprovada — [data]
 
@@ -203,14 +217,14 @@ Após finalizar o Instagram, perguntar:
 Se sim:
 - Adaptar os HTMLs: height 1920px, ajustar padding, aumentar fonte levemente
 - Renderizar com `--viewport-size=1080,1920`
-- Salvar em `conteudo/carrosseis/[tema]/tiktok/`
+- Salvar em `conteudo/carrosseis/[periodo]/[dia]/tiktok/`
 
 ---
 
 ## Output final
 
 ```
-conteudo/carrosseis/[tema]/
+conteudo/carrosseis/[periodo]/[dia]/
   carousel-text.md          ← texto aprovado + legenda sugerida
   instagram/
     img-slide01.png          ← imagem gerada pelo GPT (capa)

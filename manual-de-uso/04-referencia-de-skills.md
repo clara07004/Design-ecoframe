@@ -85,7 +85,7 @@ Use `/gerador-de-prompts-para-imagens-de-produto` ou `/gerador-de-prompts-de-ima
 
 **Output:**
 ```
-conteudo/carrosseis/[tema]/instagram/
+conteudo/carrosseis/[periodo]/[dia-tema]/instagram/
   img-slide01.png (ou .jpg se veio do Drive)
   slide-01.html → slide-01.png
   slide-02.html → slide-02.png
@@ -119,8 +119,8 @@ conteudo/carrosseis/[tema]/instagram/
 
 **Output:**
 ```
-conteudo/imagens/[tema]/
-  foto-fundo.png
+conteudo/post-estatico/[periodo]/[dia-tema]/
+  img-post.png
   prompt.txt
   post-01.html
   post-01.png          ← arquivo final para publicar

@@ -22,7 +22,10 @@ Invoke após o calendário comercial do mês ser aprovado. Para cada janela de c
 
 ## Histórico de execuções
 
-Antes de iniciar, verificar se existe `conteudo/briefings/[tema]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar o gancho e ângulo aprovados como ponto de partida, evitar o que estiver marcado em "O que evitar".
+Antes de iniciar, verificar se já existe um `_aprovado.md` na pasta do conteúdo
+(`conteudo/[tipo]/[periodo]/[dia-tema]/_aprovado.md`). Se existir, ler e usar como referência de
+qualidade mínima: reaproveitar o gancho e ângulo aprovados como ponto de partida, evitar o que
+estiver marcado em "O que evitar".
 
 ---
 
@@ -94,7 +97,11 @@ BRIEFING GERADO. Revise antes de continuar.
 ---
 ```
 
-- **[A]**: salvar `conteudo/briefings/[tema]/_aprovado.md` com gancho aprovado, ângulo e ajustes feitos; depois acionar a skill indicada nos metadados (`/carrossel-unity`, `/gpt-image2-unity` ou `/roteiro-unity`)
+- **[A]**: criar a pasta de produção `conteudo/[tipo]/[periodo]/[dia-tema]/` conforme o formato
+  (carrossel → `carrosseis`; imagem avulsa/post → `post-estatico`; Reels/vídeo → `roteiros`),
+  salvar o briefing como `_briefing.md` e a memória de aprovação como `_aprovado.md` (gancho
+  aprovado, ângulo e ajustes feitos) **na mesma pasta**; depois acionar a skill indicada nos
+  metadados (`/carrossel-unity`, `/gpt-image2-unity`/`/estatico-unity` ou `/roteiro-unity`)
 - **[E]**: reescreva apenas a seção indicada e apresente novamente o gate
 - **[C]**: registre o cancelamento e encerre
 

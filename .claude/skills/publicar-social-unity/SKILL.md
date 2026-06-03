@@ -94,9 +94,9 @@ pip install requests                → biblioteca instalada
 ### Pré-condição
 
 O conteúdo precisa estar aprovado e pronto em disco antes de chamar esta skill:
-- **Carrossel:** `conteudo/carrosseis/[tema]/instagram/slide-01.png` ... `slide-0N.png`
-- **Post estático:** `conteudo/imagens/[tema]/post-01.png`
-- **Legenda:** `conteudo/[tipo]/[tema]/_legenda.md` (seção "LEGENDA APROVADA")
+- **Carrossel:** `conteudo/carrosseis/[periodo]/[dia]/instagram/slide-01.png` ... `slide-0N.png`
+- **Post estático:** `conteudo/post-estatico/[periodo]/[dia]/post-01.png`
+- **Legenda:** `conteudo/[tipo]/[periodo]/[dia-tema]/_legenda.md` (seção "LEGENDA APROVADA")
 
 ---
 
@@ -143,13 +143,13 @@ Confirma publicação no Instagram? [S para confirmar / N para cancelar]
 # Carrossel
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo carrossel `
-  --pasta "conteudo/carrosseis/[tema]/instagram/" `
+  --pasta "conteudo/carrosseis/[periodo]/[dia]/instagram/" `
   --legenda "LEGENDA COMPLETA AQUI"
 
 # Post estático
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo imagem `
-  --imagem "conteudo/imagens/[tema]/post-01.png" `
+  --imagem "conteudo/post-estatico/[periodo]/[dia]/post-01.png" `
   --legenda "LEGENDA COMPLETA AQUI"
 ```
 
@@ -158,14 +158,14 @@ python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
 # Carrossel agendado
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo carrossel `
-  --pasta "conteudo/carrosseis/[tema]/instagram/" `
+  --pasta "conteudo/carrosseis/[periodo]/[dia]/instagram/" `
   --legenda "LEGENDA COMPLETA AQUI" `
   --agendar "05/07/2026 10:00"
 
 # Post estático agendado
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo imagem `
-  --imagem "conteudo/imagens/[tema]/post-01.png" `
+  --imagem "conteudo/post-estatico/[periodo]/[dia]/post-01.png" `
   --legenda "LEGENDA COMPLETA AQUI" `
   --agendar "06/07/2026 09:30"
 ```

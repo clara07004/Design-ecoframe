@@ -104,3 +104,11 @@ VARIAÇÃO DE PRIMEIRA LINHA:
 - Revelar tudo na legenda antes de o leitor deslizar
 - Prometer desempenho técnico sem base (ex: "elimina 100% do ruído")
 - Ultrapassar 1.200 caracteres — se precisou de mais do que isso, o texto está redundante
+
+---
+
+## Onde salvar
+
+Após aprovação, salvar a legenda como **`_legenda.md`** (sempre com underscore) na pasta do
+conteúdo: `conteudo/carrosseis/[periodo]/[dia-tema]/_legenda.md`, sob a seção "LEGENDA APROVADA".
+É esse arquivo que o `/publicar-social-unity` lê na hora de publicar.

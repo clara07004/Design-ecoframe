@@ -170,13 +170,13 @@ Para verificar que tudo está funcionando, faça um teste simples:
 
 **Teste de geração de imagem:**
 ```powershell
-python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "modern apartment window, PVC frame, natural light, architectural photography, no text" "conteudo/imagens/teste/foto-teste.png" "square"
+python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "modern apartment window, PVC frame, natural light, architectural photography, no text" "conteudo/_teste/foto-teste.png" "square"
 ```
 
 Resultado esperado:
 ```
 Gerando imagem (1024x1024) — pode demorar 60-180s...
-OK: conteudo/imagens/teste/foto-teste.png
+OK: conteudo/_teste/foto-teste.png
 ```
 
 Se retornar:

@@ -239,7 +239,7 @@ Após aprovar o carrossel, o Claude pergunta se quer a versão TikTok (1080×192
 
 **Output final:**
 ```
-conteudo/carrosseis/[tema]/
+conteudo/carrosseis/[periodo]/[dia-tema]/
   carousel-text.md
   instagram/
     img-slide01.png    ← imagem da capa
@@ -277,7 +277,7 @@ E constrói o prompt da foto de fundo em inglês.
 ### Fase 2 — Geração da foto
 
 ```powershell
-python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/imagens/TEMA/foto-fundo.png" "portrait"
+python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "PROMPT" "conteudo/post-estatico/PERIODO/DIA/img-post.png" "portrait"
 ```
 
 **Checkpoint:** você vê a foto gerada e aprova (ou pede refinamento do prompt).
@@ -297,8 +297,8 @@ Renderiza e mostra o resultado.
 
 **Output final:**
 ```
-conteudo/imagens/[tema]/
-  foto-fundo.png     ← foto gerada
+conteudo/post-estatico/[periodo]/[dia-tema]/
+  img-post.png     ← foto gerada
   prompt.txt         ← prompt usado (referência para variações)
   post-01.html       ← layout
   post-01.png        ← post final

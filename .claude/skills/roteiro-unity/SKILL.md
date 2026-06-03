@@ -21,14 +21,14 @@ description: >
 
 ## Input
 
-- Briefing aprovado em `conteudo/[semana]/[post].md` (vindo do /briefing-unity)
+- Briefing aprovado em `conteudo/roteiros/[periodo]/[dia-tema]/_briefing.md` (vindo do /briefing-unity)
 - Ou: tema + objetivo + plataforma fornecidos diretamente pelo usuário
 
 ---
 
 ## Histórico de execuções
 
-Antes de iniciar, verificar se existe `conteudo/roteiros/[tema]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar o ângulo e gancho aprovados como ponto de partida, evitar o que estiver marcado em "O que evitar".
+Antes de iniciar, verificar se existe `conteudo/roteiros/[periodo]/[dia-tema]/_aprovado.md`. Se existir, ler e usar como referência de qualidade mínima: reaproveitar o ângulo e gancho aprovados como ponto de partida, evitar o que estiver marcado em "O que evitar".
 
 ---
 
@@ -139,14 +139,14 @@ Escrever o roteiro seguindo a estrutura abaixo, com o tom do motor escolhido.
 
 1. Salvar roteiro aprovado em:
 ```
-conteudo/roteiros/[tema]/roteiro-[plataforma].md
+conteudo/roteiros/[periodo]/[dia-tema]/roteiro-[plataforma].md
 ```
 
 2. Se for para Instagram e TikTok, verificar se precisa de adaptação:
    - Duração diferente entre plataformas → ajustar cortes
    - CTA diferente (ex: link na bio no Instagram vs link direto no TikTok) → adaptar
 
-3. Salvar `conteudo/roteiros/[tema]/_aprovado.md` com:
+3. Salvar `conteudo/roteiros/[periodo]/[dia-tema]/_aprovado.md` com:
    ```markdown
    # Execução aprovada — [data]
 
@@ -163,14 +163,14 @@ conteudo/roteiros/[tema]/roteiro-[plataforma].md
    ```
 
 4. Confirmar entrega:
-   > "Roteiro salvo em `conteudo/roteiros/[tema]/`. Próximo passo: gravar e passar pelo /publicar-social-unity."
+   > "Roteiro salvo em `conteudo/roteiros/[periodo]/[dia-tema]/`. Próximo passo: gravar e passar pelo /publicar-social-unity."
 
 ---
 
 ## Output final
 
 ```
-conteudo/roteiros/[tema]/
+conteudo/roteiros/[periodo]/[dia-tema]/
   roteiro-instagram.md    ← roteiro para Reels
   roteiro-tiktok.md       ← roteiro adaptado para TikTok (se solicitado)
 ```

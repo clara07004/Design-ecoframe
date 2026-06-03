@@ -112,6 +112,8 @@ VARIAÇÃO B (mais impactante): [...]
 
 ASPECT RATIO PARA O SCRIPT: [square / portrait / landscape]
 
-COMANDO POWERSHELL:
-python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "[PROMPT]" "conteudo/imagens/[TEMA]/foto.png" "[RATIO]"
+COMANDO POWERSHELL (destino = pasta de produção do conteúdo; não existe conteudo/imagens/):
+# Carrossel:    conteudo/carrosseis/[periodo]/[dia-tema]/instagram/img-slideXX.png
+# Post estático: conteudo/post-estatico/[periodo]/[dia-tema]/img-post.png
+python ".claude/skills/gpt-image2-unity/gerar-imagem.py" "[PROMPT]" "conteudo/carrosseis/[periodo]/[dia-tema]/instagram/img-slideXX.png" "[RATIO]"
 ```
