@@ -58,7 +58,7 @@
 | 12 | 14/07 | Ter | Educacional | Post estático ⚠️ | 1.820 Pa de resistência ao vento: o dado que arquitetos do Sul pedem | A fazer |
 | 13 | 15/07 | Qua | Institucional | Post estático ⚠️ | Foto de obra — fachada contemporânea, presença de marca, sem CTA | A fazer |
 | 14 | 16/07 | Qui | Educacional | Carrossel | PVC dura quanto tempo? A composição que muda a resposta | A fazer |
-| 15 | 17/07 | Sex | Educacional | Reel ⚠️ | Antes de especificar: FC-55, FC-75, FC-100 ou FC-130? | A fazer |
+| 15 | 17/07 | Sex | Educacional | Carrossel ⚠️ (era Reel) | Antes de especificar: FC-55, FC-75, FC-100 ou FC-130? | ✅ Pronto · publicar até 12h |
 | 16 | 18/07 | Sab | Educacional | Post estático ⚠️ | Porta corta-fogo Sincol Classe 1: por que ela importa em construção a seco | A fazer |
 
 **Direção visual S3:** visual mais atmosférico. Post 11 — MAXXI em residência premium, área gourmet aberta no inverno (T6 arch-frame). Post 13 — foto de obra real do Drive. Post 16 — visual clean técnico para Sincol (julho = baixa umidade = gancho real de segurança contra fogo).

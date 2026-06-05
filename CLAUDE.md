@@ -138,31 +138,39 @@ A skill `/calendario-comercial` já tem a especificação completa na seção "8
 
 ### Etapa 2 — Produção (escolher o fluxo pelo formato)
 
+**REGRA OBRIGATÓRIA — Confirmar o formato antes de produzir (exceto carrossel)**
+
+Quando o conteúdo de um dia estiver marcado no calendário como **Reel, post estático, vídeo ou qualquer formato que NÃO seja carrossel**, SEMPRE perguntar ao usuário qual o formato do conteúdo antes de gerar qualquer coisa (hook, roteiro, briefing, prompt, imagem, HTML). Não assumir o formato do calendário automaticamente — ele é sugestão, a decisão final é do usuário. Quando o formato for **carrossel**, seguir direto o fluxo sem perguntar.
+
+**REGRA OBRIGATÓRIA — Nomenclatura da pasta de produção pela DATA DE PUBLICAÇÃO**
+
+A pasta de produção de cada conteúdo é nomeada pela **data de publicação** no formato `dia-DD-tema-curto` (ex.: conteúdo que publica em 17/07 → `dia-17-linhas-pvc-vao`). **Nunca usar o número do post do calendário** — em meses com domingos sem post ou apagões, o número do post deixa de coincidir com o dia do mês (ex.: Post 15 publica em 17/07). O `DD` é sempre o dia em que o conteúdo vai ao ar.
+
 #### Carrossel
 
-Três opções de fluxo — escolher conforme o nível de controle desejado sobre as imagens:
-
-**Fluxo rápido** — `/carrossel-unity` cuida de tudo internamente (texto + prompt + imagem IA + HTML + PNG):
+**FLUXO PRINCIPAL ★ — usar SEMPRE este, a menos que o usuário peça explicitamente outro.** Quando o calendário já existe, começa no `/briefing-unity` (não nos hooks):
 ```
-/hooks-para-carrossel   ← 5 opções de capa, escolher antes de entrar no carrossel
-    ↓ [escolhe capa]
+/briefing-unity                  ← ponto de partida (calendário já aprovado)
+    ↓ [aprova briefing]
+/gerador-de-prompts-de-imagem    ← FLUXO PRINCIPAL ★ — prompts da capa + de cada slide
+    ↓ [aprova os prompts]
+/gpt-image2-unity                ← gera todas as imagens (capa + slides)
+    ↓ [aprova as imagens]
+/carrossel-unity                 ← monta os HTMLs + renderiza PNG
+    ↓ [aprova]
+/legenda-para-carrossel
+    ↓ [aprova o conteúdo final]
+/publicar-social-unity           ← publicação
+```
+
+**Fluxo rápido (alternativa) — só quando o usuário pedir, ou para algo pontual sem controle granular de imagem:** `/carrossel-unity` cuida de tudo internamente (texto + prompt + imagem IA + HTML + PNG):
+```
 /carrossel-unity        ← texto + geração de imagem + HTML + PNG (tudo em um)
     ↓
 /legenda-para-carrossel
 ```
 
-**Fluxo com imagem enriquecida** — gerar e aprovar a imagem antes de entrar no carrossel, com mais controle de prompt e estética:
-```
-/gerador-de-prompts-para-imagens-de-produto   ← prompts para as 3 estéticas Ecoframe
-    ou                                          (dark_lifestyle / architectural_installation / product_closeup)
-/gerador-de-prompts-de-imagem                 ← prompt estruturado genérico
-    ↓ [aprova prompt]
-/gpt-image2-unity                             ← gera a imagem via GPT Image 2
-    ↓ [aprova imagem]
-/carrossel-unity                              ← recebe a imagem já gerada, monta HTML + PNG
-    ↓
-/legenda-para-carrossel
-```
+> `/hooks-para-carrossel` é skill **auxiliar opcional** — usar só quando o usuário quiser explorar opções de capa antes. Não é etapa do fluxo principal.
 
 **Observação:** quando houver fotos reais de produto disponíveis no Google Drive (`_contexto/referencias.md` → pasta "Fotos do Produto"), priorizá-las em vez de gerar imagem IA. Buscar via MCP Drive (`search_files` na pasta `1yMl_zKBySogepmeM7WTyihTYuXZFuZb6`), baixar com `download_file_content`, extrair via Python e salvar como `img-slideXX.jpg` na pasta do carrossel. Resultado superior ao de qualquer geração IA.
 

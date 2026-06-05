@@ -111,19 +111,26 @@ Antes de mostrar a confirmação ao usuário, verificar cada item. Se qualquer u
 [ ] Legenda tem no máximo 30 hashtags
 [ ] PNGs existem em disco e estão na ordem correta (slide-01, slide-02...)
 [ ] Todos os PNGs têm EXATAMENTE 1080×1350 — rodar validar-dimensao.py (comando abaixo); bloquear se algum estiver fora
-[ ] Nenhum texto cortado nas bordas/cantos nem sobreposto (conferência visual dos PNGs)
+[ ] Nenhum texto cortado/transbordando — rodar validar-overflow.js (comando abaixo); bloquear se algum slide falhar. NÃO confiar só na conferência visual: corte de poucos px no canto passa batido no olho
+[ ] Conferência visual dos PNGs como reforço (sobreposição, legibilidade, alinhamento)
 [ ] Para sábado/domingo: --agendar está definido (publicação imediata bloqueada)
 [ ] Para terça a sexta: confirmar que não é fim de semana antes de publicar imediatamente
 ```
 
-**Validação de dimensão (obrigatória — o Instagram exige tamanho exato; tamanho errado é redimensionado e desloca/corta o texto):**
+**As DUAS validações abaixo são gate de publicação — exit 1 em qualquer uma BLOQUEIA o post:**
 ```powershell
-# Carrossel (valida todos os slide-*.png da pasta):
+# 1) Dimensão exata do canvas (o Instagram redimensiona tamanho errado e desloca/corta o texto)
 python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/carrosseis/[periodo]/[dia-tema]/instagram" 1080 1350
-# Post estático:
 python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/post-estatico/[periodo]/[dia-tema]/post-01.png" 1080 1350
+
+# 2) Overflow interno — texto que sangra para fora do canvas (spec bar/rodapé cortado no canto).
+#    A validação de dimensão NÃO pega isso: o canvas continua 1080×1350, mas o texto vaza.
+node ".claude/skills/publicar-social-unity/validar-overflow.js" "conteudo/carrosseis/[periodo]/[dia-tema]/instagram"
+node ".claude/skills/publicar-social-unity/validar-overflow.js" "conteudo/post-estatico/[periodo]/[dia-tema]"
 ```
-Se o script retornar erro (exit 1), **não publicar** — voltar à skill de produção, corrigir o HTML e re-renderizar.
+Se qualquer script retornar erro (exit 1), **não publicar** — voltar à skill de produção, corrigir o
+HTML, re-renderizar o slide afetado e rodar as duas de novo. O `validar-overflow.js` aponta o slide,
+o trecho de texto e quantos px transbordam.
 
 Dados técnicos citados na legenda (Rw, Pa, normas, dimensões) devem ter correspondência nos slides aprovados — não verificar automaticamente, mas se houver dúvida flagrar para o operador confirmar.
 

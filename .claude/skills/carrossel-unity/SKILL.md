@@ -37,11 +37,24 @@ errado (ex.: 1080×1080 ou 1080×1500). Sem `--full-page`, o `--viewport-size=10
 Usar `npx.cmd` (não `npx`) no PowerShell do Windows para contornar a política de execução de scripts.
 Caminhos no `file:///` precisam usar barras normais `/`, não `\`.
 
-**Após renderizar, validar a dimensão de cada PNG (obrigatório):**
+**Após renderizar, rodar AS DUAS validações (ambas obrigatórias — gate de qualidade):**
+
 ```powershell
+# 1) Dimensão do PNG — o canvas tem que ser exatamente 1080×1350
 python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO_ABSOLUTO/instagram" 1080 1350
+
+# 2) Overflow interno — nenhum texto pode ultrapassar as bordas do canvas
+node ".claude/skills/publicar-social-unity/validar-overflow.js" "CAMINHO_ABSOLUTO/instagram"
 ```
-Se qualquer slide sair diferente de 1080×1350, **não seguir** — corrigir o HTML e re-renderizar.
+
+- `validar-dimensao.py` confere só o tamanho do canvas — **não enxerga texto cortado dentro dele**.
+- `validar-overflow.js` renderiza cada slide e acusa qualquer elemento de texto que sangre para
+  fora de 1080×1350 (caso clássico: spec bar / rodapé horizontal cortado no canto). Ele aponta o
+  slide, o trecho exato e quantos px transbordam.
+
+Se **qualquer uma** das duas falhar (exit 1), **não seguir** — corrigir o HTML e re-renderizar o
+slide afetado, depois rodar as duas de novo. Só avança quando ambas derem OK. Nunca "deixar passar"
+um corte de poucos pixels — o feed mobile amplia o canto e o erro fica evidente.
 
 ## Histórico de execuções
 
@@ -152,6 +165,14 @@ Salvar cada imagem em `conteudo/carrosseis/[periodo]/[dia]/instagram/img-slideXX
   com respiro nas bordas. Se o texto não couber, **cortar texto** (menos palavras/linhas) — NUNCA
   reduzir a fonte abaixo da escala mobile, NUNCA comprimir padding/espaçamento até os elementos
   colidirem. No checkpoint de cada slide, conferir: nada cortado nos cantos/bordas, nada sobreposto.
+- **Barras horizontais (spec bar / rodapé de specs) — ponto de falha recorrente.** Uma fileira de
+  itens com `display:flex` + `white-space:nowrap` **não quebra linha**: se a soma (textos + gaps +
+  padding lateral) passar de 1080px, o último item sangra para fora e é cortado no canto inferior
+  direito — sem erro visível na dimensão do PNG. Para garantir que cabe:
+  - usar `justify-content:space-between` (não `gap` grande fixo) + `flex-wrap:nowrap` + `overflow:hidden` no container da barra;
+  - manter padding lateral enxuto (≤56px) e `letter-spacing` baixo (≤0.04em) em texto uppercase;
+  - no máximo ~4 itens curtos; se precisar de mais, encurtar os rótulos (ex.: "Vento 1.820 Pa", não "Resistência ao vento ensaiada 1.820 Pa");
+  - **sempre** confirmar com `validar-overflow.js` depois de renderizar — nunca confiar só no olho.
 - **Tamanho exato 1080×1350 em todos os slides** (capa e internos). `overflow:hidden` no body +
   render sem `--full-page` + validação de dimensão (ver "Comando de renderização"). Slide fora de
   1080×1350 = refazer, nunca redimensionar na publicação.
