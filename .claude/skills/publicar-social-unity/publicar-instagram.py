@@ -321,6 +321,8 @@ def main():
     parser.add_argument("--imagem", help="Caminho do PNG (para --tipo imagem)")
     parser.add_argument("--pasta", help="Pasta com slide-XX.png (para --tipo carrossel)")
     parser.add_argument("--legenda", help="Texto da legenda do post")
+    parser.add_argument("--legenda-arquivo", metavar="CAMINHO",
+                        help="Arquivo .txt com o texto da legenda (alternativa a --legenda, evita problemas de encoding no shell)")
     parser.add_argument("--agendar", metavar="DD/MM/AAAA HH:MM",
                         help="Agendar publicação. Obrigatório para sábado e domingo.")
     parser.add_argument("--listar-agendados", action="store_true",
@@ -334,11 +336,19 @@ def main():
         listar_agendados(ig_user_id, token)
         return
 
+    # Resolver legenda: --legenda tem prioridade; --legenda-arquivo como alternativa
+    if not args.legenda and args.legenda_arquivo:
+        caminho_leg = Path(args.legenda_arquivo)
+        if not caminho_leg.exists():
+            print(f"ERRO: arquivo de legenda não encontrado: {args.legenda_arquivo}", file=sys.stderr)
+            sys.exit(1)
+        args.legenda = caminho_leg.read_text(encoding="utf-8").strip()
+
     if not args.tipo:
         print("ERRO: --tipo é obrigatório (imagem ou carrossel)", file=sys.stderr)
         sys.exit(1)
     if not args.legenda:
-        print("ERRO: --legenda é obrigatório", file=sys.stderr)
+        print("ERRO: --legenda ou --legenda-arquivo é obrigatório", file=sys.stderr)
         sys.exit(1)
 
     imgbb_key = ler_credencial("imgbb_api_key.txt")
