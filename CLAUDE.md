@@ -262,7 +262,7 @@ Todo post fecha com **um dos dois CTAs fixos** da marca. Nunca inventar, escreve
 - **CTA 1 — Conversão** (`cta-01.png`): foto premium + painel Azul. Para post que **vende** (produto, linha específica, fundo de funil, quebra de objeção). Leva orçamento pelo direct + site `esquadrias.fastsistemasconstrutivos.com.br`.
 - **CTA 2 — Salvamento** (`cta-02.png`): foto full-bleed + gradiente. Para post que **ensina** (educativo, autoridade, topo de funil, técnico). Leva "salve este post para consultar depois".
 
-Regra de bolso: **post que vende → CTA 1, post que ensina → CTA 2.** No carrossel, o CTA é o último slide (copiar o PNG pronto para a pasta `post pronto/` do conteúdo com o próximo número da sequência). No post estático, usar a linha de ação do modelo escolhido. Detalhes e re-render em `marca/ctas/README.md`. A copy dos CTAs é fixa e não muda por post.
+Regra de bolso: **post que vende → CTA 1, post que ensina → CTA 2.** No carrossel, o CTA é o último slide (copiar o PNG pronto para a pasta `post pronto/` do conteúdo com o próximo número da sequência). No post estático, usar a linha de ação do modelo escolhido. Detalhes de uso em `marca/ctas/README.md` (o repo versiona só os PNGs prontos; os fontes de re-render ficam locais). A copy dos CTAs é fixa e não muda por post.
 
 ---
 

@@ -39,7 +39,9 @@ Pronto. A copy e o visual são fixos; não se reescreve CTA por post.
 
 ## Arquivos-fonte e re-render
 
-Os `.html` desta pasta são os geradores dos PNGs. Caminhos relativos a `marca/ctas/` (logo em `../logos/logo-branco.png`, foto de fundo do CTA 2 em `./img-cta.png`). Para re-renderizar após editar um HTML:
+O **repo versiona só os PNGs prontos** (`post pronto/cta-01.png` e `cta-02.png`) — é o que basta pra aplicar nos posts em qualquer máquina. Os arquivos-fonte (`.html` + foto de fundo `img-cta.png`) ficam **locais na máquina de origem, fora do git** (no `.gitignore`), pra manter o repo leve. Quem tiver os fontes localmente pode editar e re-renderizar; quem só clonou o repo usa os PNGs prontos como estão.
+
+Os `.html` são os geradores dos PNGs. Caminhos relativos a `marca/ctas/` (logo em `../logos/logo-branco.png`, foto de fundo do CTA 2 em `./img-cta.png`). Para re-renderizar após editar um HTML (precisa dos fontes locais):
 
 ```powershell
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
