@@ -127,7 +127,7 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
    - Logo no topo, path `../../../../marca/logos/logo-branco.png` (4 níveis — o post fica em
      `conteudo/post-estatico/[periodo]/[dia]/`, não em pasta `instagram/` como o carrossel).
      `logo-branco.png` sobre a foto escura (padrão); `logo-cor.png` só se o fundo for claro
-   - Tipografia do DESIGN.md como mínimos mobile: headline ≥ `heading.fontSize`, apoio ≥ `body.fontSize`, line-height ≤ `body.lineHeight`
+   - Tipografia do DESIGN.md: headline ≥ `heading.fontSize`, line-height ≤ `body.lineHeight`. **Texto de apoio/corpo: SEMPRE 32px (valor fixo `body.fontSize`, não variar).**
 
 5. Salvar o HTML em `conteudo/post-estatico/[periodo]/[dia]/post-01.html`
 

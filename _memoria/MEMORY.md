@@ -8,17 +8,19 @@
 - [Design de Carrossel Aprovado](feedback_carousel_design_aprovado.md) — padrões visuais, overlays, tipografia e fotos aprovados — regra central: todo slide = foto real + gradiente + texto
 - [Direção Visual da Marca](feedback_design_direcao.md) — sofisticada, nicho alto padrão, foto sempre obrigatória — referência: eficiencia-energetica
 - [Geração de Imagem — comportamento](feedback_geracao_imagem.md) — nunca executar script de imagem sem comando explícito; prompt e geração são etapas separadas
-- [Proporções de Imagem](feedback_proporcoes_imagem.md) — Instagram feed/carrossel = square; Stories/Reels/TikTok = portrait; LinkedIn = landscape
-- [Logo nos Slides](feedback_logo_slides.md) — logo sempre presente em todos os slides via PNG real; escuro = logo-branco.png; claro = logo-cor.png; mínimo 80px
+- [Proporções de Imagem](feedback_proporcoes_imagem.md) — todo feed Instagram (carrossel/estático/Story/Reel/TikTok) = portrait 1024×1536; LinkedIn = landscape; square descontinuado
+- [Logo nos Slides](feedback_logo_slides.md) — logo sempre presente em todos os slides via PNG real; escuro = logo-branco.png; claro = logo-cor.png; header = 48px
 - [Logo Path nos HTMLs](feedback_logo_path_html.md) — caminho correto: `../../../../../marca/logos/logo-branco.png` (5 níveis acima de instagram/)
 - [Consulta a produtos/ obrigatória](feedback_consulta_produtos_obrigatoria.md) — antes de calendário/briefing/roteiro, ler produtos/; conteúdo precisa ter dado técnico real, posicionamento de alto padrão
 - [Calendário Comercial — comportamento](feedback_calendario_comercial.md) — perguntas interativas, frequência 6x/semana, mix sempre perguntado
 - [Calendário — 3 entregas obrigatórias](feedback_calendario_entregas_obrigatorias.md) — todo mês novo: calendario-detalhado.md + _aprovado.md + dashboard.html (não opcional)
 - [Briefings — estrutura de pastas](feedback_briefing_estrutura_pastas.md) — briefing fica junto com o asset: conteudo/carrosseis/[mes]/dia-XX-[tema]/_briefing.md
 - [Fluxo principal — carrossel](feedback_fluxo_principal_carrossel.md) — sequência confirmada: briefing → prompts → gpt-image2 (todos os slides) → carrossel-unity → legenda
-- [Fonte Mobile — padrão obrigatório](feedback_fonte_mobile.md) — headline mín. 84px, body mín. 38px, label 18px — canvas 1080px exibido a 0.35x no mobile
+- [Fonte Mobile — padrão obrigatório](feedback_fonte_mobile.md) — corpo de texto SEMPRE 32px (fixo); headlines por hierarquia (62–96px); canvas 1080px exibido a 0.35x no mobile
 - [Referências Drive — comportamento](feedback_referencias_drive.md) — ler arquivos do projeto + Drive + memória antes de qualquer criação visual
 - [Confirmar formato antes de produzir](confirmar-formato-antes-de-produzir.md) — formato não-carrossel: perguntar o formato antes de gerar qualquer asset
 - [Nomenclatura pasta por data de publicação](nomenclatura-pasta-por-data-publicacao.md) — pasta nomeada pela data de publicação (dia-DD), não pelo número do post
 - [Validar overflow antes de publicar](validar-overflow-antes-de-publicar.md) — rodar validar-overflow.js além da dimensão; spec bar/rodapé pode cortar no canto sem que a dimensão detecte
 - [Agente designer — modelo sonnet](designer-model-sonnet.md) — manter o agente designer-ecoframe em sonnet; não sugerir opus
+- [Copy humanizada — banir vícios de IA](banir-vicios-linguagem-ia.md) — proibido travessão e tiques de IA em qualquer copy; lista completa em _contexto/preferencias.md
+- [Subpasta "post pronto"](post-pronto-subpasta-pngs.md) — PNG final vai isolado em post pronto/, separado dos fundos e HTMLs; facilita selecionar o arquivo de publicar

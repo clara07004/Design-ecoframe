@@ -22,7 +22,7 @@ Este é o fluxo principal confirmado pela Clara para produção de carrossel. Se
 **Detalhes de execução:**
 
 - `/gerador-de-prompts-de-imagem`: gerar prompts para TODOS os slides que receberão foto — capa + todos os slides de critério/conteúdo. Não apenas a capa.
-- `/gpt-image2-unity`: gerar TODAS as imagens antes de entrar no carrossel-unity. Capa = `square` (1024×1024); slides internos = `portrait` (1024×1536).
+- `/gpt-image2-unity`: gerar TODAS as imagens antes de entrar no carrossel-unity. Capa e slides internos = `portrait` (1024×1536) — todo o feed Instagram usa portrait. Ver [[feedback-proporcoes-imagem]].
 - `/carrossel-unity`: entrar já com todas as imagens geradas e aprovadas. A skill recebe as imagens prontas e monta os HTMLs + renderiza.
 - `/legenda-para-carrossel`: sempre ao final, nunca improvisar manualmente.
 

@@ -159,7 +159,7 @@ Salvar cada imagem em `conteudo/carrosseis/[periodo]/[dia]/instagram/img-slideXX
 - Tipografia: usar os valores de `typography` do DESIGN.md como mínimos mobile — não reduzir abaixo deles
   - `display.fontSize` (~100px): destaque/accent na capa
   - `heading.fontSize` (~70px): título principal dos slides internos
-  - `body.fontSize` (~28px): corpo de texto
+  - **`body` (corpo de texto): SEMPRE 32px — valor fixo, não variar nem para mais nem para menos.** Vale para toda prosa de corpo/descrição em qualquer slide. Não é mínimo, é o tamanho exato.
   - `body.lineHeight` (máx 1.3): acima disso o bloco fica arejado demais
 - **Texto nunca cortado nem sobreposto — regra inviolável.** Cada slide cabe inteiro em 1080×1350
   com respiro nas bordas. Se o texto não couber, **cortar texto** (menos palavras/linhas) — NUNCA

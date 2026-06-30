@@ -22,7 +22,7 @@ O carrossel `eficiencia-energetica` é a referência visual aprovada para todos 
 - Fotos reais de fundo, tratadas com overlay/gradiente
 - Tipografia bold Poppins, grande e limpa
 - Identidade Ecoframe consistente
-- Logo 44px + separador + tagline "Esquadrias em PVC" no header
+- Logo 48px + separador + tagline "Esquadrias em PVC" no header
 
 **O que não é essa direção:**
 - Design vazio, editorial frio, espaço negativo excessivo — VETADO
@@ -32,4 +32,4 @@ O carrossel `eficiencia-energetica` é a referência visual aprovada para todos 
 
 ---
 
-Referência correta: `conteudo/carrosseis/eficiencia-energetica/instagram/` — 5 slides aprovados sem ajustes visuais.
+Referência correta: `_testes/carrosseis/junho/dia-03-eficiencia-energetica/instagram/` — 5 slides aprovados sem ajustes visuais (carrosséis de referência ficam em `_testes/`, não em `conteudo/`).

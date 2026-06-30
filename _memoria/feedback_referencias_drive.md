@@ -18,4 +18,4 @@ Ao iniciar qualquer criação de conteúdo (briefing, carrossel, post estático,
 
 **How to apply:** Nunca pular essa etapa. Mesmo que o contexto pareça suficiente, verificar Drive e memória garante que referências visuais atualizadas sejam usadas.
 
-Relacionado: [[reference-drive]], [[feedback-carousel-design-aprovado]]
+Relacionado: [[reference-drive-ecoframe]], [[feedback-carousel-design-aprovado]]

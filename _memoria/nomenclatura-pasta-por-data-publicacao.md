@@ -11,4 +11,4 @@ A pasta de produção de cada conteúdo é nomeada pela DATA DE PUBLICAÇÃO no 
 
 **How to apply:** Ao criar a pasta em `conteudo/[tipo]/[periodo]/`, usar sempre o dia de publicação (`dia-17-...`), não o número do post (`dia-15`). Registrado no CLAUDE.md (Etapa 2 — Produção).
 
-Relacionado: [[fluxo-principal-carrossel]]
+Relacionado: [[feedback-fluxo-principal-carrossel]]

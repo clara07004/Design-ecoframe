@@ -9,15 +9,15 @@ Briefings NÃO ficam em pasta separada. Todo o conteúdo de um dia fica dentro d
 
 **Por que:** O briefing é a origem do asset — faz sentido ficarem juntos. Evita navegar entre pastas diferentes para ver contexto e asset.
 
-**Estrutura correta:**
+**Estrutura correta (carrossel):**
 ```
-conteudo/carrosseis/junho/dia-03-eficiencia-energetica/
+conteudo/carrosseis/[periodo]/dia-DD-tema/
   _briefing.md          ← briefing aprovado
   carousel-text.md      ← copy dos slides
-  imagens-geradas/      ← opções geradas antes da seleção
-  instagram/            ← slides HTML + PNG finais
+  instagram/            ← img-slideXX.png (fundos) + slide-XX.html
+    post pronto/        ← slide-XX.png finais (arquivos de publicar)
 ```
 
-**Como aplicar:** Ao salvar qualquer briefing aprovado, criar dentro da pasta do formato correspondente: `conteudo/[formato]/[mes]/dia-XX-[tema]/_briefing.md`. Formatos: carrosseis, estaticos, reels.
+**Como aplicar:** Ao salvar qualquer briefing aprovado, criar dentro da pasta do formato correspondente: `conteudo/[formato]/[periodo]/dia-DD-[tema]/_briefing.md`. Nomes de formato reais: `carrosseis`, `post-estatico`, `reels`. Pasta nomeada pela data de publicação (`dia-DD`), ver [[nomenclatura-pasta-por-data-publicacao]]. Os PNGs finais ficam em `post pronto/`, ver [[post-pronto-subpasta-pngs]].
 
 Relacionado: [[feedback-carousel-design-aprovado]]

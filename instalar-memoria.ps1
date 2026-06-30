@@ -3,7 +3,10 @@
 # Rodar uma vez apos clonar o repositorio: .\instalar-memoria.ps1
 
 $projectPath = $PSScriptRoot
-$encoded = $projectPath -replace ':', '-' -replace '\\', '-' -replace ' ', '-'
+# Codificacao do caminho igual a do Claude Code: cada caractere que nao seja
+# letra/numero/hifen vira '-' (inclui ':', '\', espaco e '_'). NAO colapsa hifens
+# consecutivos (ex.: "C:\" -> "C--"). No Windows o nome e case-insensitive.
+$encoded = $projectPath -replace '[^A-Za-z0-9-]', '-'
 $destination = "$env:USERPROFILE\.claude\projects\$encoded\memory"
 
 Write-Host ""

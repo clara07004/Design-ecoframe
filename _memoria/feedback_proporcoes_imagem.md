@@ -7,10 +7,12 @@ metadata:
 
 Proporções corretas para geração de imagem no contexto Ecoframe:
 
-- **Instagram feed / carrossel** → `square` (1024×1024, proporção 1:1)
-- **Instagram Stories / Reels / TikTok** → `portrait` (1024×1536, proporção 9:16)
+- **Instagram feed / carrossel / post estático** → `portrait` (1024×1536)
+- **Instagram Stories / Reels / TikTok** → `portrait` (1024×1536)
 - **LinkedIn capa / banner** → `landscape` (1536×1024, proporção 3:2)
 
-**Why:** "portrait" no script é 9:16 (Stories), não 4:5 feed. Para qualquer post de feed ou carrossel do Instagram, usar sempre `square`.
+**Why:** o slide/post de feed é renderizado em 1080×1350 (4:5). As skills `carrossel-unity` e `estatico-unity` geram a foto de fundo em `portrait` (1024×1536) para encaixar em 1080×1350 via `object-fit:cover`. `square` (1024×1024) foi descontinuado para feed — sobra corte lateral pior no canvas 4:5.
 
-**How to apply:** Ao montar o comando de geração para carrossel ou post estático do Instagram, sempre usar `square`. Só usar `portrait` quando for Story, Reel ou TikTok.
+**How to apply:** Ao montar o comando de geração (`gerar-imagem.py "PROMPT" "...img.png" "portrait"`) para carrossel, post estático, Story, Reel ou TikTok do Instagram, usar sempre `portrait`. `landscape` só para LinkedIn capa/banner.
+
+Relacionado: [[feedback-fluxo-principal-carrossel]]

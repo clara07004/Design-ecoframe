@@ -47,7 +47,7 @@ typography:
     lineHeight: "1.3"
   body:
     fontFamily: "Montserrat"
-    fontSize: "28px"
+    fontSize: "32px"           # corpo de texto SEMPRE 32px (valor fixo, não variar)
     fontWeight: "400"
     lineHeight: "1.5"
   label:

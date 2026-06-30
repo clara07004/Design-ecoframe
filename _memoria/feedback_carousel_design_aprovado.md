@@ -89,14 +89,14 @@ Fontes aumentadas para legibilidade mobile — canvas 1080px exibido a ~0.35x no
 |---|---|---|---|---|
 | Display/punchline | Poppins | 92–96px | 700 | #FFFFFF |
 | Headline slide | Poppins | 84–90px | 700 | #FFFFFF |
-| Body principal | Poppins | 44–46px | 400 | rgba(255,255,255,0.84–0.88) |
-| Body secundário / subtítulo | Poppins | 40–42px | 300 | rgba(255,255,255,0.50–0.55) |
+| Corpo de texto (prosa/descrição) | Montserrat | **32px — FIXO** | 400 | rgba(255,255,255,0.78–0.88) |
+| Corpo secundário / subtítulo | Montserrat | 32px | 300 | rgba(255,255,255,0.50–0.55) |
 | Nota / caption | Montserrat | 28px | 400 | rgba(255,255,255,0.42) |
 | Label uppercase | Montserrat | 18px | 700 | #4A61A0 |
 | Tagline header (logo area) | Montserrat | 16px | 700 | #4A61A0 |
 | CTA button | Montserrat | 24px | 700 | #ffffff |
 
-**Regra:** Se o texto não couber com essas fontes, cortar o texto — nunca reduzir a fonte.
+**Regra:** corpo de texto SEMPRE 32px (valor fixo). Se o texto não couber, cortar o texto — nunca reduzir a fonte do corpo. Ver [[feedback-fonte-mobile]].
 
 ---
 
@@ -146,4 +146,4 @@ Fontes aumentadas para legibilidade mobile — canvas 1080px exibido a ~0.35x no
 - **Fachada residencial com esquadrias:** casa branca frontal dois pavimentos (ID: `1o_w6NYZp_qwjYOh_-sGOlvJdfdWTc7XT`)
 - **Esquadrias panorâmicas externas:** casa com grandes painéis de vidro + piscina (ID: `1eCv6-NxvYMawjaS42uNLyEObJ7hAPw3l`)
 
-Pasta completa no Drive: `1yMl_zKBySogepmeM7WTyihTYuXZFuZb6` (~23 fotos disponíveis). Ver [[reference-drive]].
+Pasta completa no Drive: `1yMl_zKBySogepmeM7WTyihTYuXZFuZb6` (~23 fotos disponíveis). Ver [[reference-drive-ecoframe]].

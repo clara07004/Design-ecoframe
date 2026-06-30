@@ -251,6 +251,10 @@ O PNG final renderizado de cada conteúdo (o arquivo que vai ser publicado) deve
 - **TikTok**: mantém a estrutura atual, sem subpasta `post pronto`.
 - Os HTMLs referenciam as imagens de fundo por caminho relativo (`./img-slideXX.png`) e continuam na mesma pasta delas, então mover só o PNG final não quebra render nem logo. Render normalmente e, no fim, mover o PNG final para `post pronto/`.
 
+### Tamanho do corpo de texto — sempre 32px
+
+O **texto de corpo** (prosa/descrição) de qualquer post (carrossel e post estático) é **sempre 32px** — valor fixo, não mínimo, não variar. Está definido em `marca/DESIGN.md` (`typography.body.fontSize: 32px`) e refletido nas skills `carrossel-unity` e `estatico-unity`. Headlines, títulos, labels, specs e CTAs mantêm seus próprios tamanhos; a regra dos 32px vale só para o corpo. Se o texto não couber, cortar texto, nunca mexer no 32px.
+
 ---
 
 ## Fluxo de trabalho

@@ -5,24 +5,23 @@ metadata:
   type: feedback
 ---
 
-Fontes anteriores eram pequenas demais para visualização no feed mobile do Instagram. O canvas é 1080px mas é exibido em ~375px na tela do celular (fator ~0.35x), tornando fontes de 29px quase ilegíveis.
+O canvas é 1080px mas é exibido em ~375px na tela do celular (fator ~0.35x), então as fontes precisam de hierarquia clara e corpo legível.
 
-**Padrão obrigatório para todos os carrosseis e posts Instagram:**
+**Regra fixa do corpo:** o **texto de corpo** (prosa/descrição) é **sempre 32px** — valor fixo, não mínimo, não variar. Definido em `marca/DESIGN.md` (`typography.body.fontSize: 32px`) e nas skills `carrossel-unity` e `estatico-unity`.
 
-| Elemento | Tamanho mínimo |
+**Escala de referência para carrosseis e posts Instagram:**
+
+| Elemento | Tamanho |
 |---|---|
-| Headline principal (slide interno) | 84–90px |
-| Headline capa (destaque / punchline) | 92–96px |
-| Body principal | 44–46px |
-| Body secundário / complementar | 40–42px |
-| Subtítulo / nota | 40px |
-| Label uppercase | 18px |
+| Headline principal / capa (destaque) | 62–96px (hierarquia, conforme densidade) |
+| **Corpo de texto (prosa/descrição)** | **32px — FIXO** |
+| Label uppercase | 16–18px |
 | Tagline header (logo area) | 16px |
 | CTA button text | 24px |
 | Nota de rodapé / caption | 28px |
 
-**Why:** No feed mobile, o canvas de 1080px é exibido em ~375px (0.35x). Fontes de 29px aparecem como ~10px na tela — ilegíveis para qualquer pessoa, especialmente com dificuldade visual.
+**Why:** o corpo em 32px é o que está nos carrosséis aprovados (julho dia-01 e dia-17 usavam ~30px) e no `DESIGN.md`. O padrão antigo de 44–46px foi abandonado (decisão da Clara em 2026-06-30) — ficava grande demais e nunca foi seguido na prática. 32px mantém legibilidade com densidade de texto adequada.
 
-**How to apply:** Aplicar em TODOS os HTMLs de carrossel e post estático. Se o texto não couber no slide com essas fontes, cortar o texto — nunca reduzir a fonte abaixo do padrão.
+**How to apply:** corpo SEMPRE 32px em todos os HTMLs de carrossel e post estático. Se o texto não couber, cortar texto (menos palavras/linhas) — NUNCA mexer no 32px. Headlines variam por hierarquia; só o corpo é travado.
 
 Relacionado: [[feedback-carousel-design-aprovado]]

@@ -25,6 +25,11 @@ output/
 # Config local/pessoal do Claude Code (não versionar — é por máquina)
 .claude/settings.local.json
 
+# Cérebro portátil do agente: _memoria/ versiona SÓ os .md de memória.
+# Logs de conversa (.jsonl) e subpastas de sessão nunca entram (histórico bruto, pesado).
+_memoria/*.jsonl
+_memoria/*/
+
 # IDEs
 .vscode/
 .idea/
