@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Montserrat:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; overflow:hidden; background:#060a18; }
+</style>
+</head>
+<!--
+  CTA 2 — SALVAMENTO / REFERÊNCIA
+  Usar como SLIDE FINAL em posts educativos / topo de funil (o post que ensina).
+  Foto full-bleed + gradiente = continuidade visual com o restante do carrossel.
+  Trocar ./img-cta.png pela foto do slide (de preferência foto real do Drive).
+  Logo: caminho de produção (slide dentro de instagram/) = ../../../../../marca/logos/logo-branco.png
+-->
+<body>
+<div style="position:relative;width:1080px;height:1350px;overflow:hidden;">
+
+  <img src="./img-cta.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+
+  <!-- gradiente base: escurece de baixo para cima -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,
+    rgba(6,10,24,0.97) 0%,
+    rgba(6,10,24,0.90) 38%,
+    rgba(6,10,24,0.56) 64%,
+    rgba(6,10,24,0.16) 100%);"></div>
+
+  <!-- overlay topo p/ legibilidade do logo -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:200px;background:linear-gradient(to bottom, rgba(6,10,24,0.72) 0%, transparent 100%);"></div>
+  <!-- glow azul de marca -->
+  <div style="position:absolute;bottom:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(74,97,160,0.18);filter:blur(60px);"></div>
+
+  <div style="position:relative;z-index:1;width:100%;height:100%;display:flex;flex-direction:column;padding:64px 80px 80px;">
+
+    <!-- HEADER -->
+    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+      <img src="../logos/logo-branco.png" style="height:48px;object-fit:contain;">
+      <span style="width:1.5px;height:22px;background:#4A61A0;margin:0 10px;display:inline-block;"></span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#4A61A0;letter-spacing:0.14em;text-transform:uppercase;">Esquadrias em PVC</span>
+    </div>
+
+    <div style="flex:1;"></div>
+
+    <!-- LABEL -->
+    <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#9fb3e0;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:24px;">Referência técnica</div>
+
+    <!-- DIVIDER -->
+    <div style="width:48px;height:3px;background:#4A61A0;border-radius:2px;margin-bottom:30px;"></div>
+
+    <!-- HEADLINE -->
+    <div style="font-family:'Poppins',sans-serif;font-size:84px;font-weight:700;color:#FFFFFF;line-height:1.06;letter-spacing:-0.024em;margin-bottom:32px;">
+      Quem especifica<br>bem, guarda<br><span style="color:#8aa0d8;">referência.</span>
+    </div>
+
+    <!-- BODY (32px fixo) -->
+    <div style="font-family:'Montserrat',sans-serif;font-size:32px;font-weight:400;color:rgba(255,255,255,0.80);line-height:1.50;max-width:860px;margin-bottom:48px;">
+      Salve este post e tenha os dados do PVC de alto padrão à mão na hora de projetar.
+    </div>
+
+    <!-- PILL DE SALVAMENTO -->
+    <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:14px;border:1.5px solid rgba(255,255,255,0.85);border-radius:9999px;padding:20px 40px;">
+      <span style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;letter-spacing:0.08em;text-transform:uppercase;">Salve este post para consultar depois</span>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

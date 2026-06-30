@@ -84,7 +84,7 @@ O usuário fornece:
    - **Slides 2-3 (Contexto):** o que é / por que importa
    - **Slides 4-7 (Desenvolvimento):** um insight por slide, opinião clara
    - **Slide 8-9 (Implicação):** "o que isso muda pra quem tá lendo?"
-   - **Slide final (CTA):** chamada pra ação + menção ao canal/marca
+   - **Slide final (CTA):** NÃO escrever CTA próprio nem desenhar slide de CTA. O carrossel fecha com um dos **dois CTAs fixos da marca**, já renderizados em PNG em `marca/ctas/post pronto/`. Escolher pelo objetivo do post: vende / fundo de funil / produto → `cta-01.png`; ensina / autoridade / topo de funil → `cta-02.png`. Regra de uso em `marca/ctas/README.md`. Escrever só os slides de conteúdo (a copy do CTA é fixa, não muda por post).
 
 **Tom do texto:**
 - Frases longas e naturais (2-4 frases por slide), não bullet points disfarçados
@@ -180,9 +180,9 @@ Salvar cada imagem em `conteudo/carrosseis/[periodo]/[dia]/instagram/img-slideXX
 - **Layout diferente por slide.** Cada slide tem estrutura visual distinta — não repetir o mesmo template
 - **Sem espaço morto.** Quando a imagem não precisa respirar, centralizar o conteúdo verticalmente
 - **Capa = slide mais impactante.** O slide visualmente mais cinematográfico vai para posição 01
-- **CTA com composição dinâmica.** Usar diagonal ou split no último slide — não é layout estático como os slides informativos
+- **Slide final = CTA fixo da marca, não desenhar.** Não montar HTML de CTA. Copiar o PNG escolhido de `marca/ctas/post pronto/` (`cta-01.png` ou `cta-02.png`) para a pasta `post pronto/` deste carrossel, renomeando para o último número da sequência (ex.: se há 8 slides de conteúdo, o CTA vira `slide-09.png`). A copy e o layout do CTA são fixos. Ver `marca/ctas/README.md`.
 - **Logo com folga garantida.** Nunca coberta pelo conteúdo. Quando o conteúdo for centralizado verticalmente, usar mínimo de `padding-top` equivalente a `spacing.section` do DESIGN.md (ref: 160px quando logo está em `top: 64px` com altura ~68px)
-- Último slide: apenas branding e CTA, sem texto longo
+- Último slide: sempre o CTA fixo da marca (PNG de `marca/ctas/post pronto/`), nunca um slide de CTA improvisado
 
 **Logo e header — path obrigatório (não improvisar a contagem de `../`):**
 
@@ -277,6 +277,7 @@ conteudo/carrosseis/[periodo]/[dia]/
       slide-01.png
       slide-02.png
       ...
+      slide-09.png           ← CTA fixo da marca, copiado de marca/ctas/post pronto/ (cta-01 ou cta-02)
   tiktok/ (se solicitado)     ← mantém estrutura atual, sem "post pronto"
     img-slide01.png          ← mesma imagem, reutilizada
     slide-01.html → slide-01.png

@@ -255,6 +255,15 @@ O PNG final renderizado de cada conteúdo (o arquivo que vai ser publicado) deve
 
 O **texto de corpo** (prosa/descrição) de qualquer post (carrossel e post estático) é **sempre 32px** — valor fixo, não mínimo, não variar. Está definido em `marca/DESIGN.md` (`typography.body.fontSize: 32px`) e refletido nas skills `carrossel-unity` e `estatico-unity`. Headlines, títulos, labels, specs e CTAs mantêm seus próprios tamanhos; a regra dos 32px vale só para o corpo. Se o texto não couber, cortar texto, nunca mexer no 32px.
 
+### CTA dos posts — sempre um dos dois modelos fixos da marca
+
+Todo post fecha com **um dos dois CTAs fixos** da marca. Nunca inventar, escrever ou desenhar CTA por post — escolher o modelo que combina melhor com o conteúdo do dia e usar exatamente como está no repo (`marca/ctas/`, com PNGs prontos 1080×1350 em `marca/ctas/post pronto/`).
+
+- **CTA 1 — Conversão** (`cta-01.png`): foto premium + painel Azul. Para post que **vende** (produto, linha específica, fundo de funil, quebra de objeção). Leva orçamento pelo direct + site `esquadrias.fastsistemasconstrutivos.com.br`.
+- **CTA 2 — Salvamento** (`cta-02.png`): foto full-bleed + gradiente. Para post que **ensina** (educativo, autoridade, topo de funil, técnico). Leva "salve este post para consultar depois".
+
+Regra de bolso: **post que vende → CTA 1, post que ensina → CTA 2.** No carrossel, o CTA é o último slide (copiar o PNG pronto para a pasta `post pronto/` do conteúdo com o próximo número da sequência). No post estático, usar a linha de ação do modelo escolhido. Detalhes e re-render em `marca/ctas/README.md`. A copy dos CTAs é fixa e não muda por post.
+
 ---
 
 ## Fluxo de trabalho

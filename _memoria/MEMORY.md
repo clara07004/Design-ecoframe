@@ -24,3 +24,4 @@
 - [Agente designer — modelo sonnet](designer-model-sonnet.md) — manter o agente designer-ecoframe em sonnet; não sugerir opus
 - [Copy humanizada — banir vícios de IA](banir-vicios-linguagem-ia.md) — proibido travessão e tiques de IA em qualquer copy; lista completa em _contexto/preferencias.md
 - [Subpasta "post pronto"](post-pronto-subpasta-pngs.md) — PNG final vai isolado em post pronto/, separado dos fundos e HTMLs; facilita selecionar o arquivo de publicar
+- [CTAs fixos — dois modelos](ctas-fixos-dois-modelos.md) — marca usa 2 CTAs fixos (PNG pronto em marca/ctas/); vende → cta-01, ensina → cta-02; não inventar CTA por post

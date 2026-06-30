@@ -56,6 +56,7 @@ Antes de iniciar, verificar se existe `conteudo/post-estatico/[periodo]/[dia]/_a
    - **Tagline/categoria** (ex: "ESQUADRIAS DE PVC · ALTO PADRÃO")
    - **Texto de apoio** (1-2 frases complementares)
    - **Objetivo do post** (autoridade, lançamento, prova social, etc.)
+   - **CTA:** não inventar CTA por post. Usar a linha de ação de um dos dois CTAs fixos da marca, escolhida pelo objetivo: vende / fundo de funil → "Solicite seu orçamento pelo direct" (apoio: "Fale agora com um especialista"); ensina / autoridade → "Salve este post para consultar depois". Texto e direção em `marca/ctas/README.md`. Quando o post estático fechar uma sequência ou puder usar card só de CTA, reaproveitar o PNG pronto de `marca/ctas/post pronto/` em vez de remontar.
 
 4. Construir o prompt da foto de fundo em inglês:
    - Cena concreta relacionada ao tema (arquitetura, produto aplicado, ambiente)
@@ -192,6 +193,7 @@ conteudo/post-estatico/[periodo]/[dia]/
   até os elementos colidirem. No checkpoint, conferir visualmente: nada cortado nos cantos/bordas,
   nada sobreposto. Se houver, é reprovado — refazer.
 - **Fundo de cor sólida é proibido.** O post estático SEMPRE tem foto de fundo gerada por IA. Cadeia de tentativas: GPT Image 2 → Nanobanana → image-gen-unity. Se um motor falhar, sinalizar ao usuário e tentar o próximo sem interromper o fluxo. Só parar se todos os três falharem.
+- CTA sempre de um dos dois modelos fixos da marca (`marca/ctas/README.md`) — nunca CTA improvisado por post
 - Copy aprovada no Checkpoint da Fase 1 não muda na Fase 3 sem nova confirmação
 - Sempre mostrar o post renderizado antes de encerrar — nunca entregar sem aprovação
 - Nunca embutir texto dentro do prompt da imagem (texto vai no HTML, não na foto)

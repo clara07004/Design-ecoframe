@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Montserrat:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; overflow:hidden; background:#4A61A0; }
+</style>
+</head>
+<!--
+  CTA 1 — CONVERSÃO / FALAR COM ESPECIALISTA
+  Usar como SLIDE FINAL em posts de produto / fundo de funil (o post que vende).
+  Foto premium no topo dissolvendo em painel Azul = profundidade + impacto de marca.
+  Trocar ./img-cta1.jpg pela foto desejada (priorizar foto real do Drive, ambiente claro/quente).
+  Logo relativo a marca/ctas/ = ../logos/logo-branco.png
+-->
+<body>
+<div style="position:relative;width:1080px;height:1350px;overflow:hidden;background:#4A61A0;">
+
+  <!-- TOPO — FOTO (500px) -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:500px;overflow:hidden;">
+    <img src="./img-cta1.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+
+    <!-- escurece topo p/ legibilidade do header -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:200px;background:linear-gradient(to bottom, rgba(6,10,24,0.65) 0%, transparent 100%);"></div>
+
+    <!-- dissolve para o painel azul -->
+    <div style="position:absolute;left:0;bottom:0;width:100%;height:240px;background:linear-gradient(to bottom, rgba(74,97,160,0) 0%, rgba(74,97,160,0.70) 55%, #4A61A0 100%);"></div>
+
+    <!-- HEADER -->
+    <div style="position:relative;z-index:2;padding:64px 80px 0;display:flex;align-items:center;gap:10px;">
+      <img src="../logos/logo-branco.png" style="height:48px;object-fit:contain;">
+      <span style="width:1.5px;height:22px;background:#FFFFFF;margin:0 10px;display:inline-block;"></span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#FFFFFF;letter-spacing:0.14em;text-transform:uppercase;">Esquadrias em PVC</span>
+    </div>
+  </div>
+
+  <!-- PAINEL AZUL (850px) -->
+  <div style="position:absolute;bottom:0;left:0;width:100%;height:850px;background:#4A61A0;">
+
+    <!-- textura grid diagonal sutil -->
+    <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 46px);"></div>
+    <!-- blob suave -->
+    <div style="position:absolute;top:-100px;right:-110px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.08);filter:blur(70px);"></div>
+
+    <div style="position:relative;z-index:1;padding:64px 80px 80px;height:100%;display:flex;flex-direction:column;">
+
+      <!-- LABEL -->
+      <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:rgba(255,255,255,0.70);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:24px;">Próximo passo</div>
+
+      <!-- DIVIDER -->
+      <div style="width:48px;height:3px;background:#FFFFFF;border-radius:2px;margin-bottom:30px;"></div>
+
+      <!-- HEADLINE -->
+      <div style="font-family:'Poppins',sans-serif;font-size:72px;font-weight:700;color:#FFFFFF;line-height:1.08;letter-spacing:-0.022em;margin-bottom:30px;">
+        Especificar a esquadria<br>certa começa com<br>uma conversa.
+      </div>
+
+      <!-- BODY (32px fixo) -->
+      <div style="font-family:'Montserrat',sans-serif;font-size:32px;font-weight:400;color:rgba(255,255,255,0.86);line-height:1.50;max-width:860px;">
+        Fale com quem domina as linhas de PVC e dimensiona cada vão do seu projeto.
+      </div>
+
+      <div style="flex:1;"></div>
+
+      <!-- BOTÃO PRIMÁRIO -->
+      <div style="display:inline-flex;align-self:flex-start;background:#FFFFFF;border-radius:9999px;padding:24px 52px;margin-bottom:24px;">
+        <span style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:#4A61A0;letter-spacing:0.08em;text-transform:uppercase;">Solicite seu orçamento pelo direct →</span>
+      </div>
+
+      <!-- LINHA SECUNDÁRIA -->
+      <div style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:400;color:rgba(255,255,255,0.78);letter-spacing:0.04em;margin-bottom:6px;">
+        Ou fale com um especialista no site
+      </div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:#FFFFFF;letter-spacing:0.02em;">
+        esquadrias.fastsistemasconstrutivos.com.br
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

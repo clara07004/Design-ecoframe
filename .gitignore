@@ -22,6 +22,9 @@ output/
 # Exceção: logos da marca são leves (44KB) e essenciais para renderizar os HTMLs — versionar
 !marca/logos/*.png
 
+# Exceção: CTAs fixos da marca (PNGs prontos + fontes de re-render) — assets essenciais e portáveis
+!marca/ctas/**
+
 # Config local/pessoal do Claude Code (não versionar — é por máquina)
 .claude/settings.local.json
 
