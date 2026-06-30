@@ -131,10 +131,10 @@ Se pedir refinamento: ajustar o prompt, gerar novamente. Só avançar com foto a
 
 5. Salvar o HTML em `conteudo/post-estatico/[periodo]/[dia]/post-01.html`
 
-6. Renderizar via Playwright:
+6. Renderizar via Playwright, gravando o PNG final na subpasta `post pronto/` (criar a subpasta). O HTML continua na pasta do dia e referencia `./img-post.png` por caminho relativo; o destino do screenshot é independente da pasta do HTML, então renderizar para `post pronto/` não quebra foto nem logo:
 ```powershell
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
-npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO/post-01.html" "CAMINHO/post-01.png"
+npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO/post-01.html" "CAMINHO/post pronto/post-01.png"
 ```
 
 7. **CHECKPOINT:** mostrar o post renderizado. Usuário aprova ou pede ajuste.
@@ -170,7 +170,8 @@ conteudo/post-estatico/[periodo]/[dia]/
   img-post.png     ← foto gerada pelo GPT Image
   prompt.txt         ← prompt da foto (referência para variações)
   post-01.html       ← layout montado
-  post-01.png        ← post final renderizado (arquivo para publicar)
+  post pronto/       ← só o(s) PNG(s) final(is) (arquivo para publicar)
+    post-01.png      ← post final renderizado
 ```
 
 ---
@@ -182,7 +183,7 @@ conteudo/post-estatico/[periodo]/[dia]/
   errado). Após renderizar, rodar a validação — se o PNG não for exatamente 1080×1350, corrigir o
   HTML e re-renderizar **antes** de seguir:
   ```powershell
-  python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO/post-01.png" 1080 1350
+  python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO/post pronto/post-01.png" 1080 1350
   ```
   Tamanho errado = o Instagram redimensiona na publicação = texto deslocado/cortado.
 - **Texto nunca cortado nem sobreposto — regra inviolável.** Todo texto cabe inteiro no canvas,
@@ -196,4 +197,4 @@ conteudo/post-estatico/[periodo]/[dia]/
 - Nunca embutir texto dentro do prompt da imagem (texto vai no HTML, não na foto)
 - Nunca prometer prazos ou preços no texto do post
 - Sem EPI incorreto em cenas de obra
-- Se o usuário pedir versão story (9:16): adaptar viewport para 1080×1920 e salvar em `post-01-story.png`
+- Se o usuário pedir versão story (9:16): adaptar viewport para 1080×1920 e salvar em `post pronto/post-01-story.png`

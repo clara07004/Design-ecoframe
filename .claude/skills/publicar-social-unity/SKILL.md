@@ -94,8 +94,8 @@ pip install requests                → biblioteca instalada
 ### Pré-condição
 
 O conteúdo precisa estar aprovado e pronto em disco antes de chamar esta skill:
-- **Carrossel:** `conteudo/carrosseis/[periodo]/[dia]/instagram/slide-01.png` ... `slide-0N.png`
-- **Post estático:** `conteudo/post-estatico/[periodo]/[dia]/post-01.png`
+- **Carrossel:** `conteudo/carrosseis/[periodo]/[dia]/instagram/post pronto/slide-01.png` ... `slide-0N.png`
+- **Post estático:** `conteudo/post-estatico/[periodo]/[dia]/post pronto/post-01.png`
 - **Legenda:** `conteudo/[tipo]/[periodo]/[dia-tema]/_legenda.md` (seção "LEGENDA APROVADA")
 
 ---
@@ -120,8 +120,8 @@ Antes de mostrar a confirmação ao usuário, verificar cada item. Se qualquer u
 **As DUAS validações abaixo são gate de publicação — exit 1 em qualquer uma BLOQUEIA o post:**
 ```powershell
 # 1) Dimensão exata do canvas (o Instagram redimensiona tamanho errado e desloca/corta o texto)
-python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/carrosseis/[periodo]/[dia-tema]/instagram" 1080 1350
-python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/post-estatico/[periodo]/[dia-tema]/post-01.png" 1080 1350
+python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/carrosseis/[periodo]/[dia-tema]/instagram/post pronto" 1080 1350
+python ".claude/skills/publicar-social-unity/validar-dimensao.py" "conteudo/post-estatico/[periodo]/[dia-tema]/post pronto/post-01.png" 1080 1350
 
 # 2) Overflow interno — texto que sangra para fora do canvas (spec bar/rodapé cortado no canto).
 #    A validação de dimensão NÃO pega isso: o canvas continua 1080×1350, mas o texto vaza.
@@ -143,7 +143,7 @@ Antes de qualquer ação, mostrar ao usuário:
 ```
 Pronto para publicar:
   Tipo: carrossel (6 slides)
-  Pasta: conteudo/carrosseis/julho-2026/dia-01-steel-frame-escala/instagram/
+  Pasta: conteudo/carrosseis/julho-2026/dia-01-steel-frame-escala/instagram/post pronto/
   Slides: slide-01.png → slide-06.png
   Legenda: [primeiros 100 caracteres da legenda]...
 
@@ -161,13 +161,13 @@ Confirma publicação no Instagram? [S para confirmar / N para cancelar]
 # Carrossel
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo carrossel `
-  --pasta "conteudo/carrosseis/[periodo]/[dia]/instagram/" `
+  --pasta "conteudo/carrosseis/[periodo]/[dia]/instagram/post pronto/" `
   --legenda "LEGENDA COMPLETA AQUI"
 
 # Post estático
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo imagem `
-  --imagem "conteudo/post-estatico/[periodo]/[dia]/post-01.png" `
+  --imagem "conteudo/post-estatico/[periodo]/[dia]/post pronto/post-01.png" `
   --legenda "LEGENDA COMPLETA AQUI"
 ```
 
@@ -176,14 +176,14 @@ python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
 # Carrossel agendado
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo carrossel `
-  --pasta "conteudo/carrosseis/[periodo]/[dia]/instagram/" `
+  --pasta "conteudo/carrosseis/[periodo]/[dia]/instagram/post pronto/" `
   --legenda "LEGENDA COMPLETA AQUI" `
   --agendar "05/07/2026 10:00"
 
 # Post estático agendado
 python ".claude/skills/publicar-social-unity/publicar-instagram.py" `
   --tipo imagem `
-  --imagem "conteudo/post-estatico/[periodo]/[dia]/post-01.png" `
+  --imagem "conteudo/post-estatico/[periodo]/[dia]/post pronto/post-01.png" `
   --legenda "LEGENDA COMPLETA AQUI" `
   --agendar "06/07/2026 09:30"
 ```

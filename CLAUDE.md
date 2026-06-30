@@ -238,6 +238,19 @@ A pasta de produção de cada conteúdo é nomeada pela **data de publicação**
 - Conteúdo da empresa: sempre manter o contexto da Ecoframe — esquadrias em PVC, premium técnico, Steel Frame e Drywall
 - Arquivos de credenciais: nunca commitar (estão no .gitignore)
 
+### Copy humanizada — banimento de vícios de linguagem de IA (regra absoluta)
+
+Toda copy que vai ao público (legenda, slide de carrossel, post estático, roteiro, headline, CTA, e-mail) precisa soar escrita por uma pessoa. **Nunca usar travessão (— ou –) em copy**, e nunca usar os vícios de linguagem típicos de IA. A lista completa de termos, estruturas e maneirismos banidos, mais a orientação de como humanizar, está em `_contexto/preferencias.md` na seção "Banimento de vícios de linguagem de IA" — consultar e aplicar em qualquer skill de copy. Ao terminar uma copy, reler caçando esses itens; achou um, reescreve.
+
+### Organização do output — subpasta "post pronto"
+
+O PNG final renderizado de cada conteúdo (o arquivo que vai ser publicado) deve ficar isolado numa subpasta chamada **`post pronto`**, separado das imagens de fundo (`img-*.png`) e dos HTMLs. Isso vale para Instagram e facilita selecionar o arquivo certo na hora de publicar.
+
+- **Carrossel** (`conteudo/carrosseis/[periodo]/[dia]/instagram/`): os `slide-XX.png` finais vão para `instagram/post pronto/`. As imagens de fundo (`img-slideXX.png`) e os HTMLs (`slide-XX.html`) continuam em `instagram/`.
+- **Post estático** (`conteudo/post-estatico/[periodo]/[dia]/`): o `post-01.png` final (e variações como `post-01-story.png`) vai para `post pronto/` direto na pasta do dia. A foto de fundo (`img-post.png`), o HTML e o `prompt.txt` continuam na pasta do dia.
+- **TikTok**: mantém a estrutura atual, sem subpasta `post pronto`.
+- Os HTMLs referenciam as imagens de fundo por caminho relativo (`./img-slideXX.png`) e continuam na mesma pasta delas, então mover só o PNG final não quebra render nem logo. Render normalmente e, no fim, mover o PNG final para `post pronto/`.
+
 ---
 
 ## Fluxo de trabalho

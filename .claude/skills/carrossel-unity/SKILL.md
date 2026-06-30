@@ -25,7 +25,7 @@ description: >
 
 ```powershell
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
-npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO_ABSOLUTO/slide-XX.html" "CAMINHO_ABSOLUTO/slide-XX.png"
+npx.cmd playwright screenshot --viewport-size=1080,1350 "file:///CAMINHO_ABSOLUTO/instagram/slide-XX.html" "CAMINHO_ABSOLUTO/instagram/post pronto/slide-XX.png"
 ```
 
 **NÃO usar `--full-page`.** Com `--full-page`, o Playwright captura a altura do *conteúdo*
@@ -40,10 +40,10 @@ Caminhos no `file:///` precisam usar barras normais `/`, não `\`.
 **Após renderizar, rodar AS DUAS validações (ambas obrigatórias — gate de qualidade):**
 
 ```powershell
-# 1) Dimensão do PNG — o canvas tem que ser exatamente 1080×1350
-python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO_ABSOLUTO/instagram" 1080 1350
+# 1) Dimensão do PNG — o canvas tem que ser exatamente 1080×1350 (PNGs finais ficam em "post pronto")
+python ".claude/skills/publicar-social-unity/validar-dimensao.py" "CAMINHO_ABSOLUTO/instagram/post pronto" 1080 1350
 
-# 2) Overflow interno — nenhum texto pode ultrapassar as bordas do canvas
+# 2) Overflow interno — nenhum texto pode ultrapassar as bordas do canvas (renderiza os HTMLs em instagram/)
 node ".claude/skills/publicar-social-unity/validar-overflow.js" "CAMINHO_ABSOLUTO/instagram"
 ```
 
@@ -221,12 +221,12 @@ separador azul + tagline "ESQUADRIAS EM PVC") em `.claude/memory/feedback_carous
 - Slides sem imagem: usar fundo sólido normalmente
 
 4. Salvar HTMLs em `conteudo/carrosseis/[periodo]/[dia]/instagram/`
-5. Renderizar cada HTML em PNG via PowerShell (comando acima)
+5. Renderizar cada HTML em PNG via PowerShell (comando acima), gravando o PNG final em `conteudo/carrosseis/[periodo]/[dia]/instagram/post pronto/`
    - Renderizar slide 1 primeiro e mostrar pro usuário antes de renderizar os demais
 
 **CHECKPOINT:** mostrar slide 1 renderizado. Se aprovado, renderizar os demais.
 
-Salvar PNGs em `conteudo/carrosseis/[periodo]/[dia]/instagram/`.
+**Salvar os PNGs finais em `conteudo/carrosseis/[periodo]/[dia]/instagram/post pronto/`** (criar a subpasta). As imagens de fundo (`img-slideXX.png`) e os HTMLs (`slide-XX.html`) ficam em `instagram/`; só o `slide-XX.png` renderizado vai para `post pronto/`. O HTML referencia o fundo por caminho relativo (`./img-slideXX.png`), e o destino do screenshot é independente da pasta do HTML, então renderizar direto para `post pronto/` não quebra fundo nem logo. A validação de overflow/dimensão roda sobre o PNG em `post pronto/`.
 
 **Após aprovação explícita dos slides finais:** salvar `conteudo/carrosseis/[periodo]/[dia]/_aprovado.md` com:
 ```markdown
@@ -270,10 +270,14 @@ conteudo/carrosseis/[periodo]/[dia]/
   instagram/
     img-slide01.png          ← imagem gerada pelo GPT (capa)
     img-slide04.png          ← imagem gerada pelo GPT (slide de impacto, se houver)
-    slide-01.html → slide-01.png
-    slide-02.html → slide-02.png
+    slide-01.html
+    slide-02.html
     ...
-  tiktok/ (se solicitado)
+    post pronto/             ← só os PNGs finais (arquivos para publicar)
+      slide-01.png
+      slide-02.png
+      ...
+  tiktok/ (se solicitado)     ← mantém estrutura atual, sem "post pronto"
     img-slide01.png          ← mesma imagem, reutilizada
     slide-01.html → slide-01.png
     ...
@@ -284,7 +288,7 @@ conteudo/carrosseis/[periodo]/[dia]/
 - Texto aprovado na Fase 1 não muda na Fase 2
 - Sempre mostrar slide 1 antes de renderizar os demais
 - Se o usuário pedir ajuste no visual, editar o HTML e re-renderizar apenas o slide alterado
-- Sem travessões (—) no texto por padrão, a menos que `preferencias.md` indique o contrário
+- **Nunca usar travessão (— ou –) no texto.** Banimento absoluto, sem exceção. Seguir a lista completa de vícios de linguagem de IA em `_contexto/preferencias.md` ("Banimento de vícios de linguagem de IA")
 - Nunca prometer prazos ou preços nos slides (restrição da empresa piloto)
 - Não usar referências a obras com EPI incorreto
 - Tamanhos de fonte nunca abaixo dos valores de `typography` no DESIGN.md — o conteúdo é visto no feed mobile
