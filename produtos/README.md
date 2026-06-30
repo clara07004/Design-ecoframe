@@ -13,6 +13,7 @@ Base de conhecimento técnica dos produtos comercializados pela Ecoframe, extra�
 - **[Visão geral](visao-geral.md)** — o que é a esquadria em PVC, vantagens, materiais constituintes, posicionamento no mercado
 - **[Tipologias e aplicações](tipologias-aplicacoes.md)** — janelas de correr, abrir, oscilobatente, maximar, guilhotina, requadros fixos, com limites dimensionais
 - **[Normas e desempenho](normas-desempenho.md)** — NBR 10821, NBR 15575, EN 12608, classes de pressão de vento, isolação acústica, estanqueidade
+- **[base-normativa-abnt.md](base-normativa-abnt.md)** — conceito **estrutura × vedação** do Steel Frame (a estrutura de aço sustenta; esquadria e fechamento são vedação não estrutural) — contexto para posicionar a esquadria corretamente
 - **[Perfis, acessórios e vidros](perfis-acessorios-vidros.md)** — perfis principais, ferragens, vidros (cristal, temperado, laminado) e cálculo de espessura
 
 ### Linhas de perfis (4 linhas técnicas)

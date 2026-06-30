@@ -65,6 +65,8 @@ Arquivos de consulta principais:
 
 **Frases genéricas para revisar:** "qualidade superior", "máxima durabilidade", "tecnologia avançada" sem citar dado técnico = reescrever com número real do PSQ ou da norma.
 
+**SUBSTITUIÇÃO OBRIGATÓRIA — OSB → Placa Performa:** sempre que qualquer conteúdo (briefing, roteiro, carrossel, legenda, post estático) mencionar "placa OSB", "OSB" ou "chapa de OSB", **substituir automaticamente por "Placa Performa"**, sem perguntar. A placa OSB caiu em desuso e não é mais mencionada. **Nunca atribuir função estrutural ao fechamento** (OSB, gesso, cimentícia) nem à esquadria: no Steel Frame brasileiro a integridade é da estrutura de aço — o fechamento e as esquadrias são vedação. Contexto em `produtos/base-normativa-abnt.md` e em [_contexto/preferencias.md](_contexto/preferencias.md).
+
 ---
 
 ## Skills disponíveis

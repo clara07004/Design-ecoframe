@@ -43,6 +43,14 @@ A marca fala como uma empresa que entende de obra, desempenho e arquitetura. Nã
 
 ---
 
+## Substituição obrigatória de termos
+
+- **"Placa OSB" / "OSB" / "chapa de OSB" → "Placa Performa".** A placa OSB caiu em desuso e não é mais mencionada. Sempre que aparecer menção a OSB em qualquer conteúdo, **substituir automaticamente por "Placa Performa"** — sem perguntar.
+  - **Contexto técnico:** no Steel Frame brasileiro, **nenhum fechamento é estrutural** — quem garante a integridade é a estrutura de aço (NBR 16970/14762/15253). OSB e placa de gesso (Performa) são ambos vedação não estrutural. As **esquadrias** também são vedação/fechamento, não elemento estrutural. Detalhe em [../produtos/base-normativa-abnt.md](../produtos/base-normativa-abnt.md).
+  - **Cuidado:** nunca afirmar que o fechamento ou a esquadria "dá rigidez" ou "contribui para a estrutura" — isso contraria a NBR. Quem estrutura é o aço.
+
+---
+
 ## Copy no estilo certo
 > "Em projetos de alto padrão, esquadrias não são apenas fechamento. Elas influenciam conforto térmico, isolamento acústico, vedação, durabilidade e percepção de acabamento da obra."
 
